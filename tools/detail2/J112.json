@@ -1,0 +1,1304 @@
+[
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "1",
+  "idea": "「沿 $(a,1)$ 的方向移動 $5$ 單位長」是走長度 $5$，不是走 $5$ 倍的 $(a,1)$。用單位向量寫出位移，再用「到達 $x$ 軸」列出 $y$ 分量的方程式。",
+  "formulas": [
+   {
+    "name": "單位向量（必背）",
+    "tex": "\\dfrac{\\vec{u}}{\\lvert\\vec{u}\\rvert}",
+    "vars": [
+     [
+      "\\vec{u}",
+      "方向向量"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "沿方向走固定長度的位移",
+    "tex": "\\text{位移}=L\\cdot\\dfrac{\\vec{u}}{\\lvert\\vec{u}\\rvert}",
+    "vars": [
+     [
+      "L",
+      "移動的長度"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "從 $(-3,-2)$ 走到 $x$ 軸，$y$ 坐標要增加多少？",
+    "calc": [
+     "$x$ 軸上 $y=0$",
+     "$y$ 坐標從 $-2$ 變成 $0$，增加 $2$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "沿 $(a,1)$ 方向走 $5$ 單位，位移的 $y$ 分量是多少？",
+    "calc": [
+     "$\\lvert(a,1)\\rvert=\\sqrt{a^2+1}$",
+     "位移 $=\\dfrac{5}{\\sqrt{a^2+1}}(a,1)$",
+     "$y$ 分量 $=\\dfrac{5}{\\sqrt{a^2+1}}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "列方程式解 $a$。",
+    "calc": [
+     "$\\dfrac{5}{\\sqrt{a^2+1}}=2$",
+     "$a^2+1=\\dfrac{25}{4}$",
+     "$a^2=\\dfrac{21}{4}$，$a>0$",
+     "$a=\\dfrac{\\sqrt{21}}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(4)",
+  "approx": "",
+  "check": "位移 $=2(a,1)=(\\sqrt{21},2)$，長度 $\\sqrt{21+4}=5$，$y$ 坐標從 $-2$ 到 $0$，正確。",
+  "wrong": [
+   {
+    "opt": "(5)",
+    "how": "把位移的鉛直分量誤當成方向向量的 $1$，水平分量 $\\sqrt{25-1}=2\\sqrt{6}$，得 $a=2\\sqrt{6}$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "「沿某方向走固定長度」就用單位向量乘上長度。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "2",
+  "idea": "半衰期模型：經過 $t$ 天剩下 $\\left(\\dfrac{1}{2}\\right)^{t/T}$ 倍。把「$B$ 是 $A$ 的四分之一」寫成等式，四分之一寫成 $\\left(\\dfrac{1}{2}\\right)^2$，底數相同就比較指數。",
+  "formulas": [
+   {
+    "name": "半衰期模型（必背）",
+    "tex": "m(t)=m_0\\left(\\dfrac{1}{2}\\right)^{t/T}",
+    "vars": [
+     [
+      "m_0",
+      "起始質量"
+     ],
+     [
+      "T",
+      "半衰期"
+     ],
+     [
+      "t",
+      "經過的時間"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$112$ 天後 $A$、$B$ 各剩多少？",
+    "calc": [
+     "$A$：$m_0\\left(\\dfrac{1}{2}\\right)^{112/T_A}$",
+     "$B$：$m_0\\left(\\dfrac{1}{2}\\right)^{112/T_B}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "把「$B$ 是 $A$ 的四分之一」寫成式子。",
+    "calc": [
+     "$\\left(\\dfrac{1}{2}\\right)^{112/T_B}=\\dfrac{1}{4}\\left(\\dfrac{1}{2}\\right)^{112/T_A}$",
+     "$\\dfrac{1}{4}=\\left(\\dfrac{1}{2}\\right)^2$"
+    ],
+    "why": "兩邊的 $m_0$ 相同，已約掉。"
+   },
+   {
+    "q": "合併右邊的指數。",
+    "calc": [
+     "$\\left(\\dfrac{1}{2}\\right)^{112/T_B}=\\left(\\dfrac{1}{2}\\right)^{2+112/T_A}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "底數相同，比較指數。",
+    "calc": [
+     "$\\dfrac{112}{T_B}=2+\\dfrac{112}{T_A}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)",
+  "approx": "",
+  "check": "$B$ 剩得少，表示 $B$ 衰變快、半衰期短，$\\dfrac{112}{T_B}$ 較大，與式子一致。",
+  "wrong": [
+   {
+    "opt": "(1)",
+    "how": "把 $A$、$B$ 寫反，列成 $A$ 是 $B$ 的四分之一，得 $\\dfrac{112}{T_A}=2+\\dfrac{112}{T_B}$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "半衰期題寫成 $\\dfrac{1}{2}$ 的次方，倍數也化成 $\\dfrac{1}{2}$ 的次方，再比較指數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "3",
+  "idea": "把每一項整理成「寬度 $\\times f(\\text{分點})$」。從根號裡提出 $n$，讓 $9k^2$ 變成 $\\left(\\dfrac{3k}{n}\\right)^2$，就看得出寬度 $\\dfrac{3}{n}$、分點 $\\dfrac{3k}{n}$。",
+  "formulas": [
+   {
+    "name": "黎曼和與定積分（必背）",
+    "tex": "\\lim\\limits_{n\\to\\infty}\\sum\\limits_{k=1}^{n}f(x_k)\\,\\Delta x=\\displaystyle\\int_a^b f(x)\\,dx",
+    "vars": [
+     [
+      "\\Delta x",
+      "$\\dfrac{b-a}{n}$，每段寬度"
+     ],
+     [
+      "x_k",
+      "$a+k\\Delta x$，第 $k$ 個分點"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "一般項 $\\sqrt{4n^2+9k^2}$ 可以提出什麼？",
+    "calc": [
+     "$\\sqrt{4n^2+9k^2}=n\\sqrt{4+\\dfrac{9k^2}{n^2}}$",
+     "$=n\\sqrt{4+\\left(\\dfrac{3k}{n}\\right)^2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "前面的 $\\dfrac{3}{n^2}$ 怎麼分配？",
+    "calc": [
+     "$\\dfrac{3}{n^2}\\cdot n\\sqrt{4+\\left(\\dfrac{3k}{n}\\right)^2}$",
+     "$=\\dfrac{3}{n}\\sqrt{4+\\left(\\dfrac{3k}{n}\\right)^2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "這是哪個函數、哪個區間的黎曼和？",
+    "calc": [
+     "寬度 $\\Delta x=\\dfrac{3}{n}$，分點 $x_k=\\dfrac{3k}{n}$",
+     "$x_k$ 從 $0$ 走到 $3$",
+     "$f(x)=\\sqrt{4+x^2}$，區間 $[0,3]$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "少了 $k=n$ 那一項有關係嗎？",
+    "calc": [
+     "第 $n$ 項 $=\\dfrac{3}{n}\\sqrt{4+9}=\\dfrac{3\\sqrt{13}}{n}\\to0$",
+     "極限 $=\\displaystyle\\int_0^3\\sqrt{4+x^2}\\,dx$"
+    ],
+    "why": "有限多項各自趨近 $0$，不影響極限。"
+   }
+  ],
+  "answer": "(3)",
+  "approx": "",
+  "check": "$k$ 很小時根號內約 $4n^2$，對應 $\\sqrt{4}$；$k$ 接近 $n$ 時約 $13n^2$，對應 $x=3$ 的 $\\sqrt{13}$，吻合。",
+  "wrong": [
+   {
+    "opt": "(4)",
+    "how": "寫成 $\\dfrac{3}{n}\\sqrt{4+9\\left(\\dfrac{k}{n}\\right)^2}$ 後，令 $x=\\dfrac{k}{n}$ 卻仍用區間 $[0,3]$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "和式極限化定積分：先湊出「寬度 $\\times f(\\text{分點})$」，再從分點的範圍讀出積分區間。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "4",
+  "idea": "$\\lvert x-a\\rvert\\le b$ 表示「$x$ 離 $a$ 不超過 $b$」，解集是 $[a-b,a+b]$。四個數都在裡面，只要最小的 $-3$ 和最大的 $7$ 在裡面。",
+  "formulas": [
+   {
+    "name": "絕對值不等式（必背）",
+    "tex": "\\lvert x-a\\rvert\\le b\\iff a-b\\le x\\le a+b",
+    "vars": [
+     [
+      "a",
+      "區間中點"
+     ],
+     [
+      "b",
+      "半徑"
+     ]
+    ],
+    "cond": "$b\\ge0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "把條件翻成 $a$、$b$ 的不等式。",
+    "calc": [
+     "$a-b\\le-3$ 且 $a+b\\ge7$",
+     "兩式相減：$2b\\ge10$，$b\\ge5$"
+    ],
+    "why": "中間的 $-1$、$4$ 會自動落在區間裡。"
+   },
+   {
+    "q": "(1)(2)：$\\sqrt{10}$ 與 $3,1,-4,-7$ 呢？",
+    "calc": [
+     "$\\sqrt{10}\\approx3.16\\in[-3,7]$，(1) 對",
+     "$\\lvert x+a\\rvert\\le b$ 的解集 $[-a-b,-a+b]$",
+     "$-a-b\\le-7$，$-a+b\\ge3$",
+     "包含 $[-7,3]$，(2) 對"
+    ],
+    "why": "(2) 的四個數正是原來四個數取負號。"
+   },
+   {
+    "q": "(3)：把 $b$ 換成 $\\dfrac{b}{2}$ 還成立嗎？",
+    "calc": [
+     "反例：$a=7$，$b=10$ 合原條件",
+     "$\\lvert x-7\\rvert\\le5$ 的解集為 $[2,12]$",
+     "$-\\dfrac{3}{2}$ 不在裡面，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5)：$b=4$ 或 $a=b$ 可能嗎？",
+    "calc": [
+     "$b\\ge5$，所以 $b\\ne4$，(4) 錯",
+     "$a=b$ 代入 $a-b\\le-3$：$0\\le-3$",
+     "矛盾，(5) 錯"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)(2)",
+  "approx": "",
+  "check": "$a=2$、$b=5$ 時解集恰為 $[-3,7]$，(1)(2) 都成立，(3) 的解集 $\\left[-\\dfrac{1}{2},\\dfrac{9}{2}\\right]$ 不含 $-\\dfrac{3}{2}$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "絕對值不等式先看成數線上的區間：中點 $a$、半徑 $b$。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "5",
+  "idea": "實係數多項式的虛根成對，$1\\pm2i$ 給出二次因式 $x^2-2x+5$，比較係數求 $a$、$b$。後面三個選項看 $f'$ 與 $f''$ 的正負變化。",
+  "formulas": [
+   {
+    "name": "虛根成對（必背）",
+    "tex": "f(1+2i)=0\\Rightarrow f(1-2i)=0",
+    "vars": [],
+    "cond": "$f(x)$ 為實係數"
+   },
+   {
+    "name": "極值判斷",
+    "tex": "f'(c)=0,\\ f'\\text{ 由正變負}\\Rightarrow\\text{極大}",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "反曲點",
+    "tex": "f''(c)=0\\text{ 且 }f''\\text{ 在 }c\\text{ 兩側變號}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "(1)：$1-2i$ 也是根嗎？",
+    "calc": [
+     "實係數，虛根成對",
+     "(1) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "求 $a$、$b$，判斷 (2)。",
+    "calc": [
+     "兩根和 $2$、積 $5$：因式 $x^2-2x+5$",
+     "設 $f(x)=(x^2-2x+5)(x^2+px+q)$",
+     "$x^3$ 係數：$p-2=-4$，$p=-2$",
+     "$x^2$ 係數：$q+4+5=-2$，$q=-11$",
+     "$a=5p-2q=12$，$b=5q=-55$",
+     "$b<0$，(2) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)：$f'(2.1)$ 的正負？",
+    "calc": [
+     "$f'(x)=4x^3-12x^2-4x+12$",
+     "$=4(x-3)(x-1)(x+1)$",
+     "$f'(2.1)=4(-0.9)(1.1)(3.1)<0$，(3) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)：$x=1$ 是局部極小嗎？",
+    "calc": [
+     "$f'(0)=12>0$",
+     "$f'(2)=4(-1)(1)(3)<0$",
+     "$f'$ 在 $x=1$ 由正變負，是局部極大，(4) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5)：反曲點的 $x$ 坐標都大於 $0$ 嗎？",
+    "calc": [
+     "$f''(x)=12x^2-24x-4$",
+     "$x=1\\pm\\dfrac{2\\sqrt{3}}{3}$",
+     "$1-\\dfrac{2\\sqrt{3}}{3}\\approx-0.15<0$，(5) 錯"
+    ],
+    "why": "$f''$ 是開口向上的二次函數，兩相異根兩側都變號，所以兩個都是反曲點。"
+   }
+  ],
+  "answer": "(1)(3)",
+  "approx": "",
+  "check": "$(x^2-2x+5)(x^2-2x-11)$ 展開為 $x^4-4x^3-2x^2+12x-55$，與題目係數吻合。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "虛根先配成二次因式；極值看 $f'$ 變號，反曲點看 $f''$ 變號。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "6",
+  "idea": "$\\vec{u}$、$\\vec{v}$ 都在 $xy$ 平面上，二階行列式不等於 $0$ 就是 $\\vec{u}$、$\\vec{v}$ 不平行。把每個選項都翻成「$\\vec{u}$、$\\vec{v}$ 平不平行」來判斷。",
+  "formulas": [
+   {
+    "name": "二階行列式與平行（必背）",
+    "tex": "\\begin{vmatrix}a&b\\\\c&d\\end{vmatrix}=ad-bc",
+    "vars": [],
+    "cond": "$ad-bc\\ne0$ 表示 $(a,b)$ 與 $(c,d)$ 不平行"
+   },
+   {
+    "name": "外積",
+    "tex": "\\vec{u}\\times\\vec{v}=(0,0,ad-bc)",
+    "vars": [
+     [
+      "\\vec{u}\\times\\vec{v}",
+      "同時垂直 $\\vec{u}$、$\\vec{v}$ 的向量"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "先翻譯：行列式不等於 $0$ 代表什麼？",
+    "calc": [
+     "$ad-bc\\ne0$：$\\vec{u}$、$\\vec{v}$ 不平行",
+     "此時 $\\vec{u}\\times\\vec{v}=(0,0,ad-bc)$",
+     "同時垂直兩者的向量只能平行 $z$ 軸"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)(2)：$\\vec{u}\\cdot\\vec{v}=0$ 或 $t\\ne0$ 能推出不平行嗎？",
+    "calc": [
+     "非零且互相垂直，不可能平行，(1) 對",
+     "反例：$\\vec{u}=(1,0,0)$，$\\vec{v}=(2,0,0)$",
+     "$\\vec{w}=(0,0,1)$，$t=1\\ne0$",
+     "但 $ad-bc=0$，(2) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)：存在 $\\vec{w}'$ 與 $\\vec{w}$ 不平行，都垂直 $\\vec{u}$、$\\vec{v}$，能推出什麼？",
+    "calc": [
+     "若 $\\vec{u}$、$\\vec{v}$ 不平行",
+     "$\\vec{w}$、$\\vec{w}'$ 都平行 $z$ 軸，$\\vec{w}'\\times\\vec{w}=\\vec{0}$",
+     "與條件矛盾，所以 $\\vec{u}\\parallel\\vec{v}$",
+     "行列式 $=0$，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5)：張出整個空間、$\\det A$ 呢？",
+    "calc": [
+     "若 $\\vec{u}\\parallel\\vec{v}$，三向量最多張出一個平面",
+     "能表示所有 $(e,f,g)$，所以不平行，(4) 對",
+     "不平行時 $\\vec{w}=(0,0,t)$，$\\vec{w}\\ne\\vec{0}$ 得 $t\\ne0$",
+     "$\\det A=t(ad-bc)\\ne0$，(5) 對"
+    ],
+    "why": "$A$ 的第三行是 $(0,0,t)$，沿第三行降階得 $\\det A=t(ad-bc)$。"
+   }
+  ],
+  "answer": "(1)(4)(5)",
+  "approx": "",
+  "check": "(5) 的例子：$\\vec{u}=(1,0,0)$，$\\vec{v}=(0,1,0)$，$\\vec{w}=(0,0,2)$，$\\det A=2\\ne0$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "符號很多的題目，先翻成幾何語言：二階行列式不為 $0$ 就是兩向量不平行。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "7",
+  "idea": "每次只走 $\\pm5$ 格，$n$ 次後的位置只由「正面幾次」決定。把正面次數看成二項分布，列出位置與機率對照表，就能算機率與期望值。",
+  "formulas": [
+   {
+    "name": "二項分布（必背）",
+    "tex": "P(K=k)=C^n_k\\left(\\dfrac{1}{2}\\right)^n",
+    "vars": [
+     [
+      "K",
+      "$n$ 次中出現正面的次數"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "期望值（必背）",
+    "tex": "E(X)=\\sum x_i\\,P(X=x_i)",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$n$ 次中 $k$ 次正面，棋子在哪？",
+    "calc": [
+     "淨移動 $5k-5(n-k)=10k-5n$ 格（順時針為正）",
+     "位置 $\\equiv12+10k-5n\\pmod{12}$，餘 $0$ 記為 $12$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)(2)：$E(X_1)$ 與 $P(X_2=12)$？",
+    "calc": [
+     "一次：到 $5$ 或 $7$，各 $\\dfrac{1}{2}$",
+     "$E(X_1)=\\dfrac{5+7}{2}=6$，(1) 對",
+     "兩次回到 $12$：正反或反正",
+     "$P=\\dfrac{2}{4}=\\dfrac{1}{2}\\ne\\dfrac{1}{4}$，(2) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)：$8$ 次後可能停在 $5$ 嗎？",
+    "calc": [
+     "$n=8$：淨移動 $10k-40$ 是偶數",
+     "位置一定是偶數點",
+     "$P(X_8=5)=0<\\dfrac{1}{2^8}$，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "列出 $8$ 次後的位置與機率。",
+    "calc": [
+     "$k=0,1,\\dots,8$",
+     "位置：$8,6,4,2,12,10,8,6,4$",
+     "$C^8_k$：$1,8,28,56,70,56,28,8,1$（分母 $256$）"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)：$P(X_8=4)$ 與 $P(X_8=8)$ 相等嗎？",
+    "calc": [
+     "位置 $4$：$k=2$ 或 $8$，$\\dfrac{28+1}{256}=\\dfrac{29}{256}$",
+     "位置 $8$：$k=0$ 或 $6$，$\\dfrac{1+28}{256}=\\dfrac{29}{256}$",
+     "相等，(4) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5)：$E(X_8)\\le7$ 嗎？",
+    "calc": [
+     "分子：$8+48+112+112+840$",
+     "$\\quad+560+224+48+4=1956$",
+     "$E(X_8)=\\dfrac{1956}{256}=\\dfrac{489}{64}\\approx7.64>7$，(5) 錯"
+    ],
+    "why": "停在 $12$ 點時位置值是 $12$，不是 $0$。"
+   }
+  ],
+  "answer": "(1)(4)",
+  "approx": "",
+  "check": "機率分子總和 $1+8+28+56+70+56+28+8+1=256$，機率合計為 $1$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "隨機走動題，先找出「位置只由哪個次數決定」，再列表。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "8",
+  "idea": "式子同時有 $z$ 和 $\\overline{z}$，不能當一般多項式解。兩招：取絕對值求長度，用極式比較輻角。",
+  "formulas": [
+   {
+    "name": "棣美弗定理（必背）",
+    "tex": "z^n=r^n(\\cos n\\theta+i\\sin n\\theta)",
+    "vars": [
+     [
+      "r",
+      "$\\lvert z\\rvert$"
+     ],
+     [
+      "\\theta",
+      "輻角"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "共軛的極式",
+    "tex": "\\overline{z}=r(\\cos(-\\theta)+i\\sin(-\\theta))",
+    "vars": [],
+    "cond": "$\\lvert\\overline{z}\\rvert=\\lvert z\\rvert$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "(1)：$z=2i$ 代入兩邊。",
+    "calc": [
+     "左邊：$(2i)^3=8i^3=-8i$",
+     "右邊：$4i\\cdot(-2i)=8$",
+     "$-8i\\ne8$，(1) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2)：兩邊取絕對值。",
+    "calc": [
+     "$\\lvert\\alpha\\rvert^3=\\lvert4i\\rvert\\lvert\\overline{\\alpha}\\rvert=4\\lvert\\alpha\\rvert$",
+     "$\\alpha\\ne0$：$\\lvert\\alpha\\rvert^2=4$，$\\lvert\\alpha\\rvert=2$",
+     "(2) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)：$\\beta=i\\alpha$ 代入兩邊。",
+    "calc": [
+     "左邊：$\\beta^3=-i\\alpha^3=-i\\cdot4i\\overline{\\alpha}=4\\overline{\\alpha}$",
+     "$\\overline{\\beta}=\\overline{i\\alpha}=-i\\overline{\\alpha}$",
+     "右邊：$4i\\cdot(-i\\overline{\\alpha})=4\\overline{\\alpha}$",
+     "相等，(3) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5)：用極式求所有非零解。",
+    "calc": [
+     "設 $z=2(\\cos\\theta+i\\sin\\theta)$",
+     "左邊輻角 $3\\theta$；右邊輻角 $\\dfrac{\\pi}{2}-\\theta$",
+     "$3\\theta=\\dfrac{\\pi}{2}-\\theta+2k\\pi$",
+     "$\\theta=\\dfrac{\\pi}{8}+\\dfrac{k\\pi}{2}$",
+     "$\\dfrac{\\pi}{8},\\dfrac{5\\pi}{8},\\dfrac{9\\pi}{8},\\dfrac{13\\pi}{8}$",
+     "最小 $\\dfrac{\\pi}{8}$，(4) 錯；共 $4$ 個，(5) 錯"
+    ],
+    "why": "$4i$ 的輻角是 $\\dfrac{\\pi}{2}$，$\\overline{z}$ 的輻角是 $-\\theta$，相乘時輻角相加。"
+   }
+  ],
+  "answer": "(2)(3)",
+  "approx": "",
+  "check": "$4$ 個解的輻角相差 $\\dfrac{\\pi}{2}$，正好呼應 (3)：乘 $i$ 就是轉 $90^\\circ$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "$z$ 與 $\\overline{z}$ 同時出現時，分開處理長度與輻角。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "9",
+  "idea": "頂角 $120^\\circ$ 的等腰三角形底角是 $30^\\circ$，腰長由底邊算出。$M$、$N$ 都連到 $A$，所以在 $\\triangle AMN$ 用餘弦定理，需要 $\\overline{AM}$、$\\overline{AN}$ 和 $\\angle MAN$。",
+  "formulas": [
+   {
+    "name": "餘弦定理（必背）",
+    "tex": "c^2=a^2+b^2-2ab\\cos C",
+    "vars": [
+     [
+      "C",
+      "邊 $a$、$b$ 的夾角"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "和角公式（必背）",
+    "tex": "\\cos(\\alpha+\\beta)=\\cos\\alpha\\cos\\beta-\\sin\\alpha\\sin\\beta",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "直角在哪裡？$\\angle BAC$ 的三角比是多少？",
+    "calc": [
+     "$3+4=7$：$\\overline{AC}^2+\\overline{BC}^2=\\overline{AB}^2$，直角在 $C$",
+     "設 $\\angle BAC=\\theta$",
+     "$\\cos\\theta=\\dfrac{\\sqrt{3}}{\\sqrt{7}}$，$\\sin\\theta=\\dfrac{2}{\\sqrt{7}}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "求 $\\overline{AM}$、$\\overline{AN}$。",
+    "calc": [
+     "腰 $=\\dfrac{\\text{半底}}{\\cos30^\\circ}=\\dfrac{\\text{底}}{\\sqrt{3}}$",
+     "$\\overline{AM}=\\dfrac{\\sqrt{7}}{\\sqrt{3}}=\\dfrac{\\sqrt{21}}{3}$",
+     "$\\overline{AN}=\\dfrac{\\sqrt{3}}{\\sqrt{3}}=1$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\angle MAN$ 是多少？",
+    "calc": [
+     "$\\angle MAN=30^\\circ+\\theta+30^\\circ=\\theta+60^\\circ$"
+    ],
+    "why": "$M$、$N$ 都在 $\\triangle ABC$ 外側，兩個底角各 $30^\\circ$ 要加上去。"
+   },
+   {
+    "q": "求 $\\cos(\\theta+60^\\circ)$。",
+    "calc": [
+     "$=\\dfrac{\\sqrt{3}}{\\sqrt{7}}\\cdot\\dfrac{1}{2}-\\dfrac{2}{\\sqrt{7}}\\cdot\\dfrac{\\sqrt{3}}{2}$",
+     "$=-\\dfrac{\\sqrt{3}}{2\\sqrt{7}}=-\\dfrac{\\sqrt{21}}{14}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "用餘弦定理求 $\\overline{MN}^2$。",
+    "calc": [
+     "$\\overline{MN}^2=\\dfrac{7}{3}+1-2\\cdot\\dfrac{\\sqrt{21}}{3}\\cdot1\\cdot\\left(-\\dfrac{\\sqrt{21}}{14}\\right)$",
+     "$=\\dfrac{7}{3}+1+1=\\dfrac{13}{3}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{13}{3}$",
+  "approx": "",
+  "check": "$\\angle MAN$ 為鈍角，$\\overline{MN}^2$ 應大於 $\\overline{AM}^2+\\overline{AN}^2=\\dfrac{10}{3}$，$\\dfrac{13}{3}$ 符合。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "外接三角形的頂點距離，就在共同頂點處用餘弦定理，角度記得加上底角。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "10",
+  "idea": "兩平面法向量都是 $(2,3,6)$，互相平行，距離好求。截出的線段是斜的：線段長乘上「方向與法向量夾角的 $\\cos$」等於兩平面距離。",
+  "formulas": [
+   {
+    "name": "平行平面的距離（必背）",
+    "tex": "d=\\dfrac{\\lvert k_1-k_2\\rvert}{\\sqrt{a^2+b^2+c^2}}",
+    "vars": [
+     [
+      "ax+by+cz=k_1",
+      "第一個平面"
+     ],
+     [
+      "ax+by+cz=k_2",
+      "第二個平面"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "兩向量夾角",
+    "tex": "\\cos\\varphi=\\dfrac{\\vec{u}\\cdot\\vec{n}}{\\lvert\\vec{u}\\rvert\\lvert\\vec{n}\\rvert}",
+    "vars": [
+     [
+      "\\vec{u}",
+      "直線方向向量"
+     ],
+     [
+      "\\vec{n}",
+      "平面法向量"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "兩平面的距離是多少？",
+    "calc": [
+     "$\\vec{n}=(2,3,6)$，$\\lvert\\vec{n}\\rvert=\\sqrt{4+9+36}=7$",
+     "$d=\\dfrac{\\lvert10-(-4)\\rvert}{7}=2$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "直線方向與法向量夾角的 $\\cos$ 是多少？",
+    "calc": [
+     "$\\vec{u}=(1,-2,2)$，$\\lvert\\vec{u}\\rvert=3$",
+     "$\\vec{u}\\cdot\\vec{n}=2-6+12=8$",
+     "$\\cos\\varphi=\\dfrac{8}{3\\times7}=\\dfrac{8}{21}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "線段長、距離、夾角有什麼關係？",
+    "calc": [
+     "線段長 $\\times\\cos\\varphi=d$",
+     "線段長 $=2\\div\\dfrac{8}{21}=\\dfrac{21}{4}$"
+    ],
+    "why": "兩平面的距離是線段在法向量方向上的投影長。"
+   }
+  ],
+  "answer": "$\\dfrac{21}{4}$",
+  "approx": "",
+  "check": "線段長 $\\dfrac{21}{4}=5.25$ 大於兩平面距離 $2$，斜線比垂直距離長，合理。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "直線夾在平行平面間的長度 = 平面距離 $\\div$ 方向與法向量夾角的 $\\cos$。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "11",
+  "idea": "「或」的兩個條件會重疊，依「含幾個 $8$」分成互斥兩類：含兩個 $8$ 全部得獎；至多一個 $8$ 時四個數字相異，只要算大於 $6400$ 的。",
+  "formulas": [
+   {
+    "name": "不盡相異物排列（必背）",
+    "tex": "\\dfrac{n!}{p!}",
+    "vars": [
+     [
+      "p",
+      "相同物的個數"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "排列數",
+    "tex": "P^n_r=\\dfrac{n!}{(n-r)!}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "怎麼分類才不會重複算？",
+    "calc": [
+     "第一類：含兩個 $8$（全部得獎）",
+     "第二類：至多一個 $8$，且大於 $6400$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "第一類有幾個？",
+    "calc": [
+     "另兩個數字從 $8$ 以外的 $8$ 個選：$C^8_2=28$",
+     "排列：$\\dfrac{4!}{2!}=12$",
+     "$28\\times12=336$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "第二類：千位是 $7$、$8$、$9$？",
+    "calc": [
+     "四個數字相異，都取自 $1$ 到 $9$",
+     "$3\\times P^8_3=3\\times336=1008$"
+    ],
+    "why": "至多一個 $8$，等於從 $1$ 到 $9$ 取相異數字。"
+   },
+   {
+    "q": "第二類：千位是 $6$？",
+    "calc": [
+     "百位 $5,7,8,9$：$4\\times P^7_2=168$",
+     "百位 $4$：後兩位 $P^7_2=42$",
+     "共 $168+42=210$"
+    ],
+    "why": "沒有數字 $0$，所以 $64$ 開頭的數一定大於 $6400$。"
+   },
+   {
+    "q": "加總。",
+    "calc": [
+     "$336+1008+210=1554$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$1554$",
+  "approx": "",
+  "check": "千位 $6$ 的相異四位數共 $P^8_3=336$ 個，扣掉百位 $1,2,3$ 的 $3\\times42=126$ 個得 $210$，一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "「或」的計數，先分成互斥的類別再相加，避免重複。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "12",
+  "idea": "圓心 $C$ 要先求出來：$P$ 在圓上，代入求 $b$，再配方。有了 $C$，寫出兩個向量，用內積求夾角的餘弦。",
+  "formulas": [
+   {
+    "name": "圓的配方",
+    "tex": "x^2+(y-k)^2=r^2",
+    "vars": [
+     [
+      "(0,k)",
+      "圓心"
+     ],
+     [
+      "r",
+      "半徑"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "向量夾角（必背）",
+    "tex": "\\cos\\theta=\\dfrac{\\vec{u}\\cdot\\vec{v}}{\\lvert\\vec{u}\\rvert\\lvert\\vec{v}\\rvert}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$P\\left(1,\\dfrac{1}{2}\\right)$ 代入圓，$b$ 是多少？",
+    "calc": [
+     "$1+\\dfrac{1}{4}-\\dfrac{3}{2}+b=0$",
+     "$b=\\dfrac{1}{4}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "配方求圓心與半徑。",
+    "calc": [
+     "$x^2+\\left(y-\\dfrac{3}{2}\\right)^2=\\dfrac{9}{4}-\\dfrac{1}{4}=2$",
+     "$C\\left(0,\\dfrac{3}{2}\\right)$，半徑 $\\sqrt{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "寫出兩個向量並算內積。",
+    "calc": [
+     "$\\overrightarrow{CO}=\\left(0,-\\dfrac{3}{2}\\right)$，$\\overrightarrow{CP}=(1,-1)$",
+     "$\\overrightarrow{CO}\\cdot\\overrightarrow{CP}=0+\\dfrac{3}{2}=\\dfrac{3}{2}$",
+     "$\\lvert\\overrightarrow{CO}\\rvert=\\dfrac{3}{2}$，$\\lvert\\overrightarrow{CP}\\rvert=\\sqrt{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "夾角的餘弦是多少？",
+    "calc": [
+     "$\\cos\\theta=\\dfrac{3}{2}\\div\\left(\\dfrac{3}{2}\\cdot\\sqrt{2}\\right)$",
+     "$=\\dfrac{1}{\\sqrt{2}}=\\dfrac{\\sqrt{2}}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{\\sqrt{2}}{2}$",
+  "approx": "",
+  "check": "$\\overrightarrow{CP}=(1,-1)$ 和鉛直向下的 $\\overrightarrow{CO}$ 夾 $45^\\circ$，$\\cos45^\\circ=\\dfrac{\\sqrt{2}}{2}$。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "代入 $P$ 得 $b=\\dfrac{1}{4}$，配方得 $C\\left(0,\\dfrac{3}{2}\\right)$，寫出 $\\overrightarrow{CO}$、$\\overrightarrow{CP}$。"
+   ],
+   [
+    "運算",
+    "內積 $\\dfrac{3}{2}$ 除以長度乘積 $\\dfrac{3}{2}\\sqrt{2}$。"
+   ],
+   [
+    "結論",
+    "餘弦值為 $\\dfrac{\\sqrt{2}}{2}$。"
+   ]
+  ],
+  "takeaway": "一般式的圓先配方找圓心；求夾角就用內積。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "13",
+  "idea": "兩條切線都通過 $P$，只要說明斜率相等（或說明同一直線也和另一圖形相切）。拋物線的切線斜率用導數；圓的切線垂直半徑。",
+  "formulas": [
+   {
+    "name": "切線斜率（必背）",
+    "tex": "m=f'(x_0)",
+    "vars": [
+     [
+      "x_0",
+      "切點的 $x$ 坐標"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "圓的切線",
+    "tex": "m_{\\text{切}}\\cdot m_{CP}=-1",
+    "vars": [
+     [
+      "m_{CP}",
+      "半徑 $\\overline{CP}$ 的斜率"
+     ]
+    ],
+    "cond": "切線垂直過切點的半徑"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$a$ 是多少？拋物線在 $P$ 的切線是什麼？",
+    "calc": [
+     "$\\dfrac{1}{2}=a\\cdot1^2$，$a=\\dfrac{1}{2}$",
+     "$f'(x)=x$，$f'(1)=1$",
+     "切線：$y-\\dfrac{1}{2}=x-1$，即 $y=x-\\dfrac{1}{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "圓在 $P$ 的切線斜率是多少？",
+    "calc": [
+     "由上題 $C\\left(0,\\dfrac{3}{2}\\right)$",
+     "$m_{CP}=\\dfrac{\\dfrac{1}{2}-\\dfrac{3}{2}}{1-0}=-1$",
+     "切線斜率 $m$：$m\\cdot(-1)=-1$，$m=1$"
+    ],
+    "why": "過圓上一點、垂直半徑的直線就是該點的切線。"
+   },
+   {
+    "q": "也可以用距離檢查嗎？",
+    "calc": [
+     "$C$ 到 $x-y-\\dfrac{1}{2}=0$ 的距離",
+     "$=\\dfrac{\\left\\lvert0-\\dfrac{3}{2}-\\dfrac{1}{2}\\right\\rvert}{\\sqrt{1+1}}=\\dfrac{2}{\\sqrt{2}}=\\sqrt{2}$",
+     "等於半徑，直線與圓相切於 $P$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "下結論：為什麼是共同切線？",
+    "calc": [
+     "兩切線都過 $P$，斜率都是 $1$",
+     "是同一條直線 $y=x-\\dfrac{1}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "得證：共同切線為 $y=x-\\dfrac{1}{2}$",
+  "approx": "",
+  "check": "$y=x-\\dfrac{1}{2}$ 代入 $y=\\dfrac{1}{2}x^2$ 得 $(x-1)^2=0$，重根 $x=1$，確實相切。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "由 $a=\\dfrac{1}{2}$ 與 $f'(1)=1$，寫出拋物線在 $P$ 的切線 $y=x-\\dfrac{1}{2}$。"
+   ],
+   [
+    "運算",
+    "算出 $m_{CP}=-1$，此切線垂直半徑 $\\overline{CP}$（或圓心到切線距離等於 $\\sqrt{2}$）。"
+   ],
+   [
+    "結論",
+    "同一條直線在 $P$ 同時切兩圖形，故有共同切線。"
+   ]
+  ],
+  "takeaway": "證明共同切線：兩條切線過同一點且斜率相同。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "14",
+  "idea": "兩圖形都對 $y$ 軸對稱，且在 $(\\pm1,\\dfrac{1}{2})$ 相切，所求區域是一個細長月牙。先算右半邊：用梯形 $OQPC$ 扣掉扇形與拋物線下方面積，避開圓弧的積分。",
+  "formulas": [
+   {
+    "name": "扇形面積（必背）",
+    "tex": "\\dfrac{1}{2}r^2\\theta",
+    "vars": [
+     [
+      "r",
+      "半徑"
+     ],
+     [
+      "\\theta",
+      "圓心角（弧度）"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "梯形面積",
+    "tex": "\\dfrac{(\\text{上底}+\\text{下底})\\times\\text{高}}{2}",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "多項式積分",
+    "tex": "\\displaystyle\\int_0^1\\dfrac{1}{2}x^2\\,dx=\\left[\\dfrac{x^3}{6}\\right]_0^1",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "區域長什麼樣？",
+    "calc": [
+     "$y=\\dfrac{1}{2}x^2$ 與圓都對 $y$ 軸對稱",
+     "在 $P\\left(1,\\dfrac{1}{2}\\right)$ 與 $\\left(-1,\\dfrac{1}{2}\\right)$ 相切",
+     "先算 $0\\le x\\le1$ 的部分，再乘 $2$"
+    ],
+    "why": "下半圓弧最低點 $y=\\dfrac{3}{2}-\\sqrt{2}>0$，在拋物線上方，區域夾在兩切點之間。"
+   },
+   {
+    "q": "右半邊用哪個梯形來切？",
+    "calc": [
+     "取 $Q(1,0)$，梯形 $OQPC$",
+     "面積 $=\\dfrac{1}{2}\\left(\\dfrac{3}{2}+\\dfrac{1}{2}\\right)\\times1=1$",
+     "梯形 $=$ 拋物線下方 $+$ 所求 $+$ 扇形 $COP$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "扇形 $COP$ 的面積？",
+    "calc": [
+     "由上題 $\\cos\\angle OCP=\\dfrac{\\sqrt{2}}{2}$，$\\angle OCP=\\dfrac{\\pi}{4}$",
+     "扇形 $=\\dfrac{1}{2}(\\sqrt{2})^2\\cdot\\dfrac{\\pi}{4}=\\dfrac{\\pi}{4}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "拋物線下方的面積？",
+    "calc": [
+     "$\\displaystyle\\int_0^1\\dfrac{1}{2}x^2\\,dx=\\dfrac{1}{6}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "相減並乘 $2$。",
+    "calc": [
+     "右半 $=1-\\dfrac{\\pi}{4}-\\dfrac{1}{6}=\\dfrac{5}{6}-\\dfrac{\\pi}{4}$",
+     "全部 $=2\\left(\\dfrac{5}{6}-\\dfrac{\\pi}{4}\\right)=\\dfrac{5}{3}-\\dfrac{\\pi}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{5}{3}-\\dfrac{\\pi}{2}$",
+  "approx": "$\\approx0.096$（四捨五入到小數第三位）",
+  "check": "結果約 $0.096$，是很小的正數，符合兩圖形相切、夾出細長月牙的樣子。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "利用對稱，以梯形 $OQPC$ 扣掉扇形 $COP$ 與拋物線下方面積。"
+   ],
+   [
+    "運算",
+    "梯形 $1$，扇形 $\\dfrac{\\pi}{4}$，$\\displaystyle\\int_0^1\\dfrac{1}{2}x^2\\,dx=\\dfrac{1}{6}$。"
+   ],
+   [
+    "結論",
+    "所求面積為 $2\\left(1-\\dfrac{\\pi}{4}-\\dfrac{1}{6}\\right)=\\dfrac{5}{3}-\\dfrac{\\pi}{2}$。"
+   ]
+  ],
+  "takeaway": "圓弧圍成的面積，用「多邊形扣扇形」代替積分。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "15",
+  "idea": "方程式有 $xy$ 項看起來很難，但旋轉不動原點，$\\Gamma'$ 的中心仍在原點。離中心最遠的點就是長軸頂點，所以半長軸就是它到原點的距離。",
+  "formulas": [
+   {
+    "name": "兩點距離",
+    "tex": "\\overline{OP}=\\sqrt{x^2+y^2}",
+    "vars": [
+     [
+      "P(x,y)",
+      "長軸頂點"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\Gamma'$ 的中心在哪？",
+    "calc": [
+     "對原點旋轉，原點不動",
+     "$\\Gamma'$ 的中心仍是原點"
+    ],
+    "why": ""
+   },
+   {
+    "q": "離原點最遠的點代表什麼？",
+    "calc": [
+     "就是長軸的一個頂點",
+     "到中心的距離 $=$ 半長軸"
+    ],
+    "why": ""
+   },
+   {
+    "q": "算長軸長。",
+    "calc": [
+     "半長軸 $=\\sqrt{\\dfrac{25}{9}+\\dfrac{20}{9}}=\\sqrt{5}$",
+     "長軸長 $=2\\sqrt{5}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$2\\sqrt{5}$",
+  "approx": "",
+  "check": "代回 $\\Gamma'$：$\\dfrac{1000}{9}-\\dfrac{200}{9}+\\dfrac{820}{9}=180$，該點確實在 $\\Gamma'$ 上。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "旋轉不改變形狀與中心；「離中心最遠的點」就是長軸頂點。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "16",
+  "idea": "短軸垂直長軸、且通過中心（原點）。由上題的長軸頂點得長軸方向，轉 $90^\\circ$ 就是短軸方向；短軸頂點是這條直線與橢圓的交點。",
+  "formulas": [
+   {
+    "name": "垂直直線的斜率（必背）",
+    "tex": "m_1m_2=-1",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "兩點距離",
+    "tex": "\\sqrt{x^2+y^2}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "長軸、短軸的斜率各是多少？",
+    "calc": [
+     "長軸過原點與 $\\left(-\\dfrac{5}{3},\\dfrac{2\\sqrt{5}}{3}\\right)$",
+     "長軸斜率 $=\\dfrac{2\\sqrt{5}}{3}\\div\\left(-\\dfrac{5}{3}\\right)=-\\dfrac{2\\sqrt{5}}{5}$",
+     "短軸斜率 $=\\dfrac{5}{2\\sqrt{5}}=\\dfrac{\\sqrt{5}}{2}$",
+     "短軸所在直線：$2y=\\sqrt{5}x$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "代入 $\\Gamma'$ 求短軸頂點。",
+    "calc": [
+     "$y=\\dfrac{\\sqrt{5}}{2}x$ 代入：",
+     "$40x^2+10x^2+\\dfrac{205}{4}x^2=180$",
+     "$\\dfrac{405}{4}x^2=180$，$x^2=\\dfrac{16}{9}$",
+     "頂點 $\\pm\\left(\\dfrac{4}{3},\\dfrac{2\\sqrt{5}}{3}\\right)$"
+    ],
+    "why": "$4\\sqrt{5}xy=4\\sqrt{5}\\cdot\\dfrac{\\sqrt{5}}{2}x^2=10x^2$，$41y^2=41\\cdot\\dfrac{5}{4}x^2$。"
+   },
+   {
+    "q": "短軸長是多少？",
+    "calc": [
+     "半短軸 $=\\sqrt{\\dfrac{16}{9}+\\dfrac{20}{9}}=2$",
+     "短軸長 $=4$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "短軸所在直線為 $\\sqrt{5}x-2y=0$，短軸長為 $4$",
+  "approx": "",
+  "check": "兩頂點 $\\left(-\\dfrac{5}{3},\\dfrac{2\\sqrt{5}}{3}\\right)$、$\\left(\\dfrac{4}{3},\\dfrac{2\\sqrt{5}}{3}\\right)$ 的內積 $-\\dfrac{20}{9}+\\dfrac{20}{9}=0$，確實垂直；且 $4<2\\sqrt{5}$。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "短軸過原點且垂直長軸，得短軸所在直線 $2y=\\sqrt{5}x$。"
+   ],
+   [
+    "運算",
+    "代入 $\\Gamma'$ 得 $x^2=\\dfrac{16}{9}$，頂點 $\\left(\\dfrac{4}{3},\\dfrac{2\\sqrt{5}}{3}\\right)$。"
+   ],
+   [
+    "結論",
+    "短軸長 $2\\sqrt{\\dfrac{16}{9}+\\dfrac{20}{9}}=4$。"
+   ]
+  ],
+  "takeaway": "斜橢圓的短軸：過中心、垂直長軸，與橢圓的交點就是頂點。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 112,
+  "no": "17",
+  "idea": "先求旋轉角 $\\theta$ 的 $\\cos$、$\\sin$：$\\Gamma$ 的長軸方向 $(0,1)$ 轉 $\\theta$ 後要變成 $\\Gamma'$ 的長軸方向。再把 $P'$ 用逆矩陣（順時針轉 $\\theta$）轉回去得到 $P$。",
+  "formulas": [
+   {
+    "name": "旋轉矩陣（必背）",
+    "tex": "R=\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}",
+    "vars": [
+     [
+      "\\theta",
+      "逆時針旋轉角"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "旋轉的反變換",
+    "tex": "R^{-1}=\\begin{bmatrix}\\cos\\theta&\\sin\\theta\\\\-\\sin\\theta&\\cos\\theta\\end{bmatrix}",
+    "vars": [
+     [
+      "R^{-1}",
+      "順時針轉 $\\theta$"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "旋轉角 $\\theta$ 的 $\\cos$、$\\sin$ 是多少？",
+    "calc": [
+     "$(0,1)$ 轉 $\\theta$ 後為 $(-\\sin\\theta,\\cos\\theta)$",
+     "長軸單位方向：$\\dfrac{1}{\\sqrt{5}}\\left(-\\dfrac{5}{3},\\dfrac{2\\sqrt{5}}{3}\\right)=\\left(-\\dfrac{\\sqrt{5}}{3},\\dfrac{2}{3}\\right)$",
+     "$0<\\theta<\\pi$，$\\sin\\theta>0$",
+     "$\\sin\\theta=\\dfrac{\\sqrt{5}}{3}$，$\\cos\\theta=\\dfrac{2}{3}$"
+    ],
+    "why": "長軸方向可差一個負號；用 $\\sin\\theta>0$ 選定正確的一個。"
+   },
+   {
+    "q": "$P'$ 的坐標是什麼？",
+    "calc": [
+     "令 $y=0$：$40x^2=180$",
+     "$x^2=\\dfrac{9}{2}$，$x=\\dfrac{3\\sqrt{2}}{2}$（取正）",
+     "$P'\\left(\\dfrac{3\\sqrt{2}}{2},0\\right)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "寫出旋轉矩陣與逆矩陣。",
+    "calc": [
+     "$R=\\begin{bmatrix}\\dfrac{2}{3}&-\\dfrac{\\sqrt{5}}{3}\\\\\\dfrac{\\sqrt{5}}{3}&\\dfrac{2}{3}\\end{bmatrix}$",
+     "$R^{-1}=\\begin{bmatrix}\\dfrac{2}{3}&\\dfrac{\\sqrt{5}}{3}\\\\-\\dfrac{\\sqrt{5}}{3}&\\dfrac{2}{3}\\end{bmatrix}$"
+    ],
+    "why": "逆時針轉 $\\theta$ 的反變換是順時針轉 $\\theta$。"
+   },
+   {
+    "q": "把 $P'$ 轉回去求 $P$。",
+    "calc": [
+     "$\\begin{bmatrix}x\\\\y\\end{bmatrix}=R^{-1}\\begin{bmatrix}\\dfrac{3\\sqrt{2}}{2}\\\\0\\end{bmatrix}$",
+     "$x=\\dfrac{2}{3}\\cdot\\dfrac{3\\sqrt{2}}{2}=\\sqrt{2}$",
+     "$y=-\\dfrac{\\sqrt{5}}{3}\\cdot\\dfrac{3\\sqrt{2}}{2}=-\\dfrac{\\sqrt{10}}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$P\\left(\\sqrt{2},-\\dfrac{\\sqrt{10}}{2}\\right)$",
+  "approx": "",
+  "check": "由第 15、16 題，$\\Gamma$：$\\dfrac{x^2}{4}+\\dfrac{y^2}{5}=1$；代入 $P$：$\\dfrac{2}{4}+\\dfrac{5}{2}\\cdot\\dfrac{1}{5}=1$，$P$ 在 $\\Gamma$ 上。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "由長軸方向得 $\\cos\\theta=\\dfrac{2}{3}$、$\\sin\\theta=\\dfrac{\\sqrt{5}}{3}$，並求出 $P'\\left(\\dfrac{3\\sqrt{2}}{2},0\\right)$。"
+   ],
+   [
+    "運算",
+    "寫出旋轉矩陣的逆矩陣，乘上 $P'$。"
+   ],
+   [
+    "結論",
+    "$P\\left(\\sqrt{2},-\\dfrac{\\sqrt{10}}{2}\\right)$。"
+   ]
+  ],
+  "takeaway": "已知像求原像，就用逆矩陣；旋轉的逆就是反方向旋轉。",
+  "answer_issue": ""
+ }
+]

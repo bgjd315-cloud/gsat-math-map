@@ -29,12 +29,18 @@ python -m pip install pymupdf pillow   # 第一次才需要
 - 學測沒有答對率，`rate` 填 `null`；分科填答對率（0–1）。
 - 可平行處理：每份試卷交給一個子代理，各自讀 `tools/BRIEF.md` 照做。
 
-## 2b. 詳細解析（破題引導＋鷹架）→ `tools/detail/`
+## 2b. 詳細解析（KaTeX、公式框、鷹架）→ `tools/detail2/`
 
-- 先完成第 3 步的截圖，再依 `tools/DETAIL_BRIEF.md` 為每題寫詳解：破題引導、先備觀念、3–8 個鷹架步驟（引導提問＋做法與理由）、驗算、一句話心法。讀者設定為中等程度的高中生。
-- 檔名：`tools/detail/AYYY.json`、`BYYY.json`、`JYYY.json`、`YYYY.json`（陣列，每題一個物件）。
-- 非選擇題的步驟要照大考中心「非選擇題評分原則」的得分點拆開。
-- 沒有詳解的題目，網頁會改顯示 `tools/data` 裡的簡短解析。
+- 先完成第 3 步的截圖，再依 `tools/DETAIL_BRIEF.md`（第二版）為每題寫詳解：想法、公式框、一行一式的鷹架步驟、答案與近似值、單選題的常見錯誤、分科非選題的評分重點、一句話心法。讀者設定為中等程度的高中生。數學式一律 KaTeX，分數用 `\dfrac`。
+- 檔名：`tools/detail2/AYYY.json`、`BYYY.json`、`JYYY.json`、`YYYY.json`（陣列，每題一個物件）。用 Python 產生 JSON 時，含反斜線的字串一定用 raw string。
+- 兩支檢查都要零錯誤：
+  ```bash
+  python -I tools/check_tex.py tools/detail2/*.json
+  npm install katex@0.16.9          # 第一次才需要，裝在儲存庫外的資料夾並設定 KATEX_DIR
+  node tools/katex_check.js tools/detail2/*.json tools/formula_cards.json
+  ```
+- 新年度若出現公式卡沒有的常用公式，補進 `tools/formula_cards.json` 該單元。
+- 沒有第二版詳解的題目，網頁會退回 `tools/detail/`（第一版）或 `tools/data` 的簡短解析。
 
 ## 3. 裁切題目截圖 → `q/`
 

@@ -1,0 +1,1374 @@
+[
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "1",
+  "idea": "對數的底數 $a_n$ 和真數 $a_{n+1}$ 都會變。先把數列寫成 $10$ 的次方，再用換底公式把每一項化成「指數相除」。",
+  "formulas": [
+   {
+    "name": "等比數列一般項（必背）",
+    "tex": "a_n=a_1r^{n-1}",
+    "vars": [
+     [
+      "a_1",
+      "首項"
+     ],
+     [
+      "r",
+      "公比"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "換底公式（必背）",
+    "tex": "\\log_a b=\\dfrac{\\log b}{\\log a}",
+    "vars": [
+     [
+      "a",
+      "底數"
+     ],
+     [
+      "b",
+      "真數"
+     ]
+    ],
+    "cond": "$a>0$，$a\\ne1$，$b>0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$a_1$ 到 $a_4$ 各是多少？",
+    "calc": [
+     "$a_n=10\\cdot10^{n-1}=10^n$",
+     "$a_1=10$，$a_2=10^2$",
+     "$a_3=10^3$，$a_4=10^4$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "把 $\\sum$ 展開，$b$ 是哪三項相加？",
+    "calc": [
+     "$b=\\log_{a_1}a_2+\\log_{a_2}a_3+\\log_{a_3}a_4$",
+     "$=\\log_{10}10^2+\\log_{10^2}10^3+\\log_{10^3}10^4$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "底數不是 $10$ 的對數怎麼算？",
+    "calc": [
+     "$\\log_{10^n}10^{n+1}$",
+     "$=\\dfrac{\\log10^{n+1}}{\\log10^n}=\\dfrac{n+1}{n}$",
+     "三項依序為 $2$、$\\dfrac{3}{2}$、$\\dfrac{4}{3}$"
+    ],
+    "why": "換成常用對數後，$\\log10^m=m$，分子分母都變成整數。"
+   },
+   {
+    "q": "加起來是多少？落在哪個區間？",
+    "calc": [
+     "$b=2+\\dfrac{3}{2}+\\dfrac{4}{3}$",
+     "$=\\dfrac{12+9+8}{6}=\\dfrac{29}{6}$",
+     "$\\dfrac{29}{6}\\approx4.83$，所以 $4<b\\le5$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(3)",
+  "approx": "",
+  "check": "每一項 $\\dfrac{n+1}{n}$ 都介於 $1$ 和 $2$ 之間，三項和介於 $3$ 和 $6$，$\\dfrac{29}{6}$ 合理。",
+  "wrong": [
+   {
+    "opt": "(1)",
+    "how": "把 $\\log_{a_n}a_{n+1}$ 誤當成 $\\log a_{n+1}-\\log a_n=1$，得 $b=3$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "底數與真數都在變的對數，先寫成同底的次方，再用換底公式化成指數相除。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "2",
+  "idea": "「無解」表示不是恰一解，所以係數行列式 $\\Delta=0$。但 $\\Delta=0$ 也可能是無限多解，找出候選的 $c$ 之後要逐一代回分辨。",
+  "formulas": [
+   {
+    "name": "係數行列式（必背）",
+    "tex": "\\Delta=\\begin{vmatrix}a_1&b_1&c_1\\\\a_2&b_2&c_2\\\\a_3&b_3&c_3\\end{vmatrix}",
+    "vars": [
+     [
+      "\\Delta",
+      "方程組的係數行列式"
+     ]
+    ],
+    "cond": "$\\Delta\\ne0$ 恰一解；$\\Delta=0$ 時無解或無限多解，要再檢查"
+   }
+  ],
+  "steps": [
+   {
+    "q": "要讓方程組不是恰一解，$\\Delta$ 要滿足什麼？",
+    "calc": [
+     "$\\Delta=\\begin{vmatrix}1&-1&1\\\\2&c&3\\\\3&-3&c\\end{vmatrix}=0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "把行列式展開，得到 $c$ 的方程式。",
+    "calc": [
+     "$\\Delta=1\\cdot(c^2+9)+1\\cdot(2c-9)$",
+     "$\\quad+1\\cdot(-6-3c)$",
+     "$=c^2-c-6=(c-3)(c+2)$",
+     "$c=3$ 或 $c=-2$"
+    ],
+    "why": "沿第一列降階，注意第二項的符號是 $-(-1)=+1$。"
+   },
+   {
+    "q": "$c=3$ 時是無解還是無限多解？",
+    "calc": [
+     "第三式：$3x-3y+3z=0$",
+     "即 $x-y+z=0$，和第一式相同",
+     "剩兩個不平行的平面，交成一直線",
+     "無限多解，不合"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$c=-2$ 時呢？",
+    "calc": [
+     "第一式：$x-y=-z$",
+     "第三式：$3(x-y)-2z=0\\Rightarrow-5z=0$",
+     "所以 $z=0$",
+     "第二式：$2(x-y)+3z=1\\Rightarrow z=1$",
+     "$z=0$ 與 $z=1$ 矛盾，無解"
+    ],
+    "why": "三個式子都含 $x-y$ 這個組合，把它整體換成 $-z$ 最快。"
+   }
+  ],
+  "answer": "(2)",
+  "approx": "",
+  "check": "$c=-2$ 時由第二、三式分別得 $z=1$ 與 $z=0$，確實互相矛盾。",
+  "wrong": [
+   {
+    "opt": "(5)",
+    "how": "只解 $\\Delta=0$ 得 $c=3$ 或 $-2$，沒有檢查就把 $c=3$ 當成無解"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "$\\Delta=0$ 只說明「不是恰一解」，每個候選值都要代回分辨無解或無限多解。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "3",
+  "idea": "$\\overline{OP}=1$，所以 $P$ 的坐標就是 $\\overrightarrow{OP}$ 的方向餘弦。再把「到 $y$ 軸的距離」翻成坐標：拿掉 $y$，剩下 $x$、$z$。",
+  "formulas": [
+   {
+    "name": "方向餘弦（要會推）",
+    "tex": "x=\\lvert\\overrightarrow{OP}\\rvert\\cos\\alpha",
+    "vars": [
+     [
+      "\\alpha",
+      "$\\overrightarrow{OP}$ 與 $x$ 軸正向的夾角"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "點到 $y$ 軸的距離",
+    "tex": "d=\\sqrt{x^2+z^2}",
+    "vars": [
+     [
+      "d",
+      "點 $(x,y,z)$ 到 $y$ 軸的距離"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "設 $P(x,y,z)$，$\\overline{OP}=1$ 告訴我們什麼？",
+    "calc": [
+     "$x^2+y^2+z^2=1$",
+     "第一卦限：$x>0$，$y>0$，$z>0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "直線 $OP$ 與 $x$ 軸夾 $45^\\circ$，怎麼翻成坐標？",
+    "calc": [
+     "$x=1\\cdot\\cos45^\\circ=\\dfrac{\\sqrt{2}}{2}$",
+     "$x^2=\\dfrac{1}{2}$"
+    ],
+    "why": "$P$ 在第一卦限，$x>0$，所以 $\\overrightarrow{OP}$ 和 $x$ 軸正向夾 $45^\\circ$，不是 $135^\\circ$。"
+   },
+   {
+    "q": "$P$ 到 $y$ 軸的距離怎麼寫？",
+    "calc": [
+     "垂足為 $(0,y,0)$",
+     "$\\sqrt{x^2+z^2}=\\dfrac{\\sqrt{6}}{3}$",
+     "$x^2+z^2=\\dfrac{6}{9}=\\dfrac{2}{3}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "代入 $x^2$ 求 $z$。",
+    "calc": [
+     "$z^2=\\dfrac{2}{3}-\\dfrac{1}{2}=\\dfrac{1}{6}$",
+     "$z=\\dfrac{1}{\\sqrt{6}}=\\dfrac{\\sqrt{6}}{6}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(4)",
+  "approx": "",
+  "check": "$y^2=1-\\dfrac{1}{2}-\\dfrac{1}{6}=\\dfrac{1}{3}>0$，$P$ 確實可以在第一卦限。",
+  "wrong": [
+   {
+    "opt": "(3)",
+    "how": "把到 $y$ 軸的距離寫成 $\\sqrt{x^2+y^2}$，得 $y^2=\\dfrac{1}{6}$，$z^2=\\dfrac{1}{3}$，$z=\\dfrac{\\sqrt{3}}{3}$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "點到某一軸的距離：拿掉那一軸的坐標，其餘兩個坐標平方和開根號。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "4",
+  "idea": "「$g(x)$ 整除 $f(x)$」就設 $f(x)=g(x)\\cdot(x+m)$ 比較係數；解出兩組 $a$ 後，用「$g(x)=0$ 有虛根」的判別式條件篩掉一組。",
+  "formulas": [
+   {
+    "name": "整除（必背）",
+    "tex": "f(x)=g(x)\\,q(x)",
+    "vars": [
+     [
+      "q(x)",
+      "商式；三次除以二次，商是一次式"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "二次方程有虛根（必背）",
+    "tex": "x^2+ax+1=0:\\ D=a^2-4<0",
+    "vars": [
+     [
+      "D",
+      "判別式"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$f$ 是三次、$g$ 是二次，商式怎麼設？",
+    "calc": [
+     "$f(x)=(x^2+ax+1)(x+m)$",
+     "$=x^3+(a+m)x^2+(am+1)x+m$"
+    ],
+    "why": "兩者首項係數都是 $1$，所以商式的首項係數也是 $1$。"
+   },
+   {
+    "q": "和 $x^3+2x^2-2x+k$ 比較係數，解出 $a$。",
+    "calc": [
+     "$a+m=2$，$am+1=-2$，$m=k$",
+     "$a(2-a)=-3$",
+     "$a^2-2a-3=0$",
+     "$a=3$ 或 $a=-1$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "哪一個 $a$ 讓 $g(x)=0$ 有虛根？",
+    "calc": [
+     "需 $a^2-4<0$，即 $-2<a<2$",
+     "$a=3$ 不合，$a=-1$",
+     "$m=3$，$k=3$",
+     "$f(x)=(x^2-x+1)(x+3)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)(2)(3)：$-3$、$0$、$1$ 是不是根？",
+    "calc": [
+     "$f(-3)=-27+18+6+3=0$，(1) 是根",
+     "$f(0)=3\\ne0$，(2) 不是",
+     "$f(1)=1+2-2+3=4\\ne0$，(3) 不是"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5)：虛根是哪兩個？",
+    "calc": [
+     "$x^2-x+1=0$",
+     "$x=\\dfrac{1\\pm\\sqrt{1-4}}{2}=\\dfrac{1\\pm\\sqrt{-3}}{2}$",
+     "(4) 是根；(5) $\\dfrac{3+\\sqrt{-5}}{2}$ 不是"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)(4)",
+  "approx": "",
+  "check": "$x^2-x+1$ 的判別式 $1-4=-3<0$，確實有虛根，符合題設。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "整除就設商式比較係數；解出多組時，回頭用題目其他條件篩選。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "5",
+  "idea": "先認出 $\\Gamma$ 是圓心 $(1,1)$、半徑 $\\sqrt{101}$ 的圓。各選項分別用「代入求交點」「圓心加半徑」「圓心到定點距離加半徑」判斷。",
+  "formulas": [
+   {
+    "name": "圓的標準式（必背）",
+    "tex": "(x-h)^2+(y-k)^2=r^2",
+    "vars": [
+     [
+      "(h,k)",
+      "圓心"
+     ],
+     [
+      "r",
+      "半徑"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "圓上點到定點 $Q$ 的最遠距離",
+    "tex": "d_{\\max}=\\overline{CQ}+r",
+    "vars": [
+     [
+      "C",
+      "圓心"
+     ],
+     [
+      "Q",
+      "圓外或圓內的定點"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "(1)：$\\Gamma$ 和兩軸的交點是什麼？",
+    "calc": [
+     "令 $y=0$：$(x-1)^2=100$",
+     "$x=11$ 或 $x=-9$，負向交點 $(-9,0)$",
+     "同理令 $x=0$ 得 $y=-9$",
+     "(1) 正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2)：$x$ 坐標最大的點在哪？",
+    "calc": [
+     "圓心往右一個半徑：$(1+\\sqrt{101},1)$",
+     "$1+\\sqrt{101}\\approx11.05>11$",
+     "(2) 錯誤"
+    ],
+    "why": "$(11,0)$ 只是和 $x$ 軸的另一個交點，不是最右邊的點。"
+   },
+   {
+    "q": "(3)：圓上的點離原點最遠是多少？",
+    "calc": [
+     "$\\overline{OC}=\\sqrt{1^2+1^2}=\\sqrt{2}$",
+     "最遠距離 $=\\sqrt{2}+\\sqrt{101}$",
+     "(3) 正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)：第三象限的點到原點都是 $9$ 嗎？",
+    "calc": [
+     "取 $x=y$：$2(x-1)^2=101$",
+     "$x=1-\\sqrt{\\dfrac{101}{2}}\\approx-6.11$",
+     "到原點距離 $\\sqrt{2}\\,\\lvert x\\rvert\\approx8.64\\ne9$",
+     "(4) 錯誤"
+    ],
+    "why": "$[9,\\theta]$ 表示到原點距離恰為 $9$；只有兩端點 $(-9,0)$、$(0,-9)$ 符合。"
+   },
+   {
+    "q": "(5)：旋轉後會不會出現 $xy$ 項？",
+    "calc": [
+     "旋轉不改變形狀與大小",
+     "旋轉後仍是半徑 $\\sqrt{101}$ 的圓",
+     "$(x-h')^2+(y-k')^2=101$，沒有 $xy$ 項",
+     "(5) 正確"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)(3)(5)",
+  "approx": "",
+  "check": "(4) 也可用 $x^2+y^2=99+2(x+y)$ 看：第三象限 $x+y<0$，所以 $x^2+y^2<99$，到原點距離不會都等於 $9$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "圓的題目先找圓心與半徑；最遠、最近點都在「定點與圓心」的連線上。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "6",
+  "idea": "$A(1,0)$、$B(0,1)$ 的像就是矩陣的兩個行。寫出矩陣後提出倍率，看成「旋轉再伸縮」，長度、夾角就能直接讀出。",
+  "formulas": [
+   {
+    "name": "標準基底的像（必背）",
+    "tex": "\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}\\begin{bmatrix}1\\\\0\\end{bmatrix}=\\begin{bmatrix}a\\\\c\\end{bmatrix}",
+    "vars": [
+     [
+      "(a,c)",
+      "$(1,0)$ 的像，是第一行"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "旋轉伸縮矩陣",
+    "tex": "k\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}",
+    "vars": [
+     [
+      "k",
+      "伸縮倍率"
+     ],
+     [
+      "\\theta",
+      "逆時針旋轉角"
+     ]
+    ],
+    "cond": "行列式 $=k^2$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "矩陣是什麼？",
+    "calc": [
+     "$\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}=\\begin{bmatrix}3&-\\sqrt{3}\\\\\\sqrt{3}&3\\end{bmatrix}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "能不能寫成旋轉伸縮的形式？",
+    "calc": [
+     "第一行長度 $\\sqrt{9+3}=2\\sqrt{3}$",
+     "$=2\\sqrt{3}\\begin{bmatrix}\\dfrac{\\sqrt{3}}{2}&-\\dfrac{1}{2}\\\\\\dfrac{1}{2}&\\dfrac{\\sqrt{3}}{2}\\end{bmatrix}$",
+     "逆時針轉 $30^\\circ$，放大 $2\\sqrt{3}$ 倍"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)(2)：行列式與 $\\overline{OC'}$ 是多少？",
+    "calc": [
+     "$3\\cdot3-(-\\sqrt{3})\\cdot\\sqrt{3}=12\\ne6$，(1) 錯",
+     "$\\overline{OC'}=2\\sqrt{3}\\cdot\\overline{OC}=2\\sqrt{3}$，(2) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)(4)：夾角是多少？有沒有 $C$ 使 $y'=y$？",
+    "calc": [
+     "旋轉 $30^\\circ$，夾角 $30^\\circ$，(3) 錯",
+     "$y'=\\sqrt{3}x+3y=y\\Rightarrow\\sqrt{3}x+2y=0$",
+     "例：$C\\left(\\dfrac{2\\sqrt{7}}{7},-\\dfrac{\\sqrt{21}}{7}\\right)$ 在單位圓上",
+     "(4) 對"
+    ],
+    "why": "$\\sqrt{3}x+2y=0$ 是過原點的直線，一定和單位圓相交。"
+   },
+   {
+    "q": "(5)：$x<y$ 一定推得 $x'<y'$ 嗎？",
+    "calc": [
+     "反例：$C\\left(-\\dfrac{\\sqrt{3}}{2},-\\dfrac{1}{2}\\right)$，$x<y$",
+     "$x'=-\\dfrac{3\\sqrt{3}}{2}+\\dfrac{\\sqrt{3}}{2}=-\\sqrt{3}$",
+     "$y'=-\\dfrac{3}{2}-\\dfrac{3}{2}=-3$",
+     "$x'>y'$，(5) 錯"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)(4)",
+  "approx": "",
+  "check": "行列式 $12=(2\\sqrt{3})^2$，正好是伸縮倍率的平方，與旋轉伸縮矩陣一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "看到 $(1,0)$、$(0,1)$ 的像就寫成矩陣的行，再試著提出倍率變成旋轉矩陣。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "7",
+  "idea": "$\\overline{A'A}$ 是 $A$ 到準線的距離，由拋物線定義可換成 $\\overline{AF}$。設焦弦 $\\overline{AB}$ 與對稱軸夾角為 $\\alpha$，所求比值就是 $\\sin\\alpha$，再逐一比對選項。",
+  "formulas": [
+   {
+    "name": "拋物線定義（必背）",
+    "tex": "\\overline{PF}=d(P,L)",
+    "vars": [
+     [
+      "F",
+      "焦點"
+     ],
+     [
+      "L",
+      "準線"
+     ],
+     [
+      "d(P,L)",
+      "點 $P$ 到準線的距離"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "直角三角形的三角比",
+    "tex": "\\sin\\alpha=\\dfrac{\\text{對邊}}{\\text{斜邊}},\\ \\tan\\alpha=\\dfrac{\\text{對邊}}{\\text{鄰邊}}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\overline{A'F'}$ 和 $\\overline{A'A}$ 各代表什麼？",
+    "calc": [
+     "$\\overline{A'F'}$：$A$ 到對稱軸的距離",
+     "$\\overline{A'A}$：$A$ 到準線的距離 $=\\overline{AF}$",
+     "$A$ 到軸的距離 $=\\overline{AF}\\sin\\alpha$",
+     "$\\dfrac{\\overline{A'F'}}{\\overline{A'A}}=\\dfrac{\\overline{AF}\\sin\\alpha}{\\overline{AF}}=\\sin\\alpha$"
+    ],
+    "why": "準線垂直對稱軸，$A'$、$F'$ 都在準線上，所以 $\\overline{A'F'}$ 等於 $A$ 離對稱軸多高。"
+   },
+   {
+    "q": "(1)(2)：$\\tan\\angle1$、$\\sin\\angle2$ 是 $\\sin\\alpha$ 嗎？",
+    "calc": [
+     "$\\triangle A'F'A$ 在 $A'$ 為直角",
+     "$\\tan\\angle1=\\dfrac{\\overline{A'A}}{\\overline{A'F'}}$，是所求的倒數，(1) 錯",
+     "$\\sin\\angle2=\\dfrac{\\overline{A'F'}}{\\overline{F'A}}$，分母是 $\\overline{F'A}$，(2) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)：$\\sin\\angle3$ 呢？",
+    "calc": [
+     "$\\overline{AA'}$ 平行對稱軸",
+     "$\\angle A'AF$ 與 $\\alpha$ 相等或互補",
+     "$\\sin\\angle3=\\sin\\alpha$，(3) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5)：$\\cos\\angle4$、$\\tan\\angle5$ 呢？",
+    "calc": [
+     "$\\angle4$ 是 $\\overline{FB}$ 與對稱軸的夾角",
+     "$\\cos\\angle4=\\cos\\alpha$，一般不等於 $\\sin\\alpha$，(4) 錯",
+     "設 $H$ 為 $B$ 在對稱軸上的投影",
+     "$\\overline{F'H}=\\overline{B'B}=\\overline{BF}$，$\\overline{BH}=\\overline{B'F'}=\\overline{BF}\\sin\\alpha$",
+     "$\\tan\\angle5=\\dfrac{\\overline{BH}}{\\overline{F'H}}=\\sin\\alpha$，(5) 對"
+    ],
+    "why": "$B$ 那一側用同樣的定義：$B$ 到準線的距離等於 $\\overline{BF}$。"
+   }
+  ],
+  "answer": "(3)(5)",
+  "approx": "",
+  "check": "取 $\\overline{AB}$ 垂直對稱軸的特例：$\\alpha=90^\\circ$，比值為 $1$，(3)(5) 都是 $1$，(4) 為 $0$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "拋物線題看到「到準線的距離」，立刻換成「到焦點的距離」。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "8",
+  "idea": "「對所有 $n$ 成立」的不等式可以移項得到 $b_n$ 的上下界，取極限用夾擠定理。但極限只管最後的趨勢，管不到某一項，判斷 (1)(4) 要找反例。",
+  "formulas": [
+   {
+    "name": "夾擠定理（必背）",
+    "tex": "x_n\\le y_n\\le z_n,\\ \\lim x_n=\\lim z_n=L\\Rightarrow\\lim y_n=L",
+    "vars": [
+     [
+      "y_n",
+      "被夾住的數列"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "常用極限",
+    "tex": "\\lim\\limits_{n\\to\\infty}\\dfrac{4n-1}{n}=4",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "把不等式拆開，$b_n$ 的範圍是什麼？",
+    "calc": [
+     "由 $a_n<3b_n$：$b_n>\\dfrac{a_n}{3}$",
+     "由左半：$b_n<a_n-\\dfrac{4n-1}{n}$",
+     "$\\dfrac{a_n}{3}<b_n<a_n-\\dfrac{4n-1}{n}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)：$b_n<6-\\dfrac{4n-1}{n}$ 一定成立嗎？",
+    "calc": [
+     "反例：$a_n=6+\\dfrac{1}{n}$，$b_n=2+\\dfrac{1}{n}$",
+     "檢查：$b_n+\\dfrac{4n-1}{n}=6<a_n$",
+     "$3b_n=6+\\dfrac{3}{n}>a_n$，條件成立",
+     "但 $6-\\dfrac{4n-1}{n}=2+\\dfrac{1}{n}=b_n$，(1) 錯"
+    ],
+    "why": "$a_n$ 可以比 $6$ 大，這時 $b_n$ 的上界也跟著超過 $6-\\dfrac{4n-1}{n}$。"
+   },
+   {
+    "q": "(2)(3)：$b_n$ 的下界與收斂性？",
+    "calc": [
+     "$b_n+\\dfrac{4n-1}{n}<3b_n\\Rightarrow b_n>\\dfrac{4n-1}{2n}$，(2) 對",
+     "左界 $\\dfrac{a_n}{3}\\to2$",
+     "右界 $a_n-\\dfrac{4n-1}{n}\\to6-4=2$",
+     "夾擠得 $\\lim b_n=2$，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5)：$a_{10000}$ 的範圍？",
+    "calc": [
+     "反例：$a_n=6+\\dfrac{1000}{n}$，$b_n=2+\\dfrac{500}{n}$ 合條件",
+     "$a_{10000}=6.1$，不小於 $6.1$，(4) 錯",
+     "$a_n>3b_n>\\dfrac{3(4n-1)}{2n}=6-\\dfrac{3}{2n}$",
+     "$a_{10000}>6-0.00015>5.9$，(5) 對"
+    ],
+    "why": "$a_n$ 只有下界（由 $b_n$ 的下界推得），沒有上界。"
+   }
+  ],
+  "answer": "(2)(5)",
+  "approx": "",
+  "check": "(4) 的反例檢查：$b_n+\\dfrac{4n-1}{n}=6+\\dfrac{499}{n}<a_n$，$3b_n=6+\\dfrac{1500}{n}>a_n$，條件成立。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "極限只管最後的趨勢；能確定的只有從不等式推出來的界限。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "9",
+  "idea": "每位顧客「得或不得紅包」是一次伯努力試驗，「第一個得到紅包的是第幾位」就是幾何分布。先算一位顧客成功的機率 $p$，期望值是 $\\dfrac{1}{p}$。",
+  "formulas": [
+   {
+    "name": "幾何分布期望值（必背）",
+    "tex": "E(X)=\\dfrac{1}{p}",
+    "vars": [
+     [
+      "p",
+      "每次試驗成功的機率"
+     ],
+     [
+      "X",
+      "第一次成功發生在第幾次"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "獨立事件",
+    "tex": "P(A\\cap B)=P(A)\\,P(B)",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "把一位顧客的抽籤翻成數學。",
+    "calc": [
+     "每回抽中大吉：$\\dfrac{1}{5}$；沒抽中：$\\dfrac{4}{5}$",
+     "抽後放回，每回獨立，最多 $3$ 回"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$3$ 回內「連續兩回大吉」有哪些情形？",
+    "calc": [
+     "吉、吉（第 $2$ 回就停止）",
+     "非、吉、吉"
+    ],
+    "why": "「吉、非、吉」不是連續兩回，不算。"
+   },
+   {
+    "q": "一位顧客成功的機率 $p$ 是多少？",
+    "calc": [
+     "$p=\\left(\\dfrac{1}{5}\\right)^2+\\dfrac{4}{5}\\left(\\dfrac{1}{5}\\right)^2$",
+     "$=\\dfrac{5}{125}+\\dfrac{4}{125}=\\dfrac{9}{125}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$E(X)$ 是多少？",
+    "calc": [
+     "$E(X)=\\dfrac{1}{p}=\\dfrac{125}{9}\\approx13.89$",
+     "四捨五入到整數位：$14$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$14$",
+  "approx": "$\\dfrac{125}{9}\\approx13.89$（四捨五入到小數第二位），題目要求整數位，填 $14$",
+  "check": "$p\\approx0.072$，大約每 $14$ 人有 $1$ 人成功，$E(X)\\approx14$ 合理。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "「第一次成功是第幾次」就是幾何分布，期望值是單次成功機率的倒數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "10",
+  "idea": "國文固定在週一，週一已經有卷子，「每天至少一科」只剩週二、三、四要顧，用排容原理；再扣掉英文在週二的情形。",
+  "formulas": [
+   {
+    "name": "排容原理（必背）",
+    "tex": "\\lvert A\\cup B\\cup C\\rvert=\\sum\\lvert A\\rvert-\\sum\\lvert A\\cap B\\rvert+\\lvert A\\cap B\\cap C\\rvert",
+    "vars": [
+     [
+      "A,B,C",
+      "週二、三、四沒有卷子的情形"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "相異物放入盒子（可空）",
+    "tex": "k^n",
+    "vars": [
+     [
+      "n",
+      "物品數"
+     ],
+     [
+      "k",
+      "盒子數"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "國文固定後，剩下要安排什麼？",
+    "calc": [
+     "英、數、社、自各選一天（一到四）",
+     "條件一：週二、三、四都要有卷",
+     "條件二：英文不在週二"
+    ],
+    "why": ""
+   },
+   {
+    "q": "先不管英文，週二、三、四都不空有幾種？",
+    "calc": [
+     "全部：$4^4=256$",
+     "某一天空：$C^3_1\\cdot3^4=243$",
+     "某兩天空：$C^3_2\\cdot2^4=48$",
+     "三天都空：$1^4=1$",
+     "$256-243+48-1=60$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "這 $60$ 種中，英文在週一的有幾種？",
+    "calc": [
+     "其餘 $3$ 張恰好各占週二、三、四",
+     "$3!=6$ 種"
+    ],
+    "why": ""
+   },
+   {
+    "q": "英文在週二的有幾種？",
+    "calc": [
+     "英文在二、三、四：$60-6=54$",
+     "三天地位對稱，各占 $\\dfrac{54}{3}=18$ 種"
+    ],
+    "why": "把週二、三、四的名稱互換，方法數不變，所以三天平分。"
+   },
+   {
+    "q": "扣掉不合的情形。",
+    "calc": [
+     "$60-18=42$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$42$",
+  "approx": "",
+  "check": "直接數：英文在週一 $6$ 種、週三 $18$ 種、週四 $18$ 種，$6+18+18=42$，一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "先把固定的放好，再看剩下哪些限制；「至少一個」用排容，對稱的情形直接平分。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "11",
+  "idea": "$w=\\dfrac{-3+4i}{5}$、$z$、$z^3$ 三點都在單位圓上。單位圓上兩點的距離只看輻角差，所以距離相等可以化成兩個 $\\cos$ 相等。",
+  "formulas": [
+   {
+    "name": "單位圓上兩點距離（要會推）",
+    "tex": "\\lvert z_1-z_2\\rvert^2=2-2\\cos(\\alpha-\\beta)",
+    "vars": [
+     [
+      "z_1",
+      "$\\cos\\alpha+i\\sin\\alpha$"
+     ],
+     [
+      "z_2",
+      "$\\cos\\beta+i\\sin\\beta$"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "棣美弗定理（必背）",
+    "tex": "(\\cos t+i\\sin t)^n=\\cos nt+i\\sin nt",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "半角公式",
+    "tex": "\\cos^2t=\\dfrac{1+\\cos2t}{2}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$w=\\dfrac{-3+4i}{5}$ 在哪裡？",
+    "calc": [
+     "$\\lvert w\\rvert=\\dfrac{\\sqrt{9+16}}{5}=1$",
+     "設 $w=\\cos\\varphi+i\\sin\\varphi$",
+     "$\\cos\\varphi=-\\dfrac{3}{5}$，$\\sin\\varphi=\\dfrac{4}{5}$，$\\dfrac{\\pi}{2}<\\varphi<\\pi$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$z$ 和 $z^3$ 怎麼寫？",
+    "calc": [
+     "設 $z=\\cos t+i\\sin t$，$0<t<\\dfrac{\\pi}{2}$",
+     "$z^3=\\cos3t+i\\sin3t$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "距離相等翻成什麼式子？",
+    "calc": [
+     "$2-2\\cos(\\varphi-3t)=2-2\\cos(\\varphi-t)$",
+     "$\\cos(\\varphi-3t)=\\cos(\\varphi-t)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "兩個角的 $\\cos$ 相等，有哪兩種情形？",
+    "calc": [
+     "情形一：$\\varphi-3t=\\varphi-t+2k\\pi$",
+     "$\\Rightarrow t=-k\\pi$，不在第一象限",
+     "情形二：$\\varphi-3t=-(\\varphi-t)+2k\\pi$",
+     "$\\Rightarrow2t=\\varphi-k\\pi$"
+    ],
+    "why": "$\\cos x=\\cos y$ 表示 $x=\\pm y+2k\\pi$。"
+   },
+   {
+    "q": "哪個 $k$ 合條件？",
+    "calc": [
+     "$0<2t<\\pi$，且 $\\dfrac{\\pi}{2}<\\varphi<\\pi$",
+     "只有 $k=0$：$2t=\\varphi$",
+     "$\\cos2t=-\\dfrac{3}{5}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "由 $\\cos2t$ 求 $a$、$b$。",
+    "calc": [
+     "$\\cos^2t=\\dfrac{1}{2}\\left(1-\\dfrac{3}{5}\\right)=\\dfrac{1}{5}$",
+     "$a=\\cos t=\\dfrac{1}{\\sqrt{5}}=\\dfrac{\\sqrt{5}}{5}$",
+     "$b=\\sin t=\\sqrt{1-\\dfrac{1}{5}}=\\dfrac{2\\sqrt{5}}{5}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$a=\\dfrac{\\sqrt{5}}{5}$，$b=\\dfrac{2\\sqrt{5}}{5}$",
+  "approx": "",
+  "check": "$z^2=\\dfrac{(1+2i)^2}{5}=w$，於是 $\\lvert w-z^3\\rvert=\\lvert z^2\\rvert\\lvert1-z\\rvert=\\lvert z-1\\rvert=\\lvert z\\rvert\\lvert z-1\\rvert=\\lvert w-z\\rvert$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "單位圓上的距離條件，換成輻角差的 $\\cos$ 來比較。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "12",
+  "idea": "$\\overline{AP}$ 垂直桌面，$\\triangle AMP$ 在 $P$ 是直角，$\\tan\\angle AMP=\\dfrac{\\overline{AP}}{\\overline{PM}}$。難點是 $\\overline{PM}$：用等腰梯形左右對稱，由 $\\overline{AD}$ 的投影長推出。",
+  "formulas": [
+   {
+    "name": "直角三角形的正切",
+    "tex": "\\tan\\angle AMP=\\dfrac{\\overline{AP}}{\\overline{PM}}",
+    "vars": [],
+    "cond": "$\\angle APM=90^\\circ$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\triangle AMP$ 是什麼三角形？",
+    "calc": [
+     "$\\overline{AP}\\perp$ 桌面，$\\overline{PM}$ 在桌面上",
+     "$\\angle APM=90^\\circ$",
+     "$\\tan\\angle AMP=\\dfrac{15}{\\overline{PM}}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overline{PM}$ 是 $P$ 到哪裡的距離？",
+    "calc": [
+     "$\\overline{AM}\\perp\\overline{BC}$，$\\overline{AP}\\perp$ 桌面",
+     "由三垂線定理：$\\overline{PM}\\perp\\overline{BC}$"
+    ],
+    "why": "所以 $\\overline{PM}$ 就是 $P$ 到直線 $BC$ 的距離。"
+   },
+   {
+    "q": "由 $\\overline{AD}$ 投影長 $30$ 推出 $\\overline{PM}$。",
+    "calc": [
+     "$\\overline{AD}$ 投影長 $30$，$\\overline{CF}=40$",
+     "等腰梯形左右對稱，兩端各縮進",
+     "$\\dfrac{40-30}{2}=5$",
+     "$\\overline{PM}=5$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "算出 $\\tan\\angle AMP$。",
+    "calc": [
+     "$\\tan\\angle AMP=\\dfrac{15}{5}=3$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$3$",
+  "approx": "",
+  "check": "$\\angle AMP$ 是側面 $ABC$ 與桌面的夾角，正切為 $3$ 表示側面很陡，與高 $15$、只往外伸 $5$ 的形狀一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "立體的角度題，先找出含這個角的直角三角形，再把長度投影到平面上算。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "13",
+  "idea": "截出的矩形一邊平行 $\\overline{BC}$、一邊平行 $\\overline{AD}$。$\\triangle ABC\\cong\\triangle ACQ$ 表示兩個三角形被 $W$ 截出的線段一樣長，用相似形把它寫成 $x$ 的式子。",
+  "formulas": [
+   {
+    "name": "平行底邊的截線（必背）",
+    "tex": "\\dfrac{l}{\\overline{BC}}=\\dfrac{x}{h}",
+    "vars": [
+     [
+      "l",
+      "截線長"
+     ],
+     [
+      "x",
+      "截面到頂點 $A$ 的距離"
+     ],
+     [
+      "h",
+      "頂點 $A$ 到底邊所在水平面的距離"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "平行四邊形對邊相等",
+    "tex": "\\overline{AQ}\\parallel\\overline{DF},\\ \\overline{AD}\\parallel\\overline{QF}\\Rightarrow\\overline{QF}=\\overline{AD}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$Q$ 在哪裡？為什麼 $\\triangle ABC\\cong\\triangle ACQ$？",
+    "calc": [
+     "$ADFQ$ 是平行四邊形，$\\overline{QF}=\\overline{AD}=30$",
+     "$\\overline{CQ}=40-30=10=\\overline{BC}$",
+     "$\\overline{AQ}=\\overline{DF}=\\overline{AC}=\\overline{AB}$",
+     "SSS：$\\triangle ABC\\cong\\triangle ACQ$"
+    ],
+    "why": "等腰梯形兩腰相等得 $\\overline{AC}=\\overline{DF}$；兩梯形全等得 $\\overline{AB}=\\overline{AC}$。"
+   },
+   {
+    "q": "$W$ 截 $\\triangle ABC$ 的線段多長？",
+    "calc": [
+     "$A$ 到底邊 $\\overline{BC}$ 所在水平面的距離 $=\\overline{AP}=15$",
+     "設截線長 $l$：$\\dfrac{l}{10}=\\dfrac{x}{15}$",
+     "$l=\\dfrac{2x}{3}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "矩形平行 $\\overline{AD}$ 的另一邊多長？",
+    "calc": [
+     "平行四邊形 $ADFQ$ 截出 $30$",
+     "$\\triangle ACQ$ 截出 $l=\\dfrac{2x}{3}$（全等）",
+     "另一邊 $=30+\\dfrac{2x}{3}$"
+    ],
+    "why": "梯形 $ACFD$ 正好由 $\\triangle ACQ$ 和平行四邊形 $ADFQ$ 拼成。"
+   },
+   {
+    "q": "兩邊相乘。",
+    "calc": [
+     "$\\dfrac{2x}{3}\\left(30+\\dfrac{2x}{3}\\right)$",
+     "$=20x+\\dfrac{4}{9}x^2$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "得證：矩形面積為 $20x+\\dfrac{4}{9}x^2$",
+  "approx": "",
+  "check": "$x=15$ 時面積 $300+100=400=10\\times40$，正是底面 $BCFE$ 的面積。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "由 $\\triangle ABC\\cong\\triangle ACQ$ 知截線相等，用相似形列出 $\\dfrac{l}{10}=\\dfrac{x}{15}$。"
+   ],
+   [
+    "運算",
+    "求得一邊 $\\dfrac{2x}{3}$，另一邊 $30+\\dfrac{2x}{3}$。"
+   ],
+   [
+    "結論",
+    "兩邊相乘得面積 $20x+\\dfrac{4}{9}x^2$，完成證明。"
+   ]
+  ],
+  "takeaway": "截面面積題：把截面的每一邊都用相似形寫成 $x$ 的函數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "14",
+  "idea": "切片法：每一片長方體體積 = 截面積 $\\times$ 厚度。截面積用上一題的公式代入第 $k$ 片的位置，厚度是 $\\dfrac{15}{n}$；$n\\to\\infty$ 時黎曼和變成定積分。",
+  "formulas": [
+   {
+    "name": "切片法的黎曼和",
+    "tex": "V\\approx\\sum\\limits_{k=1}^{n}S(x_k)\\,\\Delta x",
+    "vars": [
+     [
+      "S(x)",
+      "與 $A$ 距離 $x$ 的截面積"
+     ],
+     [
+      "\\Delta x",
+      "每片的厚度"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "黎曼和的極限（必背）",
+    "tex": "V=\\displaystyle\\int_0^{15}S(x)\\,dx",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "多項式積分（必背）",
+    "tex": "\\displaystyle\\int x^m\\,dx=\\dfrac{x^{m+1}}{m+1}+C",
+    "vars": [],
+    "cond": "$m\\ne-1$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$P_k$ 離 $A$ 多遠？每片多厚？",
+    "calc": [
+     "$\\Delta x=\\dfrac{15}{n}$",
+     "$x_k=\\overline{AP_k}=\\dfrac{15k}{n}$，$k=1,2,\\dots,n$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "第 $k$ 片的體積是多少？寫出黎曼和。",
+    "calc": [
+     "底：$S\\left(\\dfrac{15k}{n}\\right)=20\\left(\\dfrac{15k}{n}\\right)+\\dfrac{4}{9}\\left(\\dfrac{15k}{n}\\right)^2$",
+     "高：$\\dfrac{15}{n}$",
+     "黎曼和：",
+     "$\\sum\\limits_{k=1}^{n}\\left[20\\left(\\dfrac{15k}{n}\\right)+\\dfrac{4}{9}\\left(\\dfrac{15k}{n}\\right)^2\\right]\\dfrac{15}{n}$"
+    ],
+    "why": "題目指定以過 $P_k$ 的截面為底，所以代入的是右端點 $x_k$。"
+   },
+   {
+    "q": "$n\\to\\infty$ 時變成什麼定積分？",
+    "calc": [
+     "$V=\\displaystyle\\int_0^{15}\\left(20x+\\dfrac{4}{9}x^2\\right)dx$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "用反導函數算出積分值。",
+    "calc": [
+     "$=\\left[10x^2+\\dfrac{4}{27}x^3\\right]_0^{15}$",
+     "$=10\\times225+\\dfrac{4}{27}\\times3375$",
+     "$=2250+500=2750$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "黎曼和 $\\sum\\limits_{k=1}^{n}\\left[20\\left(\\dfrac{15k}{n}\\right)+\\dfrac{4}{9}\\left(\\dfrac{15k}{n}\\right)^2\\right]\\dfrac{15}{n}$；體積 $\\displaystyle\\int_0^{15}\\left(20x+\\dfrac{4}{9}x^2\\right)dx=2750$",
+  "approx": "",
+  "check": "體積應介於「底面 $400$、高 $15$」的錐體 $2000$ 與柱體 $6000$ 之間，$2750$ 合理。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "以 $S\\left(\\dfrac{15k}{n}\\right)$ 為底、$\\dfrac{15}{n}$ 為高，寫出黎曼和。"
+   ],
+   [
+    "運算",
+    "寫成 $\\displaystyle\\int_0^{15}\\left(20x+\\dfrac{4}{9}x^2\\right)dx$，用反導函數計算。"
+   ],
+   [
+    "結論",
+    "積木體積為 $2750$。"
+   ]
+  ],
+  "takeaway": "切片法：體積是截面積對厚度方向的積分，先寫出截面積函數再積分。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "15",
+  "idea": "$\\vec{a}$、$\\vec{b}$、$\\vec{a}-\\vec{b}$ 首尾相接成三角形，三邊是 $x$、$9-x$、$7$，$\\theta$ 是 $x$ 與 $9-x$ 兩邊的夾角。三邊求夾角，用餘弦定理。",
+  "formulas": [
+   {
+    "name": "餘弦定理（必背）",
+    "tex": "\\cos\\theta=\\dfrac{p^2+q^2-r^2}{2pq}",
+    "vars": [
+     [
+      "\\theta",
+      "邊 $p$、$q$ 的夾角"
+     ],
+     [
+      "r",
+      "$\\theta$ 的對邊"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "倒數的微分（要會推）",
+    "tex": "\\left(\\dfrac{1}{g(x)}\\right)'=-\\dfrac{g'(x)}{[g(x)]^2}",
+    "vars": [],
+    "cond": "$g(x)\\ne0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "三角形的三邊各是多少？",
+    "calc": [
+     "$\\lvert\\vec{a}\\rvert=x$，$\\lvert\\vec{b}\\rvert=9-x$",
+     "$\\lvert\\vec{a}-\\vec{b}\\rvert=7$",
+     "$\\theta$ 的對邊是 $7$"
+    ],
+    "why": "$\\vec{a}$、$\\vec{b}$ 同起點，$\\vec{a}-\\vec{b}$ 連接兩個終點。"
+   },
+   {
+    "q": "用餘弦定理寫出 $\\cos\\theta$ 並化成題目的形式。",
+    "calc": [
+     "$\\cos\\theta=\\dfrac{x^2+(9-x)^2-49}{2x(9-x)}$",
+     "$=\\dfrac{2x^2-18x+32}{2(9x-x^2)}=\\dfrac{x^2-9x+16}{9x-x^2}$",
+     "$=\\dfrac{-(9x-x^2)+16}{9x-x^2}$",
+     "$f(x)=\\dfrac{16}{9x-x^2}-1$"
+    ],
+    "why": "把分子湊出分母 $9x-x^2$，剩下的常數就是 $c$。"
+   },
+   {
+    "q": "求 $f'(x)$。",
+    "calc": [
+     "$(9x-x^2)'=9-2x$",
+     "$f'(x)=-\\dfrac{16(9-2x)}{(9x-x^2)^2}$",
+     "$=\\dfrac{16(2x-9)}{(9x-x^2)^2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$f(x)=\\dfrac{16}{9x-x^2}-1$，$f'(x)=\\dfrac{16(2x-9)}{(9x-x^2)^2}$",
+  "approx": "",
+  "check": "$x=\\dfrac{9}{2}$ 時兩邊都是 $\\dfrac{9}{2}$，$f=\\dfrac{64}{81}-1<0$，對邊 $7$ 最長，$\\theta$ 為鈍角合理。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "寫出三邊 $x$、$9-x$、$7$，用餘弦定理列出 $\\cos\\theta$。"
+   ],
+   [
+    "運算",
+    "化簡得 $f(x)=\\dfrac{16}{9x-x^2}-1$，再用微分除法律求導。"
+   ],
+   [
+    "結論",
+    "$f'(x)=\\dfrac{16(2x-9)}{(9x-x^2)^2}$。"
+   ]
+  ],
+  "takeaway": "向量長度與差的長度一起出現，就畫成三角形用餘弦定理。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "16",
+  "idea": "增減看 $f'(x)$ 的正負；$f'(x)$ 裡只有 $2x-9$ 會變號。最後要把「$\\cos\\theta$ 最小」轉成「$\\theta$ 最大」。",
+  "formulas": [
+   {
+    "name": "導數與增減（必背）",
+    "tex": "f'(x)>0\\Rightarrow\\nearrow,\\quad f'(x)<0\\Rightarrow\\searrow",
+    "vars": [
+     [
+      "\\nearrow",
+      "遞增"
+     ],
+     [
+      "\\searrow",
+      "遞減"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "$\\cos$ 在 $[0,\\pi]$ 遞減",
+    "tex": "0\\le\\theta_1<\\theta_2\\le\\pi\\Rightarrow\\cos\\theta_1>\\cos\\theta_2",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$f'(x)=\\dfrac{16(2x-9)}{(9x-x^2)^2}$ 的正負由誰決定？",
+    "calc": [
+     "$16>0$，$(9x-x^2)^2>0$",
+     "正負只看 $2x-9$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "在哪裡遞增、哪裡遞減？",
+    "calc": [
+     "$1<x<\\dfrac{9}{2}$：$f'(x)<0$，遞減",
+     "$\\dfrac{9}{2}<x<8$：$f'(x)>0$，遞增",
+     "$x=\\dfrac{9}{2}$ 時 $f(x)$ 最小"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\cos\\theta$ 最小時，$\\theta$ 是最大還是最小？",
+    "calc": [
+     "$0<\\theta<\\pi$ 時 $\\cos\\theta$ 越小，$\\theta$ 越大",
+     "$x=\\dfrac{9}{2}$ 時 $\\theta$ 最大"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$f(x)$ 在 $1<x\\le\\dfrac{9}{2}$ 遞減、在 $\\dfrac{9}{2}\\le x<8$ 遞增；$x=\\dfrac{9}{2}$ 時夾角 $\\theta$ 最大",
+  "approx": "",
+  "check": "$x=\\dfrac{9}{2}$ 時 $\\lvert\\vec{a}\\rvert=\\lvert\\vec{b}\\rvert$，也可由分母 $9x-x^2=-\\left(x-\\dfrac{9}{2}\\right)^2+\\dfrac{81}{4}$ 在此最大得到相同結論。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "由 $f'(x)$ 的分子 $16(2x-9)$ 判斷正負。"
+   ],
+   [
+    "運算",
+    "$1<x<\\dfrac{9}{2}$ 時遞減，$\\dfrac{9}{2}<x<8$ 時遞增。"
+   ],
+   [
+    "結論",
+    "$x=\\dfrac{9}{2}$ 時 $\\cos\\theta$ 最小，$\\theta$ 最大。"
+   ]
+  ],
+  "takeaway": "導數正負只看會變號的因式；最後別忘了把 $\\cos$ 的最小轉回角度的最大。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數甲",
+  "year": 111,
+  "no": "17",
+  "idea": "一次估計就是用切線代替曲線。找一個靠近 $4.96$ 又好算的基準點：$x=5$ 時 $9x-x^2=20$。",
+  "formulas": [
+   {
+    "name": "一次估計（必背）",
+    "tex": "f(a+h)\\approx f(a)+f'(a)\\,h",
+    "vars": [
+     [
+      "a",
+      "基準點"
+     ],
+     [
+      "h",
+      "移動量"
+     ]
+    ],
+    "cond": "$\\lvert h\\rvert$ 很小"
+   }
+  ],
+  "steps": [
+   {
+    "q": "在哪一點做一次估計？",
+    "calc": [
+     "取 $a=5$：$9\\cdot5-5^2=20$",
+     "$h=4.96-5=-0.04$"
+    ],
+    "why": "$5$ 離 $4.96$ 很近，分母又好算；$h$ 是負的。"
+   },
+   {
+    "q": "$f(5)$ 和 $f'(5)$ 是多少？",
+    "calc": [
+     "$f(5)=\\dfrac{16}{20}-1=-0.2$",
+     "$f'(5)=\\dfrac{16(10-9)}{20^2}=\\dfrac{16}{400}=0.04$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "代入一次估計。",
+    "calc": [
+     "$f(4.96)\\approx-0.2+0.04\\times(-0.04)$",
+     "$=-0.2-0.0016=-0.2016$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\cos\\theta\\approx-0.2016$",
+  "approx": "",
+  "check": "$f$ 在 $x=5$ 附近遞增，$x$ 往左移，函數值應略小於 $-0.2$；實際 $f(4.96)\\approx-0.2015$，估計很準。",
+  "wrong": [],
+  "tiers": [
+   [
+    "列式",
+    "選 $5$ 為基準點，寫出 $f(x)\\approx f(5)+f'(5)(x-5)$。"
+   ],
+   [
+    "運算",
+    "$f(5)=-0.2$，$f'(5)=0.04$，代入 $x=4.96$。"
+   ],
+   [
+    "結論",
+    "$\\cos\\theta\\approx-0.2016$。"
+   ]
+  ],
+  "takeaway": "一次估計 = 基準點的值 + 斜率 $\\times$ 移動量，往左移時移動量是負的。",
+  "answer_issue": ""
+ }
+]

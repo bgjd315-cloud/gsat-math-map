@@ -1,0 +1,1498 @@
+[
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "1",
+  "idea": "只有「兩次都吉」和「兩次都祥」有獎金。期望值就是每種獎金乘上它的機率再相加；兩次抽籤互不影響，機率用乘法。",
+  "formulas": [
+   {
+    "name": "期望值（必背）",
+    "tex": "E=\\sum x_i\\,p_i",
+    "vars": [
+     [
+      "x_i",
+      "第 $i$ 種結果的獎金"
+     ],
+     [
+      "p_i",
+      "該結果發生的機率"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "獨立事件（必背）",
+    "tex": "P(A\\cap B)=P(A)\\times P(B)",
+    "vars": [
+     [
+      "A",
+      "第一次抽籤的結果"
+     ],
+     [
+      "B",
+      "第二次抽籤的結果"
+     ]
+    ],
+    "cond": "兩事件互相獨立"
+   }
+  ],
+  "steps": [
+   {
+    "q": "哪些結果有獎金？",
+    "calc": [
+     "吉吉：$180$ 元",
+     "祥祥：$90$ 元",
+     "其餘情況：$0$ 元"
+    ],
+    "why": "獎金 $0$ 元的情況乘上機率還是 $0$，可以不寫進加總。"
+   },
+   {
+    "q": "吉吉、祥祥的機率各是多少？",
+    "calc": [
+     "$P(\\text{吉吉})=\\dfrac{1}{3}\\times\\dfrac{1}{3}=\\dfrac{1}{9}$",
+     "$P(\\text{祥祥})=\\dfrac{1}{3}\\times\\dfrac{1}{3}=\\dfrac{1}{9}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "獎金和機率配對相乘，再相加是多少？",
+    "calc": [
+     "$E=180\\times\\dfrac{1}{9}+90\\times\\dfrac{1}{9}$",
+     "$=20+10=30$（元）"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)",
+  "approx": "",
+  "check": "有獎金的機率合計只有 $\\dfrac{2}{9}$，期望值一定小於 $180\\times\\dfrac{2}{9}=40$ 元，$30$ 元合理。",
+  "wrong": [
+   {
+    "opt": "(5)",
+    "how": "兩次的機率沒有相乘，把 $P(\\text{吉吉})$ 當成 $\\dfrac{1}{3}$，得 $180\\times\\dfrac{1}{3}+90\\times\\dfrac{1}{3}=90$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "期望值是「值乘機率」全部加起來，獎金為 $0$ 的情況直接略過。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "2",
+  "idea": "$[a]$ 是不超過 $a$ 的最大整數。把三個 $x$ 值代進去，看根號裡的數夾在哪兩個平方數之間，就知道取整後是多少。",
+  "formulas": [
+   {
+    "name": "高斯符號（必背）",
+    "tex": "[a]=n\\iff n\\le a<n+1",
+    "vars": [
+     [
+      "[a]",
+      "不超過 $a$ 的最大整數"
+     ],
+     [
+      "n",
+      "整數"
+     ]
+    ],
+    "cond": "$n$ 為整數"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$f(-20)$ 的兩個根號各夾在哪兩個整數之間？",
+    "calc": [
+     "$f(-20)=[\\sqrt{119}]+[\\sqrt{79}]$",
+     "$100<119<121\\Rightarrow[\\sqrt{119}]=10$",
+     "$64<79<81\\Rightarrow[\\sqrt{79}]=8$",
+     "$f(-20)=10+8=18$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$f(0)$ 是多少？",
+    "calc": [
+     "$f(0)=[\\sqrt{99}]+[\\sqrt{99}]$",
+     "$81<99<100\\Rightarrow[\\sqrt{99}]=9$",
+     "$f(0)=9+9=18$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$f(1)$ 是多少？",
+    "calc": [
+     "$f(1)=[\\sqrt{98}]+[\\sqrt{100}]$",
+     "$[\\sqrt{98}]=9$，$[\\sqrt{100}]=10$",
+     "$f(1)=9+10=19$"
+    ],
+    "why": "$\\sqrt{100}=10$ 剛好是整數，取整後是 $10$，不是 $9$。"
+   },
+   {
+    "q": "哪個選項的大小關係成立？",
+    "calc": [
+     "$f(-20)=f(0)=18<19=f(1)$",
+     "$f(-20)\\le f(0)<f(1)$ 成立"
+    ],
+    "why": "「$\\le$」包含相等，$f(-20)=f(0)$ 也符合。"
+   }
+  ],
+  "answer": "(1)",
+  "approx": "",
+  "check": "$f(1)$ 比 $f(0)$ 大 $1$，正是因為 $\\sqrt{100}$ 剛好碰到整數 $10$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "高斯符號遇到根號，先找夾住根號內數字的兩個平方數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "3",
+  "idea": "$c_1,c_2,c_3$ 每次加 $\\dfrac{10}{3}$，函數值每次乘 $4$，可以先求出底數 $a$。再看 $10,8,6$ 每次減 $2$，函數值每次乘 $a^{-2}$。",
+  "formulas": [
+   {
+    "name": "指數律（必背）",
+    "tex": "\\dfrac{a^m}{a^n}=a^{m-n}",
+    "vars": [
+     [
+      "a",
+      "底數"
+     ],
+     [
+      "m,n",
+      "指數"
+     ]
+    ],
+    "cond": "$a>0$"
+   },
+   {
+    "name": "指數律（必背）",
+    "tex": "(a^m)^n=a^{mn}",
+    "vars": [
+     [
+      "a",
+      "底數"
+     ],
+     [
+      "m,n",
+      "指數"
+     ]
+    ],
+    "cond": "$a>0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "「公比為 $4$」寫成式子是什麼？",
+    "calc": [
+     "$\\dfrac{f(c_2)}{f(c_1)}=\\dfrac{a^{c_2}}{a^{c_1}}=a^{c_2-c_1}$",
+     "$a^{10/3}=4=2^2$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "底數 $a$ 是多少？",
+    "calc": [
+     "$a=(2^2)^{3/10}$",
+     "$a=2^{6/10}=2^{3/5}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$f(10),f(8),f(6)$ 的公比怎麼算？",
+    "calc": [
+     "$\\dfrac{f(8)}{f(10)}=\\dfrac{a^8}{a^{10}}=a^{-2}$",
+     "$a^{-2}=\\left(2^{3/5}\\right)^{-2}=2^{-6/5}$"
+    ],
+    "why": "數列是 $10\\to8\\to6$ 遞減，指數差是 $-2$，不是 $+2$。"
+   }
+  ],
+  "answer": "(1)",
+  "approx": "",
+  "check": "$a>1$ 時 $f$ 遞增，$f(8)<f(10)$，公比應小於 $1$；$2^{-6/5}<1$，符合。",
+  "wrong": [
+   {
+    "opt": "(4)",
+    "how": "公比算成 $\\dfrac{f(10)}{f(8)}=a^2=2^{6/5}$，前後順序弄反"
+   },
+   {
+    "opt": "(2)",
+    "how": "只乘一次 $a^{-1}=2^{-3/5}$，忘了相鄰兩項的 $x$ 差 $2$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "等比數列的公比就是相鄰兩項相除，指數函數相除就是指數相減。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "4",
+  "idea": "依「基本、進階材料各取幾種」分成四類，每類照規則數出「不同的道具」有幾種，最後相加。關鍵是：不同的材料組合，不一定合成出不同的道具。",
+  "formulas": [
+   {
+    "name": "組合數（必背）",
+    "tex": "C^n_r=\\dfrac{n!}{r!\\,(n-r)!}",
+    "vars": [
+     [
+      "n",
+      "可選的總數"
+     ],
+     [
+      "r",
+      "選取的個數"
+     ]
+    ],
+    "cond": "$0\\le r\\le n$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "3 種材料的組成可分成哪幾類？",
+    "calc": [
+     "3 基本：草藥",
+     "2 基本 1 進階：食物",
+     "1 基本 2 進階：藥水",
+     "3 進階：藥水"
+    ],
+    "why": ""
+   },
+   {
+    "q": "草藥、食物各有幾種？",
+    "calc": [
+     "3 基本：必為同一種草藥，$1$ 種",
+     "2 基本 1 進階：只看進階材料，$10$ 種"
+    ],
+    "why": "題目說食物不受基本材料影響，所以不必乘 $C^6_2$。"
+   },
+   {
+    "q": "藥水有幾種？",
+    "calc": [
+     "1 基本 2 進階：$6\\times C^{10}_2=6\\times45=270$",
+     "3 進階：$C^{10}_3=120$",
+     "藥水共 $270+120=390$ 種"
+    ],
+    "why": "其他組合都會合成出不同的藥水，每個組合各算一種。"
+   },
+   {
+    "q": "總共幾種道具？",
+    "calc": [
+     "$1+10+390=401$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(3)",
+  "approx": "",
+  "check": "材料組合共 $C^{16}_3=560$ 個；草藥重複 $C^6_3-1=19$ 個、食物重複 $150-10=140$ 個，$560-19-140=401$，相符。",
+  "wrong": [
+   {
+    "opt": "(5)",
+    "how": "把每個材料組合都當成不同道具，得 $C^{16}_3=560$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "計數題先問「不同的組合是否得到不同的結果」，再決定要不要乘。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "5",
+  "idea": "先觀察：右邊的行向量剛好是前兩個已知向量的和；而 $A$ 把第三個向量變成零向量，代表解不唯一。",
+  "formulas": [
+   {
+    "name": "矩陣乘法的線性（必背）",
+    "tex": "A(s\\vec{u}+t\\vec{w})=sA\\vec{u}+tA\\vec{w}",
+    "vars": [
+     [
+      "A",
+      "三階方陣"
+     ],
+     [
+      "\\vec{u},\\vec{w}",
+      "行向量"
+     ],
+     [
+      "s,t",
+      "實數"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "已知條件可以怎麼簡記？",
+    "calc": [
+     "$\\vec{p}=\\begin{bmatrix}1\\\\1\\\\0\\end{bmatrix}$，$\\vec{q}=\\begin{bmatrix}0\\\\-1\\\\1\\end{bmatrix}$，$\\vec{r}=\\begin{bmatrix}1\\\\0\\\\-1\\end{bmatrix}$",
+     "$A\\vec{p}=\\vec{q}$，$A\\vec{q}=\\vec{p}$，$A\\vec{r}=\\vec{0}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "右邊的 $\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}$ 和已知向量有什麼關係？",
+    "calc": [
+     "$\\vec{p}+\\vec{q}=\\begin{bmatrix}1\\\\0\\\\1\\end{bmatrix}$",
+     "$A(\\vec{p}+\\vec{q})=\\vec{q}+\\vec{p}$",
+     "所以 $\\vec{v}=\\vec{p}+\\vec{q}$ 是一個解"
+    ],
+    "why": ""
+   },
+   {
+    "q": "解只有這一個嗎？",
+    "calc": [
+     "$A(\\vec{p}+\\vec{q}+t\\vec{r})=\\vec{p}+\\vec{q}+t\\vec{0}$",
+     "$\\vec{v}=\\begin{bmatrix}1+t\\\\0\\\\1-t\\end{bmatrix}$ 都是解（$t$ 為任意實數）"
+    ],
+    "why": "$A\\vec{r}=\\vec{0}$，加上 $\\vec{r}$ 的任意倍數不改變乘積。"
+   },
+   {
+    "q": "再加上「垂直於 $\\begin{bmatrix}0\\\\1\\\\0\\end{bmatrix}$」的條件呢？",
+    "calc": [
+     "$\\vec{v}\\cdot(0,1,0)=v_2=0$",
+     "上面每個解的 $v_2$ 都是 $0$",
+     "符合的 $\\vec{v}$ 有無窮多個"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(5)",
+  "approx": "",
+  "check": "取 $t=1$ 得 $\\vec{v}=\\vec{p}+\\vec{q}+\\vec{r}=\\begin{bmatrix}2\\\\0\\\\0\\end{bmatrix}$，$A\\vec{v}=\\vec{q}+\\vec{p}+\\vec{0}$，正是右邊的向量。",
+  "wrong": [
+   {
+    "opt": "(1)",
+    "how": "沒注意 $A\\vec{r}=\\vec{0}$，以為方程式只有一組解"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "看到 $A\\vec{r}=\\vec{0}$（$\\vec{r}\\ne\\vec{0}$），就知道 $A\\vec{v}=\\vec{b}$ 若有解，必有無窮多解。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "6",
+  "idea": "等腰要分三種情況：$\\overline{CA}=\\overline{AB}$、$\\overline{CB}=\\overline{AB}$、$\\overline{CA}=\\overline{CB}$。每種情況求出 $C$ 後，還要檢查三點是否共線。",
+  "formulas": [
+   {
+    "name": "兩點距離（必背）",
+    "tex": "\\overline{PQ}=\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}",
+    "vars": [
+     [
+      "(x_1,y_1)",
+      "點 $P$"
+     ],
+     [
+      "(x_2,y_2)",
+      "點 $Q$"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\overline{AB}$ 多長？$C$ 怎麼設？",
+    "calc": [
+     "$\\overline{AB}=\\sqrt{3^2+4^2}=5$",
+     "設 $C(t,-6)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overline{CA}=5$ 時 $C$ 在哪？",
+    "calc": [
+     "$(t-2)^2+(-6+2)^2=25$",
+     "$(t-2)^2=9$",
+     "$t=5$ 或 $t=-1$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "這兩點都能圍成三角形嗎？",
+    "calc": [
+     "直線 $AB$：$y=-\\dfrac{4}{3}x+\\dfrac{2}{3}$",
+     "$x=5$ 時 $y=-6$：$(5,-6)$ 在直線 $AB$ 上，捨去",
+     "$x=-1$ 時 $y=2\\ne-6$：$(-1,-6)$ 保留"
+    ],
+    "why": "三點共線圍不成三角形。"
+   },
+   {
+    "q": "$\\overline{CB}=5$ 有解嗎？",
+    "calc": [
+     "$B$ 到直線 $y=-6$ 的距離為 $2-(-6)=8$",
+     "$8>5$，無解"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overline{CA}=\\overline{CB}$ 時 $C$ 在哪？",
+    "calc": [
+     "$(t-2)^2+16=(t+1)^2+64$",
+     "$t^2-4t+20=t^2+2t+65$",
+     "$-6t=45$，$t=-\\dfrac{15}{2}$",
+     "共 $2$ 點：$(-1,-6)$、$\\left(-\\dfrac{15}{2},-6\\right)$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)",
+  "approx": "",
+  "check": "$x=-\\dfrac{15}{2}$ 時直線 $AB$ 上 $y=\\dfrac{32}{3}\\ne-6$，此點不共線，可以保留。",
+  "wrong": [
+   {
+    "opt": "(3)",
+    "how": "沒檢查共線，把 $(5,-6)$ 也算進去，得 $3$ 個"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "等腰三角形計數要分三種腰的情況，最後一定要排除三點共線。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "7",
+  "idea": "把兩個不等式都改寫成「$y$ 小於某式」，區域是兩條直線下方的共同部分；再看這個區域能不能伸進各象限。",
+  "formulas": [
+   {
+    "name": "二元一次不等式的區域",
+    "tex": "y<mx+k",
+    "vars": [
+     [
+      "m",
+      "直線斜率"
+     ],
+     [
+      "k",
+      "$y$ 截距"
+     ]
+    ],
+    "cond": "表示直線 $y=mx+k$ 的下方"
+   }
+  ],
+  "steps": [
+   {
+    "q": "兩個不等式各表示哪一側？",
+    "calc": [
+     "$2x-y-3>0\\iff y<2x-3$",
+     "$x+2y+1<0\\iff y<-\\dfrac{x+1}{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "兩條邊界線交在哪？",
+    "calc": [
+     "$2x-3=-\\dfrac{x+1}{2}$",
+     "$4x-6=-x-1$",
+     "$x=1$，$y=-1$"
+    ],
+    "why": "區域是以 $(1,-1)$ 為頂點、在兩直線下方的角形區域。"
+   },
+   {
+    "q": "(1)(2)(5) 區域內的點能讓 $y\\ge0$ 嗎？",
+    "calc": [
+     "$y\\ge0$ 需 $2x-3>0$，即 $x>\\dfrac{3}{2}$",
+     "又需 $-\\dfrac{x+1}{2}>0$，即 $x<-1$",
+     "兩者矛盾，區域內一定 $y<0$",
+     "不在第一、二象限，也不在 $x$ 軸上，(1)(2)(5) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3)(4) 找得到第三、四象限的點嗎？",
+    "calc": [
+     "$(-1,-6)$：$-2+6-3=1>0$",
+     "$-1-12+1=-12<0$，在第三象限，(3) 對",
+     "$(3,-3)$：$6+3-3=6>0$",
+     "$3-6+1=-2<0$，在第四象限，(4) 對"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(3)(4)",
+  "approx": "",
+  "check": "頂點 $(1,-1)$ 在第四象限，區域往左下延伸到第三象限，與結果一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "二元一次不等式先化成「$y$ 大於或小於」，再判斷區域在直線的上方或下方。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "8",
+  "idea": "先算 $A^2$，就能判斷 (1)(2)；由 $A^2=2A+I$ 推出遞迴關係；$A$ 是對稱矩陣，$A^n$ 也對稱，所以 $b_n=c_n$。",
+  "formulas": [
+   {
+    "name": "二階矩陣乘法（必背）",
+    "tex": "\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}\\begin{bmatrix}e&f\\\\g&h\\end{bmatrix}=\\begin{bmatrix}ae+bg&af+bh\\\\ce+dg&cf+dh\\end{bmatrix}",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "對稱矩陣的乘冪（要會推）",
+    "tex": "A^T=A\\Rightarrow(A^n)^T=A^n",
+    "vars": [
+     [
+      "A^T",
+      "$A$ 的轉置矩陣"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "(1)(2) $A^2$ 等於多少？",
+    "calc": [
+     "$A^2=\\begin{bmatrix}5&2\\\\2&1\\end{bmatrix}$",
+     "$b_2=c_2=2$，(1) 錯",
+     "$2A+I=\\begin{bmatrix}5&2\\\\2&1\\end{bmatrix}=A^2$，(2) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) $c_n$ 滿足什麼遞迴？",
+    "calc": [
+     "$A^{n+2}=A^nA^2=A^n(2A+I)$",
+     "$A^{n+2}=2A^{n+1}+A^n$",
+     "左下角：$c_{n+2}=2c_{n+1}+c_n$",
+     "例：$c_2=2$，$c_3=5$，$c_4=12$",
+     "$c_3+2c_2=9\\ne12$，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4) 乘上 $\\begin{bmatrix}0\\\\1\\end{bmatrix}$ 得到什麼？",
+    "calc": [
+     "$\\begin{bmatrix}a_n&b_n\\\\c_n&d_n\\end{bmatrix}\\begin{bmatrix}0\\\\1\\end{bmatrix}=\\begin{bmatrix}b_n\\\\d_n\\end{bmatrix}$",
+     "$n=2$：$b_2=2\\ne5=b_3$，(4) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5) 怎麼把 $A^{2n}$ 和 $A^n$ 連起來？",
+    "calc": [
+     "$A$ 對稱，所以 $b_n=c_n$",
+     "$A^{2n}=(A^n)^2$",
+     "$a_{2n}=a_n^2+b_nc_n=a_n^2+b_n^2$",
+     "$d_{2n}=c_nb_n+d_n^2=b_n^2+d_n^2$",
+     "$d_{2n}-a_{2n}=d_n^2-a_n^2$，(5) 對"
+    ],
+    "why": "$(A^n)^T=(A^T)^n=A^n$，對稱矩陣的乘冪仍對稱。"
+   }
+  ],
+  "answer": "(2)(5)",
+  "approx": "",
+  "check": "以 $n=2$ 驗 (5)：$A^4=\\begin{bmatrix}29&12\\\\12&5\\end{bmatrix}$，$5-29=-24=1^2-5^2$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "矩陣乘冪題先算 $A^2$，找出 $A^2$ 與 $A$、$I$ 的關係，就能得到遞迴。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "9",
+  "idea": "把 $T$ 分數公式代入兩科的平均與標準差，化成「$T$ 是 $S$ 的一次函數」，每個選項就變成比較一次式。",
+  "formulas": [
+   {
+    "name": "T 分數",
+    "tex": "T=50+10\\left(\\dfrac{S-\\mu}{\\sigma}\\right)",
+    "vars": [
+     [
+      "S",
+      "原始成績"
+     ],
+     [
+      "\\mu",
+      "平均"
+     ],
+     [
+      "\\sigma",
+      "標準差"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "迴歸直線斜率（必背）",
+    "tex": "m=r\\times\\dfrac{\\sigma_y}{\\sigma_x}",
+    "vars": [
+     [
+      "r",
+      "相關係數"
+     ],
+     [
+      "\\sigma_x,\\sigma_y",
+      "兩變數的標準差"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "兩科的 $T$ 分數公式各是什麼？",
+    "calc": [
+     "數學：$T=50+\\dfrac{10(S-60)}{12}=\\dfrac{5}{6}S$",
+     "英文：$T=50+\\dfrac{10(S-60)}{8}=\\dfrac{5}{4}S-25$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)(2) 代入看看。",
+    "calc": [
+     "(1) $T=\\dfrac{5}{4}\\times52-25=40$，對",
+     "(2) $T=\\dfrac{5}{6}S\\le S$（因 $S\\ge0$），對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) 能找到反例嗎？",
+    "calc": [
+     "乙：數學 $72$、英文 $60$，平均 $66$",
+     "丙：數學 $60$、英文 $70$，平均 $65$",
+     "乙的 $T$：$60$、$50$，平均 $55$",
+     "丙的 $T$：$50$、$62.5$，平均 $56.25$",
+     "乙原始平均較高，$T$ 平均反而較低，(3) 錯"
+    ],
+    "why": "兩科標準差不同，同樣多 $1$ 分，英文換到的 $T$ 分數比數學多。"
+   },
+   {
+    "q": "(4) 及格各需要多少原始分？",
+    "calc": [
+     "數學：$\\dfrac{5}{6}S\\ge40\\Rightarrow S\\ge48$",
+     "英文：$\\dfrac{5}{4}S-25\\ge40\\Rightarrow S\\ge52$",
+     "$48<52$，(4) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5) 換成 $T$ 分數，迴歸斜率會變嗎？",
+    "calc": [
+     "原始分數斜率：$r\\times\\dfrac{12}{8}=\\dfrac{3}{2}r$",
+     "$T$ 分數兩科標準差都是 $10$，斜率：$r\\times\\dfrac{10}{10}=r$",
+     "兩者一般不相同，(5) 錯"
+    ],
+    "why": "一次轉換不改變相關係數 $r$，但會改變標準差，斜率跟著改變。"
+   }
+  ],
+  "answer": "(1)(2)(4)",
+  "approx": "",
+  "check": "數學 $48$ 分：$T=\\dfrac{5}{6}\\times48=40$；英文 $52$ 分：$T=40$，兩個及格門檻都對得上。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "標準化分數先化成原始分數的一次式，比較時就只是比一次函數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "10",
+  "idea": "$\\overline{AB}\\parallel\\overline{DC}$ 讓 $\\triangle ABE\\sim\\triangle CDE$。先用 $\\triangle ABD$ 與 $\\triangle ABE$ 的面積求出 $\\overline{DC}$ 是 $\\overline{AB}$ 的幾倍，其他選項都跟著算得出來。",
+  "formulas": [
+   {
+    "name": "向量夾角（必背）",
+    "tex": "\\cos\\theta=\\dfrac{\\vec{u}\\cdot\\vec{v}}{|\\vec{u}||\\vec{v}|}",
+    "vars": [
+     [
+      "\\theta",
+      "$\\vec{u}$ 與 $\\vec{v}$ 的夾角"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "三角形面積（坐標）",
+    "tex": "\\text{面積}=\\dfrac{1}{2}|ad-bc|",
+    "vars": [
+     [
+      "(a,b),(c,d)",
+      "從同一頂點出發的兩邊向量"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "(1) $\\cos\\angle BAD$ 是多少？",
+    "calc": [
+     "$\\overrightarrow{AB}\\cdot\\overrightarrow{AD}=2-30=-28$",
+     "$|\\overrightarrow{AB}|=2\\sqrt{10}$，$|\\overrightarrow{AD}|=\\sqrt{26}$",
+     "$2\\sqrt{10}\\times\\sqrt{26}=4\\sqrt{65}$",
+     "$\\cos\\angle BAD=\\dfrac{-28}{4\\sqrt{65}}=\\dfrac{-7\\sqrt{65}}{65}$，(1) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2) $\\triangle ABD$ 面積是多少？",
+    "calc": [
+     "$\\dfrac{1}{2}|2\\times5-(-6)\\times1|$",
+     "$=\\dfrac{1}{2}\\times16=8$，(2) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overline{DC}$ 是 $\\overline{AB}$ 的幾倍？",
+    "calc": [
+     "設 $\\overrightarrow{DC}=k\\overrightarrow{AB}$（$k>0$）",
+     "$\\triangle ABE\\sim\\triangle CDE$，$\\overline{BE}:\\overline{ED}=1:k$",
+     "$\\triangle ABE=\\dfrac{1}{1+k}\\times8=3$",
+     "$k=\\dfrac{5}{3}$"
+    ],
+    "why": "$\\triangle ABE$ 與 $\\triangle ABD$ 從 $A$ 出發的高相同，面積比等於底 $\\overline{BE}:\\overline{BD}$。"
+   },
+   {
+    "q": "(3) $\\overrightarrow{AE}$ 是多少？",
+    "calc": [
+     "$\\overline{AE}:\\overline{EC}=1:k=3:5$",
+     "$\\overrightarrow{AC}=\\overrightarrow{AD}+\\dfrac{5}{3}\\overrightarrow{AB}=\\left(\\dfrac{13}{3},-5\\right)$",
+     "$\\overrightarrow{AE}=\\dfrac{3}{8}\\overrightarrow{AC}=\\left(\\dfrac{13}{8},-\\dfrac{15}{8}\\right)$，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4) 四邊形面積是多少？",
+    "calc": [
+     "$\\triangle BCD$ 的底 $\\overline{DC}=\\dfrac{5}{3}\\overline{AB}$，高相同",
+     "$\\triangle BCD=8\\times\\dfrac{5}{3}=\\dfrac{40}{3}$",
+     "$ABCD=8+\\dfrac{40}{3}=\\dfrac{64}{3}\\ne\\dfrac{65}{3}$，(4) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5) $\\overline{BC}$ 有多長？",
+    "calc": [
+     "$\\overrightarrow{BC}=\\overrightarrow{AC}-\\overrightarrow{AB}=\\left(\\dfrac{7}{3},1\\right)$",
+     "$\\overline{BC}=\\dfrac{\\sqrt{58}}{3}<\\dfrac{\\sqrt{64}}{3}=\\dfrac{8}{3}$，(5) 對"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)(5)",
+  "approx": "",
+  "check": "$\\triangle ABE=3$、$\\triangle ADE=5$、$\\triangle BCE=5$、$\\triangle CDE=\\dfrac{25}{3}$，相加 $\\dfrac{64}{3}$，與 (4) 的計算一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "梯形對角線交點的比例，等於上下兩底的比，先求這個比就能解決大部分問題。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "11",
+  "idea": "兩個圖形都通過 $(0,1)$；$y=\\cos\\left(\\dfrac{\\pi}{2}x\\right)$ 是偶函數、週期 $4$、函數值只在 $-1$ 到 $1$ 之間。逐項用這些性質檢查。",
+  "formulas": [
+   {
+    "name": "餘弦是偶函數（必背）",
+    "tex": "\\cos(-\\theta)=\\cos\\theta",
+    "vars": [
+     [
+      "\\theta",
+      "任意實數"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "餘弦函數的週期（必背）",
+    "tex": "y=\\cos(bx)\\text{ 的週期}=\\dfrac{2\\pi}{|b|}",
+    "vars": [
+     [
+      "b",
+      "$x$ 的係數"
+     ]
+    ],
+    "cond": "$b\\ne0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "(1) 有沒有不是負數的交點？",
+    "calc": [
+     "$x=0$：$\\cos0=1$，$m\\times0+1=1$",
+     "$(0,1)$ 永遠是交點，$x=0$ 不是負數，(1) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2) 把 $(a,b)$ 換成 $(-a,b)$ 會怎樣？",
+    "calc": [
+     "$b=\\cos\\left(\\dfrac{\\pi}{2}a\\right)=ma+1$",
+     "$\\cos\\left(-\\dfrac{\\pi}{2}a\\right)=\\cos\\left(\\dfrac{\\pi}{2}a\\right)=b$",
+     "$(-m)(-a)+1=ma+1=b$",
+     "$(-a,b)$ 在兩圖形上，(2) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) $\\left(\\dfrac{20}{3},\\dfrac{1}{2}\\right)$ 在 $\\Gamma$ 上嗎？",
+    "calc": [
+     "$\\cos\\left(\\dfrac{\\pi}{2}\\times\\dfrac{20}{3}\\right)=\\cos\\dfrac{10\\pi}{3}$",
+     "$=\\cos\\dfrac{4\\pi}{3}=-\\dfrac{1}{2}\\ne\\dfrac{1}{2}$",
+     "點不在 $\\Gamma$ 上，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4) 交點在 $y=-1$ 上時，$x$ 是多少？",
+    "calc": [
+     "$\\cos\\left(\\dfrac{\\pi}{2}x\\right)=-1\\Rightarrow\\dfrac{\\pi}{2}x=(2k+1)\\pi$",
+     "$x=4k+2$（$k$ 為整數）",
+     "又 $mx+1=-1\\Rightarrow x=-\\dfrac{2}{m}$",
+     "$-\\dfrac{2}{m}=4k+2\\Rightarrow\\dfrac{1}{m}=-(2k+1)$",
+     "$\\dfrac{1}{m}$ 是奇數，(4) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5) 找個例子試試：$m=1$。",
+    "calc": [
+     "$y=x+1$ 與 $x$ 軸交於 $(-1,0)$，且 $\\cos\\left(-\\dfrac{\\pi}{2}\\right)=0$",
+     "$-1\\le x+1\\le1\\Rightarrow-2\\le x\\le0$",
+     "交點 $x=-2,-1,0$，共 $3$ 個",
+     "奇數個，(5) 錯"
+    ],
+    "why": "在 $-1\\le x\\le0$，$\\Gamma$ 向上凸，在弦上方；在 $-2\\le x\\le-1$，$\\Gamma$ 向下凸，在弦下方。$y=x+1$ 正是這兩段的弦，只交在端點。"
+   }
+  ],
+  "answer": "(2)(4)",
+  "approx": "",
+  "check": "(4) 例：$m=-1$ 時 $\\dfrac{1}{m}=-1$，$y=-x+1$ 在 $x=2$ 時 $y=-1$，而 $\\cos\\pi=-1$，確實相交。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "三角函數與直線的交點題，先找必過的共同點，再用奇偶性、週期與值域檢查。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "12",
+  "idea": "設 $f(x)=x^3+px^2+qx+r$，由 $f-g$ 寫出 $g$。三次函數的對稱中心 $x$ 坐標是 $-\\dfrac{b}{3a}$，注意 $g$ 的三次項係數是 $-1$。",
+  "formulas": [
+   {
+    "name": "三次函數的對稱中心（必背）",
+    "tex": "x_0=-\\dfrac{b}{3a},\\ y_0=f(x_0)",
+    "vars": [
+     [
+      "a",
+      "三次項係數"
+     ],
+     [
+      "b",
+      "二次項係數"
+     ]
+    ],
+    "cond": "$f(x)=ax^3+bx^2+cx+d$，$a\\ne0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$f$、$g$ 怎麼設？",
+    "calc": [
+     "$f(x)=x^3+px^2+qx+r$",
+     "$g(x)=f(x)-(2x^3+2x)$",
+     "$g(x)=-x^3+px^2+(q-2)x+r$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1) 兩圖形有幾個交點？",
+    "calc": [
+     "$f(x)-g(x)=2x(x^2+1)=0$",
+     "$x^2+1>0$，只有 $x=0$",
+     "只交於一點，(1) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2) $a_1+a_2$ 是多少？",
+    "calc": [
+     "$a_1=-\\dfrac{p}{3}$",
+     "$a_2=-\\dfrac{p}{3\\times(-1)}=\\dfrac{p}{3}$",
+     "$a_1+a_2=0$，唯一確定，(2) 對"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) $b_1+b_2$ 是多少？",
+    "calc": [
+     "$b_1=f\\left(-\\dfrac{p}{3}\\right)=\\dfrac{2p^3}{27}-\\dfrac{pq}{3}+r$",
+     "$b_2=g\\left(\\dfrac{p}{3}\\right)=\\dfrac{2p^3}{27}+\\dfrac{p(q-2)}{3}+r$",
+     "$b_1+b_2=\\dfrac{4p^3}{27}-\\dfrac{2p}{3}+2r$",
+     "會隨 $p$、$r$ 改變，(3) 錯"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5) $a_1=a_2$ 與 $b_1=b_2$ 各代表什麼？",
+    "calc": [
+     "$b_1-b_2=-\\dfrac{pq}{3}-\\dfrac{p(q-2)}{3}=-\\dfrac{2p(q-1)}{3}$",
+     "(4) $a_1=a_2\\Rightarrow p=0\\Rightarrow b_1=b_2$，對",
+     "(5) $b_1=b_2\\Rightarrow p=0$ 或 $q=1$",
+     "取 $p=3$、$q=1$：$a_1=-1\\ne1=a_2$，錯"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)(4)",
+  "approx": "",
+  "check": "取 $p=0$：$f=x^3+qx+r$、$g=-x^3+(q-2)x+r$，對稱中心都是 $(0,r)$，與 (4) 相符。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "三次函數對稱中心看 $-\\dfrac{b}{3a}$，首項係數的正負號要代對。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "13",
+  "idea": "「已知通過檢定」是條件，所求是「通過的人之中有碩士的比例」。先算通過檢定的總機率，再看其中碩士佔多少。",
+  "formulas": [
+   {
+    "name": "條件機率（必背）",
+    "tex": "P(B\\mid A)=\\dfrac{P(A\\cap B)}{P(A)}",
+    "vars": [
+     [
+      "A",
+      "已知發生的事件"
+     ],
+     [
+      "B",
+      "要求機率的事件"
+     ]
+    ],
+    "cond": "$P(A)>0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "事件怎麼設？已知哪些機率？",
+    "calc": [
+     "$M$：有碩士；$E$：通過英聽",
+     "$P(M)=\\dfrac{3}{4}$，$P(E\\mid M)=\\dfrac{3}{5}$",
+     "$P(M')=\\dfrac{1}{4}$，$P(E\\mid M')=\\dfrac{1}{5}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "通過檢定的機率是多少？",
+    "calc": [
+     "$P(M\\cap E)=\\dfrac{3}{4}\\times\\dfrac{3}{5}=\\dfrac{9}{20}$",
+     "$P(M'\\cap E)=\\dfrac{1}{4}\\times\\dfrac{1}{5}=\\dfrac{1}{20}$",
+     "$P(E)=\\dfrac{9}{20}+\\dfrac{1}{20}=\\dfrac{1}{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "通過的人之中，碩士佔多少？",
+    "calc": [
+     "$P(M\\mid E)=\\dfrac{9}{20}\\div\\dfrac{1}{2}=\\dfrac{9}{10}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{9}{10}$",
+  "approx": "",
+  "check": "碩士本來就佔 $\\dfrac{3}{4}$，通過率又較高，所以通過者中碩士比例應高於 $\\dfrac{3}{4}$，$\\dfrac{9}{10}$ 合理。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "條件機率先找「已知」的事件當分母，再算交集當分子。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "14",
+  "idea": "向量與直線垂直，就是與直線的方向向量內積為 $0$。由此把 $a$ 用 $b$ 表示，$a+b$ 變成 $b$ 的二次函數，再配方求最大值。",
+  "formulas": [
+   {
+    "name": "垂直的條件（必背）",
+    "tex": "\\vec{u}\\perp\\vec{v}\\iff\\vec{u}\\cdot\\vec{v}=0",
+    "vars": [
+     [
+      "\\vec{u},\\vec{v}",
+      "非零向量"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "配方法",
+    "tex": "-x^2+x=-\\left(x-\\dfrac{1}{2}\\right)^2+\\dfrac{1}{4}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "直線 $y=bx-1$ 的方向向量是什麼？",
+    "calc": [
+     "斜率為 $b$",
+     "方向向量 $(1,b)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "垂直條件寫成式子是什麼？",
+    "calc": [
+     "$(a,b)\\cdot(1,b)=a+b^2=0$",
+     "$a=-b^2$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$a+b$ 的最大值是多少？",
+    "calc": [
+     "$a+b=-b^2+b$",
+     "$=-\\left(b-\\dfrac{1}{2}\\right)^2+\\dfrac{1}{4}$",
+     "$b=\\dfrac{1}{2}$ 時最大值 $\\dfrac{1}{4}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{1}{4}$",
+  "approx": "",
+  "check": "$b=\\dfrac{1}{2}$、$a=-\\dfrac{1}{4}$：$(a,b)\\cdot(1,b)=-\\dfrac{1}{4}+\\dfrac{1}{4}=0$，且 $a+b=\\dfrac{1}{4}$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "向量與直線垂直，就是與方向向量內積為 $0$。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "15",
+  "idea": "三點的 $x$ 坐標 $a,b,c$ 成等差。三點共線時，中間的點把線段等分，所以 $y$ 坐標也成等差。",
+  "formulas": [
+   {
+    "name": "等差中項（必背）",
+    "tex": "2y_2=y_1+y_3",
+    "vars": [
+     [
+      "y_2",
+      "中間項"
+     ],
+     [
+      "y_1,y_3",
+      "前後兩項"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "對數運算（必背）",
+    "tex": "\\log M+\\log N=\\log MN,\\ k\\log M=\\log M^k",
+    "vars": [
+     [
+      "M,N",
+      "正數"
+     ]
+    ],
+    "cond": "$M>0$，$N>0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "為什麼 $y$ 坐標也要成等差？",
+    "calc": [
+     "$b-a=c-b$",
+     "共線 $\\Rightarrow$ 兩段斜率相等，分母相同",
+     "$\\log4b-\\log3a=\\log6c-\\log4b$",
+     "$2\\log4b=\\log3a+\\log6c$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "化成不含對數的式子",
+    "calc": [
+     "$\\log(4b)^2=\\log(18ac)$",
+     "$16b^2=18ac$",
+     "$8b^2=9ac$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "用公差表示 $a$、$c$",
+    "calc": [
+     "設 $a=b-d$，$c=b+d$（$d>0$）",
+     "$8b^2=9(b^2-d^2)$",
+     "$b^2=9d^2$，$b=3d$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\dfrac{b}{a}$ 是多少？",
+    "calc": [
+     "$a=3d-d=2d$",
+     "$\\dfrac{b}{a}=\\dfrac{3d}{2d}=\\dfrac{3}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{3}{2}$",
+  "approx": "",
+  "check": "取 $a=2$、$b=3$、$c=4$：$y$ 坐標 $\\log6$、$\\log12$、$\\log24$，公差都是 $\\log2$，三點共線。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "$x$ 坐標等差的三點共線，等於 $y$ 坐標也等差。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "16",
+  "idea": "$\\Gamma$ 交 $x$ 軸於 $\\pm\\dfrac{1}{2}$，對稱軸是 $x=0$，可求出頂點 $P$ 與開口係數。平移不改變開口係數，只改變頂點位置。",
+  "formulas": [
+   {
+    "name": "二次函數頂點式（必背）",
+    "tex": "y=a(x-h)^2+k",
+    "vars": [
+     [
+      "a",
+      "開口係數"
+     ],
+     [
+      "(h,k)",
+      "頂點"
+     ]
+    ],
+    "cond": "$a\\ne0$"
+   },
+   {
+    "name": "兩點距離（必背）",
+    "tex": "\\overline{PQ}=\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "頂點 $P$ 與 $f(x)$ 是什麼？",
+    "calc": [
+     "對稱軸 $x=0$，$P=(0,1)$",
+     "設 $f(x)=ax^2+1$",
+     "$f\\left(\\dfrac{1}{2}\\right)=\\dfrac{a}{4}+1=0\\Rightarrow a=-4$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "平移後的圖形怎麼設？",
+    "calc": [
+     "$Q=(h,1+2h)$",
+     "$y=-4(x-h)^2+1+2h$"
+    ],
+    "why": "平移只移動位置，開口係數仍是 $-4$。"
+   },
+   {
+    "q": "代入 $B\\left(\\dfrac{1}{2},0\\right)$ 求 $h$",
+    "calc": [
+     "$-4\\left(\\dfrac{1}{2}-h\\right)^2+1+2h=0$",
+     "$-1+4h-4h^2+1+2h=0$",
+     "$h(6-4h)=0$",
+     "$h=0$（就是 $P$，捨去）或 $h=\\dfrac{3}{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overline{PQ}$ 是多少？",
+    "calc": [
+     "$Q=\\left(\\dfrac{3}{2},4\\right)$",
+     "$\\overline{PQ}=\\sqrt{\\dfrac{9}{4}+9}=\\sqrt{\\dfrac{45}{4}}$",
+     "$=\\dfrac{3\\sqrt{5}}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{3\\sqrt{5}}{2}$",
+  "approx": "",
+  "check": "新圖形 $y=-4\\left(x-\\dfrac{3}{2}\\right)^2+4$ 在 $x=\\dfrac{1}{2}$ 時 $y=-4+4=0$，確實過 $B$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "平移不改變開口係數，設頂點式只要動頂點。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "17",
+  "idea": "設 $\\angle ACD=\\theta$，則 $\\angle BCD=2\\theta$。在 $\\triangle BCD$ 用正弦定理把 $\\overline{BC}=2\\overline{BD}$ 變成角的關係，先求 $\\sin\\theta$；再在直角三角形裡用正切表示 $\\overline{AD}$、$\\overline{AB}$。",
+  "formulas": [
+   {
+    "name": "正弦定理（必背）",
+    "tex": "\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}",
+    "vars": [
+     [
+      "a,b",
+      "兩邊長"
+     ],
+     [
+      "A,B",
+      "兩邊的對角"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "三倍角（要會推）",
+    "tex": "\\tan3\\theta=\\dfrac{3\\tan\\theta-\\tan^3\\theta}{1-3\\tan^2\\theta}",
+    "vars": [
+     [
+      "\\theta",
+      "角度"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "三角形裡的角怎麼表示？",
+    "calc": [
+     "$\\angle ACD=\\theta$，$\\angle BCD=2\\theta$",
+     "$\\triangle ACD$ 中 $\\angle ADC=90^\\circ-\\theta$",
+     "$\\angle BDC=180^\\circ-(90^\\circ-\\theta)=90^\\circ+\\theta$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "在 $\\triangle BCD$ 用正弦定理會得到什麼？",
+    "calc": [
+     "$\\dfrac{\\overline{BC}}{\\overline{BD}}=\\dfrac{\\sin(90^\\circ+\\theta)}{\\sin2\\theta}$",
+     "$=\\dfrac{\\cos\\theta}{2\\sin\\theta\\cos\\theta}=\\dfrac{1}{2\\sin\\theta}$",
+     "$\\dfrac{1}{2\\sin\\theta}=2\\Rightarrow\\sin\\theta=\\dfrac{1}{4}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\tan\\theta$ 是多少？",
+    "calc": [
+     "$\\cos\\theta=\\dfrac{\\sqrt{15}}{4}$",
+     "$\\tan\\theta=\\dfrac{\\sqrt{15}}{15}$，$\\tan^2\\theta=\\dfrac{1}{15}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overline{AD}$、$\\overline{AB}$ 怎麼用角表示？",
+    "calc": [
+     "設 $\\overline{AC}=1$",
+     "$\\overline{AD}=\\tan\\theta$，$\\overline{AB}=\\tan3\\theta$",
+     "$k=\\dfrac{\\tan\\theta}{\\tan3\\theta}=\\dfrac{1-3\\tan^2\\theta}{3-\\tan^2\\theta}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "代入求 $k$",
+    "calc": [
+     "$1-3\\tan^2\\theta=1-\\dfrac{1}{5}=\\dfrac{4}{5}$",
+     "$3-\\tan^2\\theta=3-\\dfrac{1}{15}=\\dfrac{44}{15}$",
+     "$k=\\dfrac{4}{5}\\times\\dfrac{15}{44}=\\dfrac{3}{11}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$\\dfrac{3}{11}$",
+  "approx": "",
+  "check": "$0<k<1$，符合 $D$ 在 $\\overline{AB}$ 上；且 $\\sin\\theta=\\dfrac{1}{4}$ 時 $3\\theta<90^\\circ$，角度合理。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "角的倍數關係配上邊的比例，先用正弦定理把邊比化成角的三角函數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "18",
+  "idea": "平行四邊形 $ABCD$ 由 $\\overrightarrow{AB}$、$\\overrightarrow{AD}$ 張成，面積就是兩者外積的長度，題目已經直接給了這個外積。",
+  "formulas": [
+   {
+    "name": "外積與面積（必背）",
+    "tex": "\\text{平行四邊形面積}=|\\vec{u}\\times\\vec{v}|",
+    "vars": [
+     [
+      "\\vec{u},\\vec{v}",
+      "張成平行四邊形的兩邊向量"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "哪一個外積對應 $ABCD$？",
+    "calc": [
+     "$ABCD$ 由 $\\overrightarrow{AB}$、$\\overrightarrow{AD}$ 張成",
+     "$\\overrightarrow{AB}\\times\\overrightarrow{AD}=(-5,5,5)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "外積的長度是多少？",
+    "calc": [
+     "面積 $=\\sqrt{25+25+25}=\\sqrt{75}$",
+     "$=5\\sqrt{3}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(3)",
+  "approx": "",
+  "check": "用第 20 題求出的 $\\overrightarrow{AB}=(1,-1,2)$、$\\overrightarrow{AD}=(2,3,-1)$ 驗算，外積仍是 $(-5,5,5)$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "平行四邊形面積就是兩邊向量外積的長度。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "19",
+  "idea": "平面 $ABCD$ 包含 $\\overrightarrow{AB}$ 與 $\\overrightarrow{AD}$，兩者的外積垂直於這個平面，就是法向量；再用平面上的點 $B$ 寫出方程式。",
+  "formulas": [
+   {
+    "name": "平面的點法式（必背）",
+    "tex": "a(x-x_0)+b(y-y_0)+c(z-z_0)=0",
+    "vars": [
+     [
+      "(a,b,c)",
+      "法向量"
+     ],
+     [
+      "(x_0,y_0,z_0)",
+      "平面上一點"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "平面 $ABCD$ 的法向量是什麼？",
+    "calc": [
+     "$\\overrightarrow{AB}\\times\\overrightarrow{AD}=(-5,5,5)$ 垂直平面 $ABCD$",
+     "取法向量 $(1,-1,-1)$"
+    ],
+    "why": "外積同時垂直 $\\overrightarrow{AB}$、$\\overrightarrow{AD}$，所以垂直它們張成的平面；法向量可以約掉公因數 $-5$。"
+   },
+   {
+    "q": "用點 $B(1,2,0)$ 寫出方程式",
+    "calc": [
+     "$1(x-1)-1(y-2)-1(z-0)=0$",
+     "$x-1-y+2-z=0$",
+     "$x-y-z=-1$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$x-y-z=-1$（或 $x-y-z+1=0$）",
+  "approx": "",
+  "check": "$B(1,2,0)$ 代回：$1-2-0=-1$，成立。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "求平面方程式：法向量用外積，再代平面上一點。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 115,
+  "no": "20",
+  "idea": "題目給的是三組外積，要反推 $\\overrightarrow{AB}$、$\\overrightarrow{AD}$、$\\overrightarrow{AP}$。同時垂直兩個向量的向量，必平行它們的外積；體積用三向量的純量三重積；最遠點一定在頂點。",
+  "formulas": [
+   {
+    "name": "平行六面體體積（必背）",
+    "tex": "V=|\\vec{a}\\cdot(\\vec{b}\\times\\vec{c})|",
+    "vars": [
+     [
+      "\\vec{a},\\vec{b},\\vec{c}",
+      "從同一頂點出發的三邊向量"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "同時垂直兩向量（要會推）",
+    "tex": "\\vec{w}\\perp\\vec{m},\\ \\vec{w}\\perp\\vec{n}\\Rightarrow\\vec{w}\\parallel\\vec{m}\\times\\vec{n}",
+    "vars": [
+     [
+      "\\vec{m},\\vec{n}",
+      "不平行的兩向量"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\overrightarrow{AP}$ 的方向是什麼？",
+    "calc": [
+     "$\\overrightarrow{AP}\\perp\\overrightarrow{AD}\\times\\overrightarrow{AP}$",
+     "$\\overrightarrow{AP}\\perp\\overrightarrow{AP}\\times\\overrightarrow{AB}$",
+     "$(-2,0,-4)\\times(6,-10,-8)=(-40,-40,20)$",
+     "$\\overrightarrow{AP}\\parallel(2,2,-1)$"
+    ],
+    "why": "外積同時垂直相乘的兩個向量。"
+   },
+   {
+    "q": "$|\\overrightarrow{AP}|=6$，$\\overrightarrow{AP}$ 是哪個向量？",
+    "calc": [
+     "$|(2,2,-1)|=3$",
+     "$\\overrightarrow{AP}=\\pm(4,4,-2)$，取 $(4,4,-2)$"
+    ],
+    "why": "若取負號，三個邊向量會全部變號，體積與距離都不變。"
+   },
+   {
+    "q": "體積是多少？",
+    "calc": [
+     "$V=|\\overrightarrow{AP}\\cdot(\\overrightarrow{AB}\\times\\overrightarrow{AD})|$",
+     "$=|(4,4,-2)\\cdot(-5,5,5)|$",
+     "$=|-20+20-10|=10$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overrightarrow{AB}$ 是哪個向量？",
+    "calc": [
+     "$\\overrightarrow{AB}\\parallel(-5,5,5)\\times(6,-10,-8)=(10,-10,20)$",
+     "設 $\\overrightarrow{AB}=t(1,-1,2)$",
+     "$(4,4,-2)\\times t(1,-1,2)=t(6,-10,-8)$",
+     "$t=1$，$\\overrightarrow{AB}=(1,-1,2)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\overrightarrow{AD}$ 是哪個向量？",
+    "calc": [
+     "$\\overrightarrow{AD}\\parallel(-5,5,5)\\times(-2,0,-4)=(-20,-30,10)$",
+     "設 $\\overrightarrow{AD}=s(2,3,-1)$",
+     "$s(2,3,-1)\\times(4,4,-2)=s(-2,0,-4)$",
+     "$s=1$，$\\overrightarrow{AD}=(2,3,-1)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "離 $A$ 最遠的點在哪裡？",
+    "calc": [
+     "$|\\overrightarrow{AB}|^2=6$，$|\\overrightarrow{AD}|^2=14$，$|\\overrightarrow{AP}|^2=36$",
+     "$\\overrightarrow{AC}=(3,2,1)$：$14$",
+     "$\\overrightarrow{AQ}=(5,3,0)$：$34$",
+     "$\\overrightarrow{AS}=(6,7,-3)$：$94$",
+     "$\\overrightarrow{AR}=(7,6,-1)$：$86$",
+     "最長 $\\overline{AS}=\\sqrt{94}$"
+    ],
+    "why": "平行六面體是凸的立體，離一個定點最遠的點一定在頂點，只要比較七個頂點。"
+   }
+  ],
+  "answer": "體積 $10$；最長距離 $\\sqrt{94}$",
+  "approx": "",
+  "check": "驗算 $\\overrightarrow{AB}\\times\\overrightarrow{AD}=(1,-1,2)\\times(2,3,-1)=(-5,5,5)$，與題設一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "從外積反推向量：先用「同時垂直兩向量就平行其外積」定方向，再比對已知外積定倍數。",
+  "answer_issue": ""
+ }
+]

@@ -1,0 +1,1672 @@
+[
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "1",
+  "idea": "題目分兩段：先由「任選兩球不同口味超過 $100$ 種」找出最少桶數 $n$，再算顧客「可為同一口味」的選法。前者不可重複，用 $C^n_2$；後者可以重複，用重複組合 $H^n_2$。",
+  "formulas": [
+   {
+    "name": "組合數（必背）",
+    "tex": "C^n_r=\\dfrac{n!}{r!\\,(n-r)!}",
+    "vars": [
+     [
+      "n",
+      "全部的種類數"
+     ],
+     [
+      "r",
+      "選出的個數（不可重複）"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "重複組合（必背）",
+    "tex": "H^n_r=C^{n+r-1}_r",
+    "vars": [
+     [
+      "n",
+      "種類數"
+     ],
+     [
+      "r",
+      "選出的個數（可重複選同一種）"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "「不同口味的組合數超過 $100$」怎麼列式？",
+    "calc": [
+     "$C^n_2=\\dfrac{n(n-1)}{2}>100$",
+     "$n(n-1)>200$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "最小的 $n$ 是多少？",
+    "calc": [
+     "$n=14$：$14\\times13=182<200$，不夠",
+     "$n=15$：$15\\times14=210>200$",
+     "所以 $n=15$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "顧客可以選同一口味，選法怎麼算？",
+    "calc": [
+     "兩球不同口味：$C^{15}_2=105$",
+     "兩球同口味：$15$",
+     "合計 $105+15=120$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "能不能用重複組合一次算出來？",
+    "calc": [
+     "$H^{15}_2=C^{16}_2$",
+     "$=\\dfrac{16\\times15}{2}=120$"
+    ],
+    "why": "從 $15$ 種中可重複地取 $2$ 個，正好是 $H^{15}_2$。"
+   }
+  ],
+  "answer": "(4)",
+  "approx": "",
+  "check": "$120$ 比 $105$ 多出的 $15$ 種，正好是「兩球同口味」的 $15$ 種，合理。",
+  "wrong": [
+   {
+    "opt": "(2)",
+    "how": "忘了可以選同一口味，只算 $C^{15}_2=105$"
+   },
+   {
+    "opt": "(5)",
+    "how": "把兩球當成有順序，算成 $15\\times15=225$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "先分清楚可不可以重複：不可重複用 $C$，可以重複用 $H$。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "2",
+  "idea": "誤按得到 $\\log_b a$，是正確值 $\\log_a b$ 的 $\\dfrac{9}{4}$ 倍。關鍵是 $\\log_b a$ 與 $\\log_a b$ 互為倒數，設一個變數就能解。",
+  "formulas": [
+   {
+    "name": "換底公式（必背）",
+    "tex": "\\log_a b=\\dfrac{\\log b}{\\log a}",
+    "vars": [
+     [
+      "a",
+      "底數，$a>0$ 且 $a\\ne1$"
+     ],
+     [
+      "b",
+      "真數，$b>0$"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "由換底公式推得（要會推）",
+    "tex": "\\log_b a=\\dfrac{1}{\\log_a b}",
+    "vars": [],
+    "cond": "$a,b>0$ 且 $a\\ne1$、$b\\ne1$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "「誤按的結果是正確值的 $\\dfrac{9}{4}$ 倍」怎麼列式？",
+    "calc": [
+     "$\\log_b a=\\dfrac{9}{4}\\log_a b$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "兩個對數長得不一樣，怎麼統一？",
+    "calc": [
+     "設 $t=\\log_a b$，則 $\\log_b a=\\dfrac{1}{t}$",
+     "$\\dfrac{1}{t}=\\dfrac{9}{4}t$",
+     "$t^2=\\dfrac{4}{9}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$t$ 取正還是取負？",
+    "calc": [
+     "$a>1$、$b>1$，所以 $\\log_a b>0$",
+     "$t=\\dfrac{2}{3}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "把 $\\log_a b=\\dfrac{2}{3}$ 換回 $a,b$ 的關係。",
+    "calc": [
+     "$b=a^{2/3}$",
+     "兩邊三次方：$b^3=a^2$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)",
+  "approx": "",
+  "check": "取 $a=8$、$b=4$：$\\log_8 4=\\dfrac{2}{3}$，$\\log_4 8=\\dfrac{3}{2}$，而 $\\dfrac{3}{2}=\\dfrac{9}{4}\\times\\dfrac{2}{3}$，符合。",
+  "wrong": [
+   {
+    "opt": "(2)",
+    "how": "把兩個對數的角色弄反，解出 $\\log_a b=\\dfrac{3}{2}$，得 $b^2=a^3$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "$\\log_a b$ 與 $\\log_b a$ 同時出現，立刻想到它們互為倒數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "3",
+  "idea": "投影後的一維數據越集中，變異數越小。資料沿著斜率約 $2$ 的方向分布，所以要投影到與這個方向垂直的直線上。",
+  "formulas": [
+   {
+    "name": "兩直線垂直（必背）",
+    "tex": "m_1m_2=-1",
+    "vars": [
+     [
+      "m_1",
+      "第一條直線的斜率"
+     ],
+     [
+      "m_2",
+      "第二條直線的斜率"
+     ]
+    ],
+    "cond": "兩直線都不是鉛直線"
+   }
+  ],
+  "steps": [
+   {
+    "q": "從散布圖看，資料大致沿著哪個方向分布？",
+    "calc": [
+     "點大約從 $(-2,-4)$ 排到 $(2,4)$",
+     "走向接近直線 $y=2x$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "投影到 $y=2x$ 上會怎樣？",
+    "calc": [
+     "投影點從 $(-2,-4)$ 附近拉到 $(2,4)$ 附近",
+     "分布最長，變異數最大"
+    ],
+    "why": ""
+   },
+   {
+    "q": "投影到哪個方向最集中？",
+    "calc": [
+     "與資料走向垂直的方向",
+     "每個點在這個方向只偏離一點點，投影點擠在原點附近"
+    ],
+    "why": "垂直方向上看到的，只剩資料偏離走向的小誤差。"
+   },
+   {
+    "q": "哪個選項和 $y=2x$ 垂直？",
+    "calc": [
+     "垂直斜率 $m=-\\dfrac{1}{2}$",
+     "對應選項 $y=-\\dfrac{x}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(5)",
+  "approx": "",
+  "check": "資料點近似 $(x,2x)$，沿方向 $(2,-1)$ 的投影量與 $2x-2x=0$ 成正比，幾乎都在原點附近，最集中。",
+  "wrong": [
+   {
+    "opt": "(1)",
+    "how": "以為要投影到資料走向 $y=2x$ 上，其實那是變異數最大的方向"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "投影後變異數最大的方向是資料走向，最小的是與走向垂直的方向。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "4",
+  "idea": "「$\\log a_1,\\log a_3,\\log a_6$ 成等差」等於「$a_1,a_3,a_6$ 成等比」。用 $a_1$ 與 $d$ 列式，找出兩者關係。",
+  "formulas": [
+   {
+    "name": "等差數列一般項（必背）",
+    "tex": "a_n=a_1+(n-1)d",
+    "vars": [
+     [
+      "a_1",
+      "首項"
+     ],
+     [
+      "d",
+      "公差"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "等比中項（必背）",
+    "tex": "y^2=xz",
+    "vars": [
+     [
+      "x,y,z",
+      "依序成等比的三數"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "對數減法（必背）",
+    "tex": "\\log x-\\log y=\\log\\dfrac{x}{y}",
+    "vars": [],
+    "cond": "$x>0$、$y>0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\log a_1,\\log a_3,\\log a_6$ 成等差，可以翻成什麼？",
+    "calc": [
+     "$2\\log a_3=\\log a_1+\\log a_6$",
+     "$\\log a_3^2=\\log(a_1a_6)$",
+     "$a_3^2=a_1a_6$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "用 $a_1$ 與 $d$ 寫出 $a_3$、$a_6$ 並代入。",
+    "calc": [
+     "$(a_1+2d)^2=a_1(a_1+5d)$",
+     "$a_1^2+4a_1d+4d^2=a_1^2+5a_1d$",
+     "$4d^2=a_1d$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$a_1$ 與 $d$ 的關係是什麼？",
+    "calc": [
+     "$d>0$，兩邊除以 $d$",
+     "$a_1=4d$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "三項各是多少？公差是多少？",
+    "calc": [
+     "$a_1=4d$，$a_3=6d$，$a_6=9d$",
+     "公差 $=\\log a_3-\\log a_1$",
+     "$=\\log\\dfrac{6d}{4d}=\\log\\dfrac{3}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(3)",
+  "approx": "",
+  "check": "$\\log a_6-\\log a_3=\\log\\dfrac{9d}{6d}=\\log\\dfrac{3}{2}$，兩段差相同。",
+  "wrong": [
+   {
+    "opt": "(4)",
+    "how": "把對數數列的公差誤寫成 $\\log(a_3-a_1)=\\log2d$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "取對數後成等差，就是原來的數成等比；公差等於 $\\log$（公比）。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "5",
+  "idea": "「判為陰性者中，染病者的機率」是已知結果回推原因的條件機率。用樹狀圖分成染病、未染病兩支，連續三次陰性時兩支都要三次方。",
+  "formulas": [
+   {
+    "name": "條件機率（必背）",
+    "tex": "P(A\\mid B)=\\dfrac{P(A\\cap B)}{P(B)}",
+    "vars": [
+     [
+      "A",
+      "染病"
+     ],
+     [
+      "B",
+      "檢驗結果為陰性"
+     ]
+    ],
+    "cond": "$P(B)>0$"
+   },
+   {
+    "name": "全機率（要會推）",
+    "tex": "P(B)=P(A)P(B\\mid A)+P(A')P(B\\mid A')",
+    "vars": [
+     [
+      "A'",
+      "未染病（$A$ 的餘事件）"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "先把題目的數字翻成機率。",
+    "calc": [
+     "$P(\\text{染病})=0.3$，$P(\\text{未染病})=0.7$",
+     "$P(\\text{陰}\\mid\\text{染病})=1-0.8=0.2$",
+     "$P(\\text{陰}\\mid\\text{未染病})=0.6$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "單次陰性中染病的機率 $P$ 是多少？",
+    "calc": [
+     "染病且陰性：$0.3\\times0.2=0.06$",
+     "未染病且陰性：$0.7\\times0.6=0.42$",
+     "$P=\\dfrac{0.06}{0.06+0.42}=\\dfrac{1}{8}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "連續三次都陰性呢？",
+    "calc": [
+     "染病且三陰：$0.3\\times0.2^3=0.0024$",
+     "未染病且三陰：$0.7\\times0.6^3=0.1512$",
+     "$P'=\\dfrac{0.0024}{0.1536}=\\dfrac{1}{64}$"
+    ],
+    "why": "兩支都要三次方：未染病的人也要連續三次被判陰性。"
+   },
+   {
+    "q": "$\\dfrac{P}{P'}$ 是多少？",
+    "calc": [
+     "$\\dfrac{P}{P'}=\\dfrac{1}{8}\\div\\dfrac{1}{64}=8$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)",
+  "approx": "",
+  "check": "連三次都陰性時，其實染病的可能性應大幅下降，$P'$ 比 $P$ 小很多，合理。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "「在……的人之中」就是條件機率，分母是結果的總機率，兩條路徑都要算。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "6",
+  "idea": "正三角形頂角的平分線垂直底邊，所以 $L$ 垂直於「$L_1,L_2$ 夾 $60^\\circ$ 那個角」的平分線。兩條角平分線互相垂直，要用「斜率皆正」判斷斜率 $\\dfrac{11}{9}$ 是哪一條。",
+  "formulas": [
+   {
+    "name": "兩直線垂直（必背）",
+    "tex": "m_1m_2=-1",
+    "vars": [
+     [
+      "m_1,m_2",
+      "兩直線的斜率"
+     ]
+    ],
+    "cond": "兩直線都不是鉛直線"
+   },
+   {
+    "name": "點斜式（必背）",
+    "tex": "y-y_0=m(x-x_0)",
+    "vars": [
+     [
+      "(x_0,y_0)",
+      "直線通過的點"
+     ],
+     [
+      "m",
+      "斜率"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$L$ 和角平分線有什麼關係？",
+    "calc": [
+     "正三角形的頂角是 $60^\\circ$",
+     "頂角平分線 $\\perp$ 底邊 $L$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "若 $\\dfrac{11}{9}$ 是 $60^\\circ$ 角的平分線，$L_1,L_2$ 斜率正負如何？",
+    "calc": [
+     "平分線傾斜角約 $50.7^\\circ$",
+     "$L_1,L_2$ 傾斜角約 $50.7^\\circ\\pm30^\\circ$",
+     "約 $20.7^\\circ$、$80.7^\\circ$，斜率都為正，符合"
+    ],
+    "why": "$L_1,L_2$ 與平分線各夾 $30^\\circ$。"
+   },
+   {
+    "q": "若改由另一條平分線（斜率 $-\\dfrac{9}{11}$）平分 $60^\\circ$ 角呢？",
+    "calc": [
+     "傾斜角約 $140.7^\\circ$",
+     "$L_1,L_2$ 約 $110.7^\\circ$、$170.7^\\circ$",
+     "斜率都為負，不合"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$L$ 的斜率與方程式是什麼？",
+    "calc": [
+     "$L\\perp$ 斜率 $\\dfrac{11}{9}$ 的平分線，斜率 $-\\dfrac{9}{11}$",
+     "$y-\\dfrac{1}{3}=-\\dfrac{9}{11}(x-2)$",
+     "兩邊乘 $33$：$33y-11=-27x+54$",
+     "$27x+33y=65$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(5)",
+  "approx": "",
+  "check": "代 $\\left(2,\\dfrac{1}{3}\\right)$：$54+11=65$，成立；且 $-\\dfrac{9}{11}\\times\\dfrac{11}{9}=-1$。",
+  "wrong": [
+   {
+    "opt": "(1)",
+    "how": "挑錯平分線，讓 $L$ 垂直於 $-\\dfrac{9}{11}$ 那條，得斜率 $\\dfrac{11}{9}$ 的 $11x-9y=19$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "等腰（正）三角形頂角的平分線垂直底邊；兩條角平分線要靠題目條件挑。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "7",
+  "idea": "兩邊都是絕對值（非負），可以放心平方去掉絕對值，解出整數 $n$ 的範圍後逐項檢查。選項要對所有滿足條件的 $n$ 都成立才算對。",
+  "formulas": [
+   {
+    "name": "絕對值不等式平方（必背）",
+    "tex": "|A|\\ge|B|\\iff A^2\\ge B^2",
+    "vars": [
+     [
+      "A,B",
+      "任意實數式"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "一元二次公式解（必背）",
+    "tex": "x=\\dfrac{-b\\pm\\sqrt{b^2-4ac}}{2a}",
+    "vars": [
+     [
+      "a,b,c",
+      "$ax^2+bx+c=0$ 的係數"
+     ]
+    ],
+    "cond": "$a\\ne0$"
+   }
+  ],
+  "steps": [
+   {
+    "q": "先解不等式：怎麼去掉絕對值？",
+    "calc": [
+     "$(5n-21)^2\\ge49n^2$",
+     "$25n^2-210n+441\\ge49n^2$",
+     "$24n^2+210n-441\\le0$",
+     "$8n^2+70n-147\\le0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$8n^2+70n-147\\le0$ 的解是什麼？",
+    "calc": [
+     "$n=\\dfrac{-70\\pm\\sqrt{9604}}{16}=\\dfrac{-70\\pm98}{16}$",
+     "兩根 $\\dfrac{7}{4}$ 與 $-\\dfrac{21}{2}$",
+     "$-\\dfrac{21}{2}\\le n\\le\\dfrac{7}{4}$",
+     "整數 $n=-10,-9,\\dots,1$，共 $12$ 個"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1) $|5n-7n|\\ge21$ 對嗎？",
+    "calc": [
+     "即 $|2n|\\ge21$",
+     "$n=0$ 滿足原式（$21\\ge0$），但 $0\\ge21$ 不成立",
+     "錯誤"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2) $-1\\le\\dfrac{7n}{5n-21}\\le1$ 對嗎？",
+    "calc": [
+     "$n$ 為整數，$5n-21\\ne0$",
+     "原式 $\\iff\\dfrac{|7n|}{|5n-21|}\\le1$",
+     "$\\iff-1\\le\\dfrac{7n}{5n-21}\\le1$，正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) $7n\\le5n-21$ 對嗎？",
+    "calc": [
+     "即 $n\\le-\\dfrac{21}{2}$",
+     "$n=0$ 滿足原式卻不滿足此式，錯誤"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4)(5) 呢？",
+    "calc": [
+     "(4) 就是平方後的式子，與原式等價，正確",
+     "(5) 只有 $12$ 個整數，有限個，錯誤"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)(4)",
+  "approx": "",
+  "check": "代 $n=1$：$16\\ge7$ 成立；$n=2$：$11<14$ 不成立，與 $n\\le\\dfrac{7}{4}$ 吻合。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "兩邊都是絕對值就平方；刪選項時找一個反例（如 $n=0$）最快。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "8",
+  "idea": "有坐標先算三邊長。比較 sin 看對邊（正弦定理），判斷銳鈍角比較平方和（餘弦定理），外接圓半徑用正弦定理。",
+  "formulas": [
+   {
+    "name": "距離公式（必背）",
+    "tex": "\\overline{PQ}=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}",
+    "vars": [
+     [
+      "(x_1,y_1),(x_2,y_2)",
+      "兩點坐標"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "正弦定理（必背）",
+    "tex": "\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}=\\dfrac{c}{\\sin C}=2R",
+    "vars": [
+     [
+      "a,b,c",
+      "$\\angle A,\\angle B,\\angle C$ 的對邊長"
+     ],
+     [
+      "R",
+      "外接圓半徑"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "餘弦定理（必背）",
+    "tex": "\\cos B=\\dfrac{a^2+c^2-b^2}{2ac}",
+    "vars": [
+     [
+      "b",
+      "$\\angle B$ 的對邊長"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "三邊長各是多少？",
+    "calc": [
+     "$\\overline{AB}=\\sqrt{1+4}=\\sqrt{5}$",
+     "$\\overline{BC}=\\sqrt{9+1}=\\sqrt{10}$",
+     "$\\overline{AC}=\\sqrt{16+1}=\\sqrt{17}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1) $\\overline{AC}$ 最長嗎？(2) $\\sin A<\\sin C$ 嗎？",
+    "calc": [
+     "$17>10>5$，$\\overline{AC}$ 最長，(1) 正確",
+     "$\\sin A:\\sin C=\\overline{BC}:\\overline{AB}=\\sqrt{10}:\\sqrt{5}$",
+     "$\\sin A>\\sin C$，(2) 錯誤"
+    ],
+    "why": "正弦定理：sin 值的比等於對邊的比。"
+   },
+   {
+    "q": "(3) 是銳角三角形嗎？",
+    "calc": [
+     "最長邊 $\\overline{AC}$ 的對角是 $\\angle B$",
+     "$\\overline{AB}^2+\\overline{BC}^2=15<17=\\overline{AC}^2$",
+     "$\\angle B$ 是鈍角，錯誤"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4) $\\sin B$ 是多少？",
+    "calc": [
+     "$\\cos B=\\dfrac{5+10-17}{2\\sqrt{5}\\sqrt{10}}=\\dfrac{-2}{10\\sqrt{2}}$",
+     "$\\cos B=-\\dfrac{\\sqrt{2}}{10}$",
+     "$\\sin^2B=1-\\dfrac{2}{100}=\\dfrac{49}{50}$",
+     "$\\sin B=\\dfrac{7}{5\\sqrt{2}}=\\dfrac{7\\sqrt{2}}{10}$，正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5) 外接圓半徑比 $2$ 小嗎？",
+    "calc": [
+     "$2R=\\dfrac{\\sqrt{17}}{\\sin B}=\\dfrac{10\\sqrt{17}}{7\\sqrt{2}}$",
+     "$R=\\dfrac{5\\sqrt{34}}{14}\\approx2.08$（四捨五入到小數第二位）",
+     "$R>2$，錯誤"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)(4)",
+  "approx": "",
+  "check": "鈍角三角形的外接圓半徑大於最長邊的一半 $\\dfrac{\\sqrt{17}}{2}\\approx2.06$（四捨五入到小數第二位），與 $R\\approx2.08$ 吻合。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "比 sin 看對邊、判銳鈍比平方和、求外接圓用 $2R$。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "9",
+  "idea": "$P$ 在 $\\triangle ABC$ 內部，代表係數 $a>0$、$b>0$、$a+b<1$。面積可直接用係數乘 $\\triangle ABC$ 面積：以 $\\overline{AB}$ 為底看 $\\overrightarrow{AC}$ 的係數，以 $\\overline{AC}$ 為底看 $\\overrightarrow{AB}$ 的係數。",
+  "formulas": [
+   {
+    "name": "點在三角形內部（必背）",
+    "tex": "\\overrightarrow{AX}=x\\overrightarrow{AB}+y\\overrightarrow{AC},\\ x>0,\\ y>0,\\ x+y<1",
+    "vars": [
+     [
+      "x,y",
+      "分別是 $\\overrightarrow{AB}$、$\\overrightarrow{AC}$ 的係數"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "係數與面積（要會推）",
+    "tex": "\\triangle ABX=|y|\\cdot\\triangle ABC,\\quad\\triangle ACX=|x|\\cdot\\triangle ABC",
+    "vars": [
+     [
+      "\\triangle ABX",
+      "$\\triangle ABX$ 的面積"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "內部點對第三邊（要會推）",
+    "tex": "\\triangle BCX=(1-x-y)\\cdot\\triangle ABC",
+    "vars": [],
+    "cond": "$X$ 在 $\\triangle ABC$ 內部"
+   }
+  ],
+  "steps": [
+   {
+    "q": "由「$P$ 在 $\\triangle ABC$ 內」能得到什麼？",
+    "calc": [
+     "$a>0$，$b>0$，$a+b<1$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "為什麼 $\\triangle ABX$ 的面積只看 $\\overrightarrow{AC}$ 的係數？",
+    "calc": [
+     "$x\\overrightarrow{AB}$ 平行底邊 $\\overline{AB}$，不改變高",
+     "高是 $C$ 到 $\\overline{AB}$ 距離的 $|y|$ 倍",
+     "$\\triangle ABX=|y|\\cdot\\triangle ABC$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1) $Q$、$R$ 都在內部嗎？",
+    "calc": [
+     "$Q$ 的係數 $(b,a)$：都正且和 $<1$，在內部",
+     "$R$ 的係數 $(a,b-0.05)$",
+     "若 $b=0.01$，$b-0.05<0$，$R$ 不在內部",
+     "錯誤"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2) $|\\overrightarrow{AP}|=|\\overrightarrow{AQ}|$ 嗎？",
+    "calc": [
+     "$|\\overrightarrow{AP}|^2-|\\overrightarrow{AQ}|^2$",
+     "$=(a^2-b^2)\\left(\\overline{AB}^2-\\overline{AC}^2\\right)$",
+     "$a\\ne b$，只要 $\\overline{AB}\\ne\\overline{AC}$ 就不相等，錯誤"
+    ],
+    "why": "展開時交叉項 $2ab\\,\\overrightarrow{AB}\\cdot\\overrightarrow{AC}$ 兩邊相同，會消掉。"
+   },
+   {
+    "q": "(3)(4) 面積相等嗎？",
+    "calc": [
+     "$\\triangle ABP=b\\cdot\\triangle ABC$，$\\triangle ACQ=b\\cdot\\triangle ABC$，(3) 正確",
+     "$\\triangle BCP=(1-a-b)\\triangle ABC=\\triangle BCQ$，(4) 正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(5) $\\triangle ABP>\\triangle ABR$ 一定成立嗎？",
+    "calc": [
+     "$\\triangle ABR=|b-0.05|\\cdot\\triangle ABC$",
+     "取 $b=0.02$：$|b-0.05|=0.03>0.02$",
+     "此時 $\\triangle ABR>\\triangle ABP$，錯誤"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(3)(4)",
+  "approx": "",
+  "check": "取 $a=0.3$、$b=0.2$：$\\triangle ABP=0.2\\triangle ABC$，$Q$ 的 $\\overrightarrow{AB}$ 係數也是 $0.2$，$\\triangle ACQ=0.2\\triangle ABC$，吻合。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "以 $\\overline{AB}$ 為底看 $\\overrightarrow{AC}$ 的係數，以 $\\overline{AC}$ 為底看 $\\overrightarrow{AB}$ 的係數，係數就是面積比。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "10",
+  "idea": "資訊都在 $g$ 上：先寫出 $g(x)$，用對稱中心 $(1,0)$ 定出 $b,c$ 與 $a$ 的關係，再翻回 $f$。三次函數的對稱中心可用「$x$ 坐標 $=-\\dfrac{q}{3p}$」與「點在圖形上」兩個條件。",
+  "formulas": [
+   {
+    "name": "三次函數對稱中心（必背）",
+    "tex": "x_0=-\\dfrac{q}{3p}",
+    "vars": [
+     [
+      "p,q",
+      "$y=px^3+qx^2+rx+s$ 的三次、二次項係數"
+     ],
+     [
+      "x_0",
+      "對稱中心的 $x$ 坐標"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "三次函數局部近似（要會推）",
+    "tex": "f(x)=a(x-h)^3+m(x-h)+k\\ \\Rightarrow\\ f(x)\\approx m(x-h)+k",
+    "vars": [
+     [
+      "(h,k)",
+      "對稱中心"
+     ],
+     [
+      "m",
+      "在 $(h,k)$ 附近近似直線的斜率"
+     ]
+    ],
+    "cond": "$x$ 很接近 $h$ 時"
+   }
+  ],
+  "steps": [
+   {
+    "q": "$g(x)$ 的式子是什麼？",
+    "calc": [
+     "$f(-x)=-ax^3+bx^2-cx+3$",
+     "$g(x)=-ax^3+bx^2-cx$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "對稱中心 $(1,0)$ 給出哪兩個條件？",
+    "calc": [
+     "$-\\dfrac{b}{3(-a)}=\\dfrac{b}{3a}=1$，$b=3a$",
+     "$g(1)=-a+b-c=0$，$c=2a$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1)(2)：$g(x)=0$ 的根？$a$ 的正負？",
+    "calc": [
+     "$g(x)=-ax(x^2-3x+2)=-ax(x-1)(x-2)$",
+     "根為 $0,1,2$，(1) 正確",
+     "$g(-1)=6a<0$，$a<0$，(2) 正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) $f$ 的對稱中心在哪？",
+    "calc": [
+     "$f(x)=g(-x)+3$",
+     "對 $y$ 軸鏡射：$(1,0)\\to(-1,0)$",
+     "上移 $3$：$(-1,3)$，錯誤"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4) $f(100)<0$ 一定成立嗎？",
+    "calc": [
+     "$f(x)=ax^3+3ax^2+2ax+3$",
+     "$f(100)=1030200a+3$",
+     "若 $a=-10^{-7}$，$f(100)>0$，錯誤"
+    ],
+    "why": "$a<0$ 但可以非常接近 $0$。"
+   },
+   {
+    "q": "(5) 在 $(-1,f(-1))$ 附近近似直線的斜率？",
+    "calc": [
+     "$f(x)=a(x+1)^3-a(x+1)+3$",
+     "近似直線 $y=-a(x+1)+3$，斜率 $-a$",
+     "$a\\ne0$，$-a\\ne a$，錯誤"
+    ],
+    "why": "把 $f$ 改寫成以對稱中心為基準的形式，一次項係數就是近似直線的斜率。"
+   }
+  ],
+  "answer": "(1)(2)",
+  "approx": "",
+  "check": "對稱中心 $(1,0)$ 是三根 $0,1,2$ 的正中間，吻合。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "三次函數的對稱中心用「$x_0=-\\dfrac{q}{3p}$」加「點在圖上」定係數；圖形變換要分清鏡射與平移。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "11",
+  "idea": "「$ADEB$ 與 $ADFC$ 皆為矩形」表示 $\\overline{AD}$ 同時垂直 $\\overline{AB}$、$\\overline{AC}$，所以側稜垂直底面，這是直角柱。把每個角放進直角三角形，再用同一種三角比比較。",
+  "formulas": [
+   {
+    "name": "直線垂直平面（必背）",
+    "tex": "L\\perp L_1,\\ L\\perp L_2\\ \\Rightarrow\\ L\\perp E",
+    "vars": [
+     [
+      "L_1,L_2",
+      "平面 $E$ 上兩條相交直線"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "直角三角形的正切（必背）",
+    "tex": "\\tan\\theta=\\dfrac{\\text{對邊}}{\\text{鄰邊}}",
+    "vars": [
+     [
+      "\\theta",
+      "直角三角形的一個銳角"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "兩個側面是矩形告訴我們什麼？",
+    "calc": [
+     "$\\overline{AD}\\perp\\overline{AB}$，$\\overline{AD}\\perp\\overline{AC}$",
+     "$\\overline{AD}\\perp$ 平面 $ABC$",
+     "側稜 $\\overline{AD},\\overline{BE},\\overline{CF}$ 都垂直底面，長設為 $h$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(1) 沿平面 $ACE$ 切下，得到什麼？",
+    "calc": [
+     "含 $B$ 的一塊：頂點 $A,B,C,E$，是四面體",
+     "另一塊：頂點 $A,C,D,E,F$，是四角錐",
+     "錯誤"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(2) 兩側面的夾角是哪個角？",
+    "calc": [
+     "交線是 $\\overline{AD}$，且 $\\overline{AB}\\perp\\overline{AD}$、$\\overline{AC}\\perp\\overline{AD}$",
+     "夾角 $=\\angle BAC$",
+     "$\\tan\\angle BAC=\\dfrac{6}{5}>1$，$\\angle BAC>45^\\circ$，正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(3) $\\angle CEB$ 與 $\\angle AEB$ 誰大？",
+    "calc": [
+     "$\\overline{BE}\\perp$ 底面，直角都在 $B$",
+     "$\\tan\\angle CEB=\\dfrac{6}{h}$",
+     "$\\overline{AB}=\\sqrt{25+36}=\\sqrt{61}$，$\\tan\\angle AEB=\\dfrac{\\sqrt{61}}{h}$",
+     "$6<\\sqrt{61}$，$\\angle CEB<\\angle AEB$，正確"
+    ],
+    "why": ""
+   },
+   {
+    "q": "(4) $\\tan\\angle AEC$ 與 $\\sin\\angle CEB$ 誰大？",
+    "calc": [
+     "$\\overline{AC}\\perp\\overline{BC}$、$\\overline{AC}\\perp\\overline{CF}$，故 $\\overline{AC}\\perp$ 平面 $BCFE$",
+     "$\\overline{CE}=\\sqrt{36+h^2}$",
+     "$\\tan\\angle AEC=\\dfrac{5}{\\sqrt{36+h^2}}$",
+     "$\\sin\\angle CEB=\\dfrac{6}{\\sqrt{36+h^2}}$，前者較小，正確"
+    ],
+    "why": "$\\overline{AC}$ 垂直平面 $BCFE$，所以 $\\triangle ACE$ 的直角在 $C$。"
+   },
+   {
+    "q": "(5) $\\angle CEB<\\angle AEC$ 嗎？",
+    "calc": [
+     "$\\tan\\angle CEB=\\dfrac{6}{h}>\\dfrac{6}{\\sqrt{36+h^2}}$",
+     "$\\dfrac{6}{\\sqrt{36+h^2}}>\\dfrac{5}{\\sqrt{36+h^2}}=\\tan\\angle AEC$",
+     "$\\angle CEB>\\angle AEC$，錯誤"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(2)(3)(4)",
+  "approx": "",
+  "check": "取 $h=6$：$\\angle CEB=45^\\circ$，$\\tan\\angle AEC=\\dfrac{5}{6\\sqrt{2}}<1$，$\\angle AEC<45^\\circ$，確實 $\\angle CEB$ 較大。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "空間中比角度，先找垂直關係，把每個角放進直角三角形。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "12",
+  "idea": "用除法原理寫出條件，再用「餘式次數小於除式次數」與「$f$ 沒有實根」鎖定 $f$ 的次數與形式，最後轉成 $g$ 的最小值條件。",
+  "formulas": [
+   {
+    "name": "除法原理（必背）",
+    "tex": "F(x)=f(x)\\,q(x)+r(x)",
+    "vars": [
+     [
+      "F(x)",
+      "被除式"
+     ],
+     [
+      "f(x)",
+      "除式"
+     ],
+     [
+      "q(x)",
+      "商式"
+     ],
+     [
+      "r(x)",
+      "餘式"
+     ]
+    ],
+    "cond": "$r(x)=0$ 或 $\\operatorname{deg}r<\\operatorname{deg}f$"
+   },
+   {
+    "name": "首項正的二次函數最小值（必背）",
+    "tex": "g(x)=p(x-h)^2+k\\ \\Rightarrow\\ g(x)\\ge k",
+    "vars": [
+     [
+      "p",
+      "首項係數，$p>0$"
+     ],
+     [
+      "(h,k)",
+      "頂點"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "用除法原理把條件寫出來。",
+    "calc": [
+     "$(g(x))^2=f(x)q(x)+g(x)$",
+     "$g(x)\\bigl(g(x)-1\\bigr)=f(x)q(x)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$f$ 的次數可能是多少？",
+    "calc": [
+     "餘式 $g$ 是二次，$\\operatorname{deg}f\\ge3$",
+     "$f$ 整除四次式，$\\operatorname{deg}f\\le4$",
+     "奇數次必有實根，$f$ 無實根，$\\operatorname{deg}f=4$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$f$ 長什麼樣子？",
+    "calc": [
+     "$f$ 與 $g(g-1)$ 同為四次，商是常數",
+     "$f(x)=k\\,g(x)\\bigl(g(x)-1\\bigr)$，$k\\ne0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$f$ 無實根，對 $g$ 有什麼要求？",
+    "calc": [
+     "$g(x)=0$ 與 $g(x)=1$ 都無實根",
+     "$g$ 開口向上，最小值 $>1$",
+     "頂點 $y$ 坐標 $>1$"
+    ],
+    "why": "開口向上的拋物線若最小值 $\\le1$，就會碰到 $y=1$。"
+   },
+   {
+    "q": "哪些選項不可能？",
+    "calc": [
+     "$\\dfrac{\\sqrt{2}}{2}<1$，不可能",
+     "$1$ 不大於 $1$，不可能",
+     "$\\sqrt{2},2,\\pi$ 都大於 $1$，可能"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(1)(2)",
+  "approx": "",
+  "check": "例：$g(x)=x^2+2$，$f=(x^2+2)(x^2+1)$ 恆正，且 $g^2=f\\cdot1+g$，餘式確實是 $g$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "餘式題先寫除法原理，再用「餘式次數小於除式次數」與「奇數次必有實根」鎖定次數。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "13",
+  "idea": "先算能做幾次十連抽，再用「期望值可以相加」：每一抽的期望張數加起來就是總期望值。",
+  "formulas": [
+   {
+    "name": "期望值的可加性（必背）",
+    "tex": "E(X_1+X_2+\\cdots+X_n)=E(X_1)+E(X_2)+\\cdots+E(X_n)",
+    "vars": [
+     [
+      "X_k",
+      "第 $k$ 抽抽到的金卡張數（$0$ 或 $1$）"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "單抽的期望值（必背）",
+    "tex": "E(X_k)=1\\times p_k+0\\times(1-p_k)=p_k",
+    "vars": [
+     [
+      "p_k",
+      "第 $k$ 抽中金卡的機率"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$23000$ 枚代幣可以做幾次十連抽？",
+    "calc": [
+     "$23000\\div1500\\approx15.3$",
+     "只能做 $15$ 次，剩 $500$ 枚"
+    ],
+    "why": ""
+   },
+   {
+    "q": "一次十連抽，期望抽到幾張？",
+    "calc": [
+     "前九抽：$9\\times0.02=0.18$",
+     "第十抽：$0.1$",
+     "合計 $0.28$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$15$ 次十連抽呢？",
+    "calc": [
+     "$15\\times0.28=4.2$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$4.2$",
+  "approx": "",
+  "check": "共 $150$ 抽，若全是 $2\\%$ 期望 $3$ 張；$15$ 次第十抽每次多 $0.08$，多出 $1.2$ 張，合計 $4.2$。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "求「總共幾個」的期望值，拆成每一次的期望值再相加。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "14",
+  "idea": "列運算不改變方程組的解，所以原方程組與化簡後的方程組解完全相同。先從化簡後的矩陣解出 $x,y,z$，再代回原方程組比對。",
+  "formulas": [
+   {
+    "name": "增廣矩陣與方程組（必背）",
+    "tex": "\\left[\\begin{array}{ccc|c}1&2&b&7\\\\0&b&5&-5\\\\0&0&b&0\\end{array}\\right]",
+    "vars": [
+     [
+      "b",
+      "待求的實數"
+     ]
+    ],
+    "cond": "列運算（兩列對調、一列乘非零數、一列的倍數加到另一列）不改變解"
+   }
+  ],
+  "steps": [
+   {
+    "q": "化簡後的矩陣代表哪三條方程式？",
+    "calc": [
+     "$x+2y+bz=7$",
+     "$by+5z=-5$",
+     "$bz=0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "恰有一解對 $b$ 有什麼要求？能先解出什麼？",
+    "calc": [
+     "$b=0$ 時第三式為 $0=0$，不會恰一解，故 $b\\ne0$",
+     "$z=0$，$y=-\\dfrac{5}{b}\\ne0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "怎麼用原方程組找 $a$？",
+    "calc": [
+     "$z=0$ 代入原第二式：$x+ay=7$",
+     "化簡後第一式：$x+2y=7$",
+     "相減：$(a-2)y=0$，$y\\ne0$，$a=2$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "怎麼求 $b$？",
+    "calc": [
+     "$a=2$、$z=0$：$2x+5y=4$，$3x+8y=1$",
+     "$6x+15y=12$，$6x+16y=2$",
+     "$y=-10$，$x=27$",
+     "$-\\dfrac{5}{b}=-10$，$b=\\dfrac{1}{2}$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$a=2$，$b=\\dfrac{1}{2}$",
+  "approx": "",
+  "check": "$(27,-10,0)$ 代入原第二式 $27-20=7$ 成立；代入化簡後第二式 $\\dfrac{1}{2}\\times(-10)=-5$ 也成立。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "列運算不改變解，化簡後的方程組和原方程組可以互相代入比對。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "15",
+  "idea": "$\\overline{DE}\\parallel\\overline{BC}$ 帶來相似三角形，面積比可得出路寬與高的關係；第二方案中，路寬就是 $C$ 到直線 $BE$ 的距離。",
+  "formulas": [
+   {
+    "name": "相似形面積比（必背）",
+    "tex": "\\dfrac{\\triangle ADE}{\\triangle ABC}=\\left(\\dfrac{\\overline{DE}}{\\overline{BC}}\\right)^2",
+    "vars": [
+     [
+      "\\triangle ADE",
+      "面積"
+     ]
+    ],
+    "cond": "$\\triangle ADE\\sim\\triangle ABC$"
+   },
+   {
+    "name": "三角形面積（必背）",
+    "tex": "\\text{面積}=\\dfrac{1}{2}\\times\\text{底}\\times\\text{高}",
+    "vars": [],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "剩下原面積的 $\\dfrac{9}{16}$，能得到什麼比例？",
+    "calc": [
+     "$\\triangle ADE\\sim\\triangle ABC$，邊長比 $\\dfrac{3}{4}$",
+     "設 $A$ 到 $\\overline{BC}$ 的高為 $H$",
+     "路寬 $h=H-\\dfrac{3}{4}H=\\dfrac{1}{4}H$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "第二方案中，路寬 $h$ 是哪一段距離？",
+    "calc": [
+     "路夾在平行線 $BE$、$FC$ 之間",
+     "$h=C$ 到直線 $BE$ 的距離",
+     "$h=16\\sin30^\\circ=8$"
+    ],
+    "why": "從 $C$ 作 $BE$ 的垂線，斜邊 $\\overline{BC}=16$、夾角 $30^\\circ$。"
+   },
+   {
+    "q": "原三角形面積是多少？",
+    "calc": [
+     "$H=4h=32$",
+     "$\\triangle ABC=\\dfrac{1}{2}\\times16\\times32=256$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\triangle BCE$ 與剩下的 $\\triangle ABE$ 面積？",
+    "calc": [
+     "$E$ 在直線 $DE$ 上，到 $\\overline{BC}$ 距離 $8$",
+     "$\\triangle BCE=\\dfrac{1}{2}\\times16\\times8=64$",
+     "$\\triangle ABE=256-64=192$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$192$",
+  "approx": "",
+  "check": "$\\dfrac{192}{256}=\\dfrac{3}{4}>\\dfrac{9}{16}$，新方案少徵收土地，符合協商情境。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "看到平行線就找相似形；路寬就是兩平行線距離，常用點到直線距離算。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "16",
+  "idea": "「$L'$ 在 $E$ 的投影與 $L$ 重合」表示 $L'$ 沿 $E$ 的法向量壓下來落在 $L$ 上，所以 $L,L'$ 所在的平面包含 $E$ 的法向量，也就是兩平面互相垂直。",
+  "formulas": [
+   {
+    "name": "外積求公垂向量（必背）",
+    "tex": "\\vec{u}\\times\\vec{v}=(u_2v_3-u_3v_2,\\ u_3v_1-u_1v_3,\\ u_1v_2-u_2v_1)",
+    "vars": [
+     [
+      "\\vec{u},\\vec{v}",
+      "兩個不平行的向量"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "點法式（必背）",
+    "tex": "a(x-x_0)+b(y-y_0)+c(z-z_0)=0",
+    "vars": [
+     [
+      "(a,b,c)",
+      "法向量"
+     ],
+     [
+      "(x_0,y_0,z_0)",
+      "平面上一點"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "直線 $L$ 的方向向量與其上一點？",
+    "calc": [
+     "令 $\\dfrac{x}{2}-1=y+1=-2z=t$",
+     "$x=2t+2$，$y=t-1$，$z=-\\dfrac{t}{2}$",
+     "方向 $(4,2,-1)$，過點 $(2,-1,0)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "「投影與 $L$ 重合」代表什麼？",
+    "calc": [
+     "$L'$ 上每點沿 $E$ 的法向量 $\\vec{n}$ 移動後落在 $L$ 上",
+     "$L,L'$ 與 $\\vec{n}$ 在同一平面 $x-y+2z=3$ 上",
+     "$E\\perp$ 平面 $x-y+2z=3$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$E$ 的法向量要和哪兩個向量垂直？",
+    "calc": [
+     "$L$ 在 $E$ 上：垂直 $(4,2,-1)$",
+     "兩平面垂直：垂直 $(1,-1,2)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "用外積求法向量，寫出 $E$。",
+    "calc": [
+     "$(1,-1,2)\\times(4,2,-1)=(-3,9,6)$",
+     "取 $\\vec{n}=(1,-3,-2)$",
+     "$(x-2)-3(y+1)-2z=0$",
+     "$x-3y-2z=5$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$x-3y-2z=5$",
+  "approx": "",
+  "check": "$L$ 上另一點 $\\left(4,0,-\\dfrac{1}{2}\\right)$ 代入：$4-0+1=5$；兩法向量內積 $1+3-4=0$，確實垂直。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "「投影後重合」等於兩條線所在平面與投影面垂直，法向量用外積求。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "17",
+  "idea": "體積 $=$ 底面積 $\\times$ 高。底面積固定，只要讓另一面的頂點到底面所在平面的距離最大。該頂點在 $xy$ 平面的單位圓上，可設為 $(\\cos\\theta,\\sin\\theta,0)$。",
+  "formulas": [
+   {
+    "name": "平行四邊形面積（必背）",
+    "tex": "\\text{面積}=\\left|\\overrightarrow{PQ}\\times\\overrightarrow{PR}\\right|",
+    "vars": [
+     [
+      "\\overrightarrow{PQ},\\overrightarrow{PR}",
+      "以 $P$ 為起點的兩邊向量"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "點到平面距離（必背）",
+    "tex": "d=\\dfrac{|ax_0+by_0+cz_0+k|}{\\sqrt{a^2+b^2+c^2}}",
+    "vars": [
+     [
+      "(x_0,y_0,z_0)",
+      "點"
+     ],
+     [
+      "ax+by+cz+k=0",
+      "平面"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "疊合的範圍（必背）",
+    "tex": "-\\sqrt{a^2+b^2}\\le a\\cos\\theta+b\\sin\\theta\\le\\sqrt{a^2+b^2}",
+    "vars": [
+     [
+      "a,b",
+      "係數"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "底面積怎麼算？",
+    "calc": [
+     "取 $P(-1,2,1)$",
+     "$\\overrightarrow{PQ}=(-3,-1,2)$，$\\overrightarrow{PR}=(3,-2,-4)$",
+     "$\\overrightarrow{PQ}\\times\\overrightarrow{PR}=(8,-6,9)$",
+     "底面積 $=\\sqrt{64+36+81}=\\sqrt{181}$"
+    ],
+    "why": "平行四邊形任三個頂點圍成的三角形都是它面積的一半，所以面積就是外積長度。"
+   },
+   {
+    "q": "底面所在的平面方程式？",
+    "calc": [
+     "法向量 $(8,-6,9)$，過 $(-1,2,1)$",
+     "$8x-6y+9z=-8-12+9=-11$",
+     "$8x-6y+9z+11=0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "另一面的頂點怎麼設？高是多少？",
+    "calc": [
+     "設頂點 $(\\cos\\theta,\\sin\\theta,0)$",
+     "高 $=\\dfrac{|8\\cos\\theta-6\\sin\\theta+11|}{\\sqrt{181}}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "高的最大值與最大體積？",
+    "calc": [
+     "$-10\\le8\\cos\\theta-6\\sin\\theta\\le10$",
+     "$|8\\cos\\theta-6\\sin\\theta+11|$ 最大為 $21$",
+     "體積最大 $=\\sqrt{181}\\times\\dfrac{21}{\\sqrt{181}}=21$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "$21$",
+  "approx": "",
+  "check": "$\\sqrt{181}$ 剛好約掉得到整數 $21$，符合兩格填答。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "底固定時，最大體積就是找點到平面的最大距離，再用疊合求最大值。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "18",
+  "idea": "三段長度 $\\overline{OA}=\\sqrt{3}$、$\\overline{AB}=1$、$\\overline{OB}=2$ 正好是 $30^\\circ$-$60^\\circ$-$90^\\circ$ 直角三角形的三邊。",
+  "formulas": [
+   {
+    "name": "畢氏定理逆定理（必背）",
+    "tex": "a^2+b^2=c^2\\ \\Rightarrow\\ \\text{直角三角形}",
+    "vars": [
+     [
+      "c",
+      "最長邊"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "圓上點坐標（必背）",
+    "tex": "(r\\cos\\theta,\\ r\\sin\\theta)",
+    "vars": [
+     [
+      "r",
+      "半徑"
+     ],
+     [
+      "\\theta",
+      "方向角"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "$\\triangle OAB$ 的三邊各是多少？",
+    "calc": [
+     "$\\overline{OA}=\\sqrt{3}$，$\\overline{OB}=2$，$\\overline{AB}=1$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "這是什麼三角形？",
+    "calc": [
+     "$\\overline{OA}^2+\\overline{AB}^2=3+1=4=\\overline{OB}^2$",
+     "$\\angle OAB=90^\\circ$",
+     "$\\sin\\angle AOB=\\dfrac{1}{2}$，$\\angle AOB=30^\\circ$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$B$ 的坐標是什麼？",
+    "calc": [
+     "$B$ 在上半平面，方向角 $30^\\circ$",
+     "$B=(2\\cos30^\\circ,2\\sin30^\\circ)=(\\sqrt{3},1)$"
+    ],
+    "why": ""
+   }
+  ],
+  "answer": "(4)",
+  "approx": "",
+  "check": "$(\\sqrt{3},1)$ 到 $A(\\sqrt{3},0)$ 距離 $1$，且 $3+1=4$ 在半徑 $2$ 的圓上，兩條件都成立。",
+  "wrong": [
+   {
+    "opt": "(2)",
+    "how": "把 $\\angle AOB$ 誤當成 $60^\\circ$，算成 $(2\\cos60^\\circ,2\\sin60^\\circ)=(1,\\sqrt{3})$"
+   }
+  ],
+  "tiers": [],
+  "takeaway": "三邊出現 $1,\\sqrt{3},2$，先檢查是不是直角三角形。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "19",
+  "idea": "棒長與兩端到原點的距離都固定，每一刻的「$O$、黑端、白端」三角形都與 $\\triangle OAB$ 全等：黑端處永遠是直角，黑端永遠落後白端 $30^\\circ$。",
+  "formulas": [
+   {
+    "name": "全等（SSS）",
+    "tex": "\\overline{OA'}=\\overline{OA},\\ \\overline{OB'}=\\overline{OB},\\ \\overline{A'B'}=\\overline{AB}\\ \\Rightarrow\\ \\triangle OA'B'\\cong\\triangle OAB",
+    "vars": [],
+    "cond": ""
+   },
+   {
+    "name": "極坐標（必背）",
+    "tex": "[r,\\theta]\\ \\to\\ (r\\cos\\theta,\\ r\\sin\\theta)",
+    "vars": [
+     [
+      "r",
+      "與原點的距離"
+     ],
+     [
+      "\\theta",
+      "方向角"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "移動中三角形的三邊有沒有變？",
+    "calc": [
+     "黑端到 $O$：$\\sqrt{3}$；白端到 $O$：$2$；棒長：$1$",
+     "每一刻都與 $\\triangle OAB$ 全等",
+     "黑端處為直角，兩端對 $O$ 夾 $30^\\circ$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\cos\\angle OA'B'$ 是多少？",
+    "calc": [
+     "$\\overline{OA'}^2+\\overline{A'B'}^2=3+1=4=\\overline{OB'}^2$",
+     "$\\angle OA'B'=90^\\circ$",
+     "$\\cos\\angle OA'B'=0$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$A'$ 在哪裡？",
+    "calc": [
+     "$B'(-2,0)$ 的方向角是 $180^\\circ$",
+     "黑端落後白端 $30^\\circ$：$A'$ 方向角 $150^\\circ$",
+     "$A'=\\left[\\sqrt{3},150^\\circ\\right]$",
+     "直角坐標 $\\left(-\\dfrac{3}{2},\\dfrac{\\sqrt{3}}{2}\\right)$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "掃過的區域 $R$ 怎麼畫？",
+    "calc": [
+     "起點線段 $\\overline{AB}$：$(\\sqrt{3},0)$ 到 $(\\sqrt{3},1)$",
+     "終點線段 $\\overline{A'B'}$：$\\left(-\\dfrac{3}{2},\\dfrac{\\sqrt{3}}{2}\\right)$ 到 $(-2,0)$",
+     "右下：$x$ 軸、外圓弧、$\\overline{AB}$ 圍成的小塊沒掃到",
+     "左下：$\\overline{A'B'}$、$x$ 軸、內圓弧圍成的小塊沒掃到",
+     "上半環形扣掉這兩小塊，其餘畫斜線"
+    ],
+    "why": "棒子每一刻都是內圓的切線段（切點是黑端），掃過的範圍介於起點與終點兩條切線段之間。"
+   }
+  ],
+  "answer": "$\\cos\\angle OA'B'=0$；$A'$ 的極坐標為 $\\left[\\sqrt{3},150^\\circ\\right]$；$R$ 為上半環形扣掉兩端各一小塊（作圖見步驟）",
+  "approx": "",
+  "check": "黑端從 $0^\\circ$ 轉到 $150^\\circ$、白端從 $30^\\circ$ 轉到 $180^\\circ$，都轉了 $150^\\circ$，與整體旋轉一致。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "動態題先找不變量：長度固定的三角形在移動中始終全等。",
+  "answer_issue": ""
+ },
+ {
+  "exam": "數A",
+  "year": 111,
+  "no": "20",
+  "idea": "不規則區域的面積用「整塊環形扣掉沒掃到的小塊」計算，每個小塊都是扇形與三角形的差。",
+  "formulas": [
+   {
+    "name": "扇形面積（必背）",
+    "tex": "\\dfrac{1}{2}r^2\\theta",
+    "vars": [
+     [
+      "r",
+      "半徑"
+     ],
+     [
+      "\\theta",
+      "圓心角（弧度）"
+     ]
+    ],
+    "cond": ""
+   },
+   {
+    "name": "環形部分面積（要會推）",
+    "tex": "\\dfrac{1}{2}(r_2^2-r_1^2)\\theta",
+    "vars": [
+     [
+      "r_2,r_1",
+      "外、內圓半徑"
+     ],
+     [
+      "\\theta",
+      "圓心角（弧度）"
+     ]
+    ],
+    "cond": ""
+   }
+  ],
+  "steps": [
+   {
+    "q": "第一象限中環形的面積？",
+    "calc": [
+     "$\\dfrac{1}{2}(4-3)\\times\\dfrac{\\pi}{2}=\\dfrac{\\pi}{4}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "第一象限中哪一塊沒被掃到？面積多少？",
+    "calc": [
+     "由 $\\overline{AB}$、外圓弧、$x$ 軸圍成",
+     "外圓扇形（圓心角 $\\dfrac{\\pi}{6}$）$-\\triangle OAB$",
+     "$=\\dfrac{1}{2}\\times4\\times\\dfrac{\\pi}{6}-\\dfrac{1}{2}\\times\\sqrt{3}\\times1$",
+     "$=\\dfrac{\\pi}{3}-\\dfrac{\\sqrt{3}}{2}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$\\Omega$ 的面積是多少？",
+    "calc": [
+     "$\\Omega=\\dfrac{\\pi}{4}-\\left(\\dfrac{\\pi}{3}-\\dfrac{\\sqrt{3}}{2}\\right)$",
+     "$=\\dfrac{\\sqrt{3}}{2}-\\dfrac{\\pi}{12}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "左下角沒掃到的小塊面積？",
+    "calc": [
+     "由 $\\overline{A'B'}$、$x$ 軸、內圓弧圍成",
+     "$\\triangle OA'B'-$ 內圓扇形（圓心角 $\\dfrac{\\pi}{6}$）",
+     "$=\\dfrac{\\sqrt{3}}{2}-\\dfrac{1}{2}\\times3\\times\\dfrac{\\pi}{6}=\\dfrac{\\sqrt{3}}{2}-\\dfrac{\\pi}{4}$"
+    ],
+    "why": ""
+   },
+   {
+    "q": "$R$ 的面積是多少？",
+    "calc": [
+     "上半環形 $=\\dfrac{1}{2}(4-3)\\pi=\\dfrac{\\pi}{2}$",
+     "$R=\\dfrac{\\pi}{2}-\\left(\\dfrac{\\pi}{3}-\\dfrac{\\sqrt{3}}{2}\\right)-\\left(\\dfrac{\\sqrt{3}}{2}-\\dfrac{\\pi}{4}\\right)$",
+     "$=\\dfrac{5\\pi}{12}$"
+    ],
+    "why": "另解：$\\triangle OAB\\cong\\triangle OA'B'$，兩缺口可互補，$R$ 等於外圓扇形 $OBB'$ 減內圓扇形，圓心角都是 $\\dfrac{5\\pi}{6}$。"
+   }
+  ],
+  "answer": "$\\Omega$ 的面積 $=\\dfrac{\\sqrt{3}}{2}-\\dfrac{\\pi}{12}$；$R$ 的面積 $=\\dfrac{5\\pi}{12}$",
+  "approx": "$\\Omega\\approx0.604$，$R\\approx1.309$（四捨五入到小數第三位）",
+  "check": "$\\Omega\\approx0.604<\\dfrac{\\pi}{4}\\approx0.785$，$R\\approx1.309<\\dfrac{\\pi}{2}\\approx1.571$（皆四捨五入到小數第三位），合理。",
+  "wrong": [],
+  "tiers": [],
+  "takeaway": "不規則區域用「大塊扣小塊」拼，小塊常是扇形與三角形的差。",
+  "answer_issue": ""
+ }
+]

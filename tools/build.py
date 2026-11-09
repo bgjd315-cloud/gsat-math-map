@@ -51,7 +51,8 @@ for d in data:
 
 # detailed scaffolded solutions (tools/detail/*.json, see DETAIL_BRIEF.md)
 DET = {}
-for f in sorted(glob.glob(os.path.join(T, "detail", "*.json"))):
+# detail/ = first version (Unicode text); detail2/ = KaTeX version, preferred when present
+for f in sorted(glob.glob(os.path.join(T, "detail", "*.json"))) + sorted(glob.glob(os.path.join(T, "detail2", "*.json"))):
     try:
         for x in json.load(open(f, encoding="utf-8")):
             DET[(x.get("exam"), int(x.get("year")), str(x.get("no")))] = x
@@ -61,9 +62,23 @@ issues = []
 for d in clean:
     x = DET.get((d["exam"], d["year"], d["no"]))
     if not x or not x.get("steps"): continue
-    steps = [{"q": str(s.get("q") or ""), "a": str(s.get("a") or "")} for s in x["steps"] if isinstance(s, dict)]
-    d["detail"] = {"guide": str(x.get("guide") or ""), "know": [str(k) for k in (x.get("know") or [])],
-                   "steps": steps, "check": str(x.get("check") or ""), "takeaway": str(x.get("takeaway") or "")}
+    S = lambda v: str(v or "")
+    if x.get("idea"):  # KaTeX version (DETAIL_BRIEF v2)
+        d["detail"] = {
+            "idea": S(x["idea"]),
+            "formulas": [{"name": S(f.get("name")), "tex": S(f.get("tex")),
+                          "vars": [[S(v[0]), S(v[1])] for v in (f.get("vars") or []) if isinstance(v, (list, tuple)) and len(v) == 2],
+                          "cond": S(f.get("cond"))} for f in (x.get("formulas") or []) if isinstance(f, dict)],
+            "steps": [{"q": S(s.get("q")), "calc": [S(c) for c in (s.get("calc") or [])], "why": S(s.get("why"))}
+                      for s in x["steps"] if isinstance(s, dict)],
+            "answer": S(x.get("answer")) or d["answer"], "approx": S(x.get("approx")), "check": S(x.get("check")),
+            "wrong": [{"opt": S(w.get("opt")), "how": S(w.get("how"))} for w in (x.get("wrong") or []) if isinstance(w, dict)],
+            "tiers": [[S(t[0]), S(t[1])] for t in (x.get("tiers") or []) if isinstance(t, (list, tuple)) and len(t) == 2],
+            "takeaway": S(x.get("takeaway"))}
+    else:  # first version
+        steps = [{"q": S(s.get("q")), "a": S(s.get("a"))} for s in x["steps"] if isinstance(s, dict)]
+        d["detail"] = {"guide": S(x.get("guide")), "know": [S(k) for k in (x.get("know") or [])],
+                       "steps": steps, "check": S(x.get("check")), "takeaway": S(x.get("takeaway"))}
     if str(x.get("answer_issue") or "").strip():
         issues.append(f"{d['exam']} {d['year']} 第{d['no']}題：{x['answer_issue']}（既有答案 {d['answer']}，詳解答案 {x.get('answer')}）")
 print("detailed solutions:", sum(1 for d in clean if "detail" in d), "/", len(clean))
@@ -87,7 +102,7 @@ ART = sorted(os.path.splitext(n)[0] for n in os.listdir(art_dir) if n.startswith
 js = lambda o: json.dumps(o, ensure_ascii=False).replace("</", "<\\/")
 html = open(os.path.join(T, "template.html"), encoding="utf-8").read()
 html = (html.replace("/*DATA*/[]", js(clean)).replace("/*UNITS*/{}", js(UNITS)).replace("/*NOTES*/{}", js(NOTES))
-            .replace("/*IMGS*/{}", js(IMGS)).replace("/*ART*/[]", js(ART))
+            .replace("/*IMGS*/{}", js(IMGS)).replace("/*ART*/[]", js(ART)).replace("/*CARDS*/{}", js(load("formula_cards.json", {})))
             .replace("{{YEAR_RANGE}}", year_range).replace("{{YEAR_SPAN}}", span_txt).replace("{{PAPERS}}", str(papers)))
 
 if not fragment:

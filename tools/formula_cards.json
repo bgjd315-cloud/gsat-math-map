@@ -1,0 +1,818 @@
+{
+ "U01": [
+  {
+   "name": "絕對值不等式",
+   "tex": "|x-a|<r\\iff a-r<x<a+r",
+   "note": "必背；$r>0$，若是 $|x-a|>r$ 則為 $x<a-r$ 或 $x>a+r$。"
+  },
+  {
+   "name": "數線上兩點距離",
+   "tex": "\\overline{AB}=|b-a|",
+   "note": "必背；$A(a)$、$B(b)$ 在數線上，$|x-a|$ 就是 $x$ 到 $a$ 的距離。"
+  },
+  {
+   "name": "絕對值與平方",
+   "tex": "|a|\\ge|b|\\iff a^2\\ge b^2",
+   "note": "必背；比較兩正數大小可比較平方，但兩邊都要先確定非負。"
+  },
+  {
+   "name": "分母有理化",
+   "tex": "\\dfrac{1}{\\sqrt{a}+\\sqrt{b}}=\\dfrac{\\sqrt{a}-\\sqrt{b}}{a-b}",
+   "note": "必背；$a\\ne b$，化簡後根號內不含平方因數、分母不含根號。"
+  },
+  {
+   "name": "根式與指數",
+   "tex": "\\sqrt[n]{a^m}=a^{m/n}",
+   "note": "必背；$a>0$，根式化成指數後才能用指數律合併。"
+  },
+  {
+   "name": "高斯符號",
+   "tex": "[x]=n\\iff n\\le x<n+1",
+   "note": "必背；$n$ 為整數，負數最容易錯：$[-1.5]=-2$。"
+  },
+  {
+   "name": "算幾不等式",
+   "tex": "\\dfrac{a+b}{2}\\ge\\sqrt{ab}",
+   "note": "必背；$a,b>0$，等號成立於 $a=b$，求最值時要確認等號取得到。"
+  },
+  {
+   "name": "加權平均",
+   "tex": "\\bar{x}=\\dfrac{w_1x_1+w_2x_2}{w_1+w_2}",
+   "note": "要會推；總和 $=$ 平均 $\\times$ 個數，比例題可設 $w_1=2t$、$w_2=3t$。"
+  },
+  {
+   "name": "循環小數化分數",
+   "tex": "0.\\overline{3}=\\dfrac{3}{9},\\quad 0.\\overline{12}=\\dfrac{12}{99}",
+   "note": "要會推；設 $x$ 後乘 $10^k$ 再相減，循環節有幾位分母就有幾個 $9$。"
+  }
+ ],
+ "U02": [
+  {
+   "name": "除法原理",
+   "tex": "f(x)=g(x)Q(x)+r(x)",
+   "note": "必背；$r(x)=0$ 或 $\\operatorname{deg}r(x)<\\operatorname{deg}g(x)$，商式與餘式唯一。"
+  },
+  {
+   "name": "餘式定理",
+   "tex": "f(x)\\text{ 除以 }ax-b\\text{ 的餘式}=f\\left(\\dfrac{b}{a}\\right)",
+   "note": "必背；除式是 $(x-\\alpha)(x-\\beta)$ 時，設餘式 $px+q$ 再代入 $\\alpha$、$\\beta$。"
+  },
+  {
+   "name": "因式定理",
+   "tex": "f(a)=0\\iff(x-a)\\mid f(x)",
+   "note": "必背；整係數一次因式 $px-q$ 須 $p$ 整除首項係數、$q$ 整除常數項。"
+  },
+  {
+   "name": "根與係數關係",
+   "tex": "\\alpha+\\beta=-\\dfrac{b}{a},\\quad\\alpha\\beta=\\dfrac{c}{a}",
+   "note": "必背；$ax^2+bx+c=0$ 的兩根；三次方程式三根之積為 $-\\dfrac{d}{a}$。"
+  },
+  {
+   "name": "判別式",
+   "tex": "D=b^2-4ac",
+   "note": "必背；限實係數，$D>0$ 兩相異實根、$D=0$ 重根、$D<0$ 兩共軛虛根。"
+  },
+  {
+   "name": "二次函數頂點式",
+   "tex": "y=a(x-h)^2+k",
+   "note": "必背；頂點 $(h,k)$，在閉區間上求最值要比較頂點與兩端點。"
+  },
+  {
+   "name": "三次函數對稱中心",
+   "tex": "y=a(x-h)^3+p(x-h)+k",
+   "note": "必背；對稱中心 $(h,k)$，其中 $h=-\\dfrac{b}{3a}$，在此點附近圖形近似直線 $y=p(x-h)+k$。"
+  },
+  {
+   "name": "虛根成對",
+   "tex": "f(a+bi)=0\\Rightarrow f(a-bi)=0",
+   "note": "必背；限實係數多項式，奇數次實係數多項式至少有一個實根。"
+  },
+  {
+   "name": "一元二次不等式",
+   "tex": "(x-\\alpha)(x-\\beta)<0\\iff\\alpha<x<\\beta",
+   "note": "必背；$\\alpha<\\beta$ 且首項係數為正，高次不等式的偶次重根兩側不變號。"
+  }
+ ],
+ "U03": [
+  {
+   "name": "指數律",
+   "tex": "a^ma^n=a^{m+n},\\quad(a^m)^n=a^{mn}",
+   "note": "必背；$a>0$ 時指數可為任意實數，$a^{-n}=\\dfrac{1}{a^n}$。"
+  },
+  {
+   "name": "對數定義",
+   "tex": "\\log_a b=x\\iff a^x=b",
+   "note": "必背；$a>0$、$a\\ne1$、$b>0$，解對數方程式後要驗真數為正。"
+  },
+  {
+   "name": "對數律",
+   "tex": "\\log_a(MN)=\\log_a M+\\log_a N,\\quad\\log_a M^k=k\\log_a M",
+   "note": "必背；$M,N>0$，相減則為 $\\log_a\\dfrac{M}{N}$。"
+  },
+  {
+   "name": "換底公式",
+   "tex": "\\log_a b=\\dfrac{\\log b}{\\log a}",
+   "note": "必背；推論 $\\log_a b\\cdot\\log_b a=1$。"
+  },
+  {
+   "name": "位數與常用對數",
+   "tex": "10^{k-1}\\le N<10^k\\iff k-1\\le\\log N<k",
+   "note": "必背；此時 $N$ 是 $k$ 位數，要記 $\\log2\\approx0.3010$、$\\log3\\approx0.4771$。"
+  },
+  {
+   "name": "指數衰退（半衰期）",
+   "tex": "y=y_0\\left(\\dfrac{1}{2}\\right)^{t/T}",
+   "note": "必背；$T$ 為半衰期，不是每過 $t$ 小時剩 $\\dfrac{1}{t}$。"
+  },
+  {
+   "name": "對數函數的增減",
+   "tex": "a>1:\\ x_1<x_2\\iff\\log_a x_1<\\log_a x_2",
+   "note": "必背；$0<a<1$ 時不等號反向，比大小與解不等式最常錯在這裡。"
+  },
+  {
+   "name": "指數與對數互為反函數",
+   "tex": "y=a^x\\ \\text{與}\\ y=\\log_a x\\ \\text{對稱於}\\ y=x",
+   "note": "必背；兩圖形的交點不一定都在 $y=x$ 上（$0<a<1$ 時可能有其他交點）。"
+  },
+  {
+   "name": "自然對數",
+   "tex": "e^x=y\\iff x=\\ln y",
+   "note": "必背；$\\ln x=\\log_e x$，$e\\approx2.718$，運算律與 $\\log$ 相同。"
+  }
+ ],
+ "U04": [
+  {
+   "name": "斜率",
+   "tex": "m=\\dfrac{y_2-y_1}{x_2-x_1}=\\tan\\theta",
+   "note": "必背；$\\theta$ 為直線與 $x$ 軸正向的夾角，鉛直線斜率不存在。"
+  },
+  {
+   "name": "兩直線垂直",
+   "tex": "L_1\\perp L_2\\iff m_1m_2=-1",
+   "note": "必背；平行則 $m_1=m_2$，直線 $ax+by+c=0$ 的法向量為 $(a,b)$。"
+  },
+  {
+   "name": "點斜式",
+   "tex": "y-y_0=m(x-x_0)",
+   "note": "必背；截距式 $\\dfrac{x}{a}+\\dfrac{y}{b}=1$ 過 $(a,0)$、$(0,b)$。"
+  },
+  {
+   "name": "點到直線距離",
+   "tex": "d=\\dfrac{|ax_0+by_0+c|}{\\sqrt{a^2+b^2}}",
+   "note": "必背；直線要先化成 $ax+by+c=0$ 的一般式。"
+  },
+  {
+   "name": "兩平行線距離",
+   "tex": "d=\\dfrac{|c_1-c_2|}{\\sqrt{a^2+b^2}}",
+   "note": "必背；兩直線的 $x$、$y$ 係數要先調成相同。"
+  },
+  {
+   "name": "圓的標準式",
+   "tex": "(x-h)^2+(y-k)^2=r^2",
+   "note": "必背；一般式 $x^2+y^2+Dx+Ey+F=0$ 的圓心為 $\\left(-\\dfrac{D}{2},-\\dfrac{E}{2}\\right)$，需 $D^2+E^2-4F>0$。"
+  },
+  {
+   "name": "圓與直線的關係",
+   "tex": "d<r\\ \\text{交兩點},\\quad d=r\\ \\text{相切},\\quad d>r\\ \\text{不相交}",
+   "note": "必背；$d$ 為圓心到直線的距離，切線垂直於過切點的半徑。"
+  },
+  {
+   "name": "弦長",
+   "tex": "\\text{弦長}=2\\sqrt{r^2-d^2}",
+   "note": "要會推；由半徑、弦心距 $d$ 與半弦長構成的直角三角形得到。"
+  },
+  {
+   "name": "分點坐標",
+   "tex": "P=\\left(\\dfrac{nx_1+mx_2}{m+n},\\dfrac{ny_1+my_2}{m+n}\\right)",
+   "note": "必背；$\\overline{AP}:\\overline{PB}=m:n$，係數要交叉配對，最常弄反。"
+  },
+  {
+   "name": "線性規劃頂點法",
+   "tex": "f(x,y)=ax+by\\ \\text{的最大最小值在可行區域頂點}",
+   "note": "必背；可行區域為凸多邊形時成立，數乙。"
+  }
+ ],
+ "U05": [
+  {
+   "name": "等差數列一般項",
+   "tex": "a_n=a_1+(n-1)d",
+   "note": "必背；$a,b,c$ 成等差 $\\iff2b=a+c$。"
+  },
+  {
+   "name": "等差級數",
+   "tex": "S_n=\\dfrac{n(a_1+a_n)}{2}=\\dfrac{n[2a_1+(n-1)d]}{2}",
+   "note": "必背；從 $a_p$ 到 $a_q$ 共 $q-p+1$ 項，項數最容易算錯。"
+  },
+  {
+   "name": "等比數列一般項",
+   "tex": "a_n=a_1r^{n-1}",
+   "note": "必背；$a,b,c$ 成等比 $\\iff b^2=ac$，正項等比數列取對數後成等差。"
+  },
+  {
+   "name": "等比級數",
+   "tex": "S_n=\\dfrac{a_1(1-r^n)}{1-r}",
+   "note": "必背；$r\\ne1$，$r=1$ 時 $S_n=na_1$。"
+  },
+  {
+   "name": "連續整數和與平方和",
+   "tex": "\\sum\\limits_{k=1}^{n}k=\\dfrac{n(n+1)}{2},\\quad\\sum\\limits_{k=1}^{n}k^2=\\dfrac{n(n+1)(2n+1)}{6}",
+   "note": "必背；立方和為 $\\left[\\dfrac{n(n+1)}{2}\\right]^2$。"
+  },
+  {
+   "name": "一階遞迴化等比",
+   "tex": "a_{n+1}-c=r(a_n-c),\\quad c=\\dfrac{d}{1-r}",
+   "note": "要會推；由 $a_{n+1}=ra_n+d$（$r\\ne1$）令 $c=rc+d$ 解出 $c$，$\\langle a_n-c\\rangle$ 為等比數列。"
+  },
+  {
+   "name": "數學歸納法",
+   "tex": "P(1)\\ \\text{成立},\\ P(k)\\Rightarrow P(k+1)",
+   "note": "要會推；兩步都要寫，第二步一定要用到歸納假設 $P(k)$。"
+  },
+  {
+   "name": "週期數列",
+   "tex": "a_{n+T}=a_n",
+   "note": "要會推；求第 $n$ 項看 $n$ 除以週期 $T$ 的餘數，餘數為 $0$ 對應第 $T$ 項。"
+  }
+ ],
+ "U06": [
+  {
+   "name": "排列數",
+   "tex": "P^n_r=\\dfrac{n!}{(n-r)!}",
+   "note": "必背；從 $n$ 個相異物取 $r$ 個排成一列，有順序。"
+  },
+  {
+   "name": "組合數",
+   "tex": "C^n_r=\\dfrac{n!}{r!(n-r)!}",
+   "note": "必背；不計順序，$C^n_r=C^n_{n-r}$。"
+  },
+  {
+   "name": "重複排列",
+   "tex": "n^k",
+   "note": "必背；$k$ 件相異物各放入 $n$ 個盒子之一（可空盒），底數是每件物品可選的方法數。"
+  },
+  {
+   "name": "不盡相異物排列",
+   "tex": "\\dfrac{n!}{p!\\,q!\\,r!}",
+   "note": "必背；$p+q+r=n$，規定先後順序的元素可視為相同物。"
+  },
+  {
+   "name": "重複組合",
+   "tex": "H^n_r=C^{n+r-1}_r",
+   "note": "必背；即 $x_1+x_2+\\cdots+x_n=r$ 的非負整數解個數，要求正整數解先每個分 $1$。"
+  },
+  {
+   "name": "不相鄰選取",
+   "tex": "C^{n-k+1}_k",
+   "note": "要會推；從排成一列的 $n$ 個中選 $k$ 個兩兩不相鄰，相鄰用綁在一起、不相鄰用插空隙。"
+  },
+  {
+   "name": "排容原理",
+   "tex": "n(A\\cup B\\cup C)=\\sum n(A)-\\sum n(A\\cap B)+n(A\\cap B\\cap C)",
+   "note": "必背；兩個集合時 $n(A\\cup B)=n(A)+n(B)-n(A\\cap B)$，至少或都不的題目常用全部減不合。"
+  },
+  {
+   "name": "二項式定理",
+   "tex": "(a+b)^n=\\sum\\limits_{k=0}^{n}C^n_ka^{n-k}b^k",
+   "note": "必背；一般項 $C^n_ka^{n-k}b^k$，且 $\\sum\\limits_{k=0}^{n}C^n_k=2^n$。"
+  }
+ ],
+ "U07": [
+  {
+   "name": "古典機率",
+   "tex": "P(A)=\\dfrac{n(A)}{n(S)}",
+   "note": "必背；樣本空間每個結果必須等可能，同色球也要視為相異。"
+  },
+  {
+   "name": "餘事件",
+   "tex": "P(A')=1-P(A)",
+   "note": "必背；至少一次的機率先算一次都沒有，再用 $1$ 減。"
+  },
+  {
+   "name": "和事件",
+   "tex": "P(A\\cup B)=P(A)+P(B)-P(A\\cap B)",
+   "note": "必背；$A$、$B$ 互斥時 $P(A\\cap B)=0$。"
+  },
+  {
+   "name": "條件機率",
+   "tex": "P(B\\mid A)=\\dfrac{P(A\\cap B)}{P(A)}",
+   "note": "必背；$P(A)>0$，$P(B\\mid A)$ 與 $P(A\\mid B)$ 不要搞反。"
+  },
+  {
+   "name": "全機率（分情況）",
+   "tex": "P(B)=P(A)P(B\\mid A)+P(A')P(B\\mid A')",
+   "note": "必背；先畫樹狀圖，每條路徑機率相乘，再把通往 $B$ 的路徑相加。"
+  },
+  {
+   "name": "貝氏定理",
+   "tex": "P(A\\mid B)=\\dfrac{P(A)P(B\\mid A)}{P(A)P(B\\mid A)+P(A')P(B\\mid A')}",
+   "note": "要會推；就是條件機率配上全機率，分母是所有通往 $B$ 的路徑和。"
+  },
+  {
+   "name": "獨立事件",
+   "tex": "P(A\\cap B)=P(A)P(B)",
+   "note": "必背；獨立不等於互斥，$P(A),P(B)>0$ 時互斥一定不獨立。"
+  },
+  {
+   "name": "期望值",
+   "tex": "E(X)=\\sum\\limits_{i=1}^{n}x_ip_i",
+   "note": "必背；$E(aX+b)=aE(X)+b$，$E(X+Y)=E(X)+E(Y)$ 不需獨立。"
+  },
+  {
+   "name": "二項分布",
+   "tex": "P(X=k)=C^n_kp^k(1-p)^{n-k}",
+   "note": "必背；$n$ 次獨立重複試驗恰成功 $k$ 次，$E(X)=np$、$\\operatorname{Var}(X)=np(1-p)$ 屬數甲、數乙。"
+  },
+  {
+   "name": "幾何分布",
+   "tex": "P(X=k)=(1-p)^{k-1}p,\\quad E(X)=\\dfrac{1}{p}",
+   "note": "必背；$X$ 是第一次成功所需的次數，數甲、數乙。"
+  }
+ ],
+ "U08": [
+  {
+   "name": "算術平均數",
+   "tex": "\\mu=\\dfrac{1}{n}\\sum\\limits_{i=1}^{n}x_i",
+   "note": "必背；總和 $=$ 平均 $\\times$ 個數，合併兩組資料要用總和計算。"
+  },
+  {
+   "name": "標準差",
+   "tex": "\\sigma=\\sqrt{\\dfrac{1}{n}\\sum\\limits_{i=1}^{n}(x_i-\\mu)^2}=\\sqrt{\\dfrac{1}{n}\\sum\\limits_{i=1}^{n}x_i^2-\\mu^2}",
+   "note": "必背；大考的母體標準差除以 $n$，資料越集中標準差越小。"
+  },
+  {
+   "name": "資料線性變換",
+   "tex": "y=ax+b:\\ \\mu_y=a\\mu_x+b,\\ \\sigma_y=|a|\\sigma_x",
+   "note": "必背；平移不改變標準差，$a<0$ 時標準差仍是乘 $|a|$。"
+  },
+  {
+   "name": "標準化與 T 分數",
+   "tex": "z=\\dfrac{x-\\mu}{\\sigma},\\quad T=50+10z",
+   "note": "必背；標準化後平均數為 $0$、標準差為 $1$。"
+  },
+  {
+   "name": "相關係數",
+   "tex": "r=\\dfrac{\\sum(x_i-\\mu_x)(y_i-\\mu_y)}{\\sqrt{\\sum(x_i-\\mu_x)^2}\\sqrt{\\sum(y_i-\\mu_y)^2}}",
+   "note": "要會推；$-1\\le r\\le1$，兩變數各作正向線性變換時 $r$ 不變，只有一個反向則 $r$ 變號。"
+  },
+  {
+   "name": "迴歸直線",
+   "tex": "y-\\mu_y=r\\dfrac{\\sigma_y}{\\sigma_x}(x-\\mu_x)",
+   "note": "必背；必過 $(\\mu_x,\\mu_y)$，$x$ 對 $y$ 的迴歸斜率是 $r\\dfrac{\\sigma_x}{\\sigma_y}$，不是倒數。"
+  },
+  {
+   "name": "百分位數",
+   "tex": "n\\times\\dfrac{k}{100}",
+   "note": "要會推；資料由小到大排，算出整數 $m$ 取第 $m$ 與 $m+1$ 筆的平均，不是整數則取下一個整數那一筆。"
+  },
+  {
+   "name": "平均成長率",
+   "tex": "r=\\sqrt[n]{\\dfrac{a_n}{a_0}}-1",
+   "note": "必背；各年成長率不同時用幾何平均，不能直接把成長率相加再平均。"
+  }
+ ],
+ "U09": [
+  {
+   "name": "平方關係",
+   "tex": "\\sin^2\\theta+\\cos^2\\theta=1",
+   "note": "必背；配合 $\\tan\\theta=\\dfrac{\\sin\\theta}{\\cos\\theta}$，由一個三角比求其他時注意象限正負。"
+  },
+  {
+   "name": "弧度、弧長與扇形面積",
+   "tex": "\\pi=180^\\circ,\\quad s=r\\theta,\\quad A=\\dfrac{1}{2}r^2\\theta",
+   "note": "必背；弧長與扇形面積公式中的 $\\theta$ 必須用弧度。"
+  },
+  {
+   "name": "正弦定理",
+   "tex": "\\dfrac{a}{\\sin A}=\\dfrac{b}{\\sin B}=\\dfrac{c}{\\sin C}=2R",
+   "note": "必背；$R$ 為外接圓半徑，已知兩邊一對角時可能有兩解。"
+  },
+  {
+   "name": "餘弦定理",
+   "tex": "c^2=a^2+b^2-2ab\\cos C",
+   "note": "必背；變形為 $\\cos C=\\dfrac{a^2+b^2-c^2}{2ab}$，由正負判斷銳角、直角、鈍角。"
+  },
+  {
+   "name": "三角形面積",
+   "tex": "\\text{面積}=\\dfrac{1}{2}ab\\sin C=\\sqrt{s(s-a)(s-b)(s-c)}",
+   "note": "必背；海龍公式中 $s=\\dfrac{a+b+c}{2}$ 為半周長。"
+  },
+  {
+   "name": "和角公式",
+   "tex": "\\sin(\\alpha\\pm\\beta)=\\sin\\alpha\\cos\\beta\\pm\\cos\\alpha\\sin\\beta",
+   "note": "必背；$\\cos(\\alpha\\pm\\beta)=\\cos\\alpha\\cos\\beta\\mp\\sin\\alpha\\sin\\beta$，餘弦的正負號相反。"
+  },
+  {
+   "name": "二倍角公式",
+   "tex": "\\sin2\\theta=2\\sin\\theta\\cos\\theta,\\quad\\cos2\\theta=2\\cos^2\\theta-1=1-2\\sin^2\\theta",
+   "note": "必背；移項得降冪公式 $\\cos^2\\theta=\\dfrac{1+\\cos2\\theta}{2}$。"
+  },
+  {
+   "name": "疊合",
+   "tex": "a\\sin x+b\\cos x=\\sqrt{a^2+b^2}\\sin(x+\\varphi)",
+   "note": "必背；$\\cos\\varphi=\\dfrac{a}{\\sqrt{a^2+b^2}}$、$\\sin\\varphi=\\dfrac{b}{\\sqrt{a^2+b^2}}$，最大值 $\\sqrt{a^2+b^2}$。"
+  },
+  {
+   "name": "正弦函數的週期與振幅",
+   "tex": "y=a\\sin(bx+c)+d",
+   "note": "必背；週期 $\\dfrac{2\\pi}{|b|}$、振幅 $|a|$，值域為 $[d-|a|,d+|a|]$。"
+  },
+  {
+   "name": "圓上點坐標",
+   "tex": "(r\\cos\\theta,\\ r\\sin\\theta)",
+   "note": "必背；與原點距離 $r$、方向角 $\\theta$ 的點，單位圓上的點可設 $(\\cos\\theta,\\sin\\theta)$。"
+  }
+ ],
+ "U10": [
+  {
+   "name": "向量坐標與長度",
+   "tex": "\\overrightarrow{AB}=(x_2-x_1,\\ y_2-y_1),\\quad|\\overrightarrow{AB}|=\\sqrt{(x_2-x_1)^2+(y_2-y_1)^2}",
+   "note": "必背；向量坐標是終點減起點。"
+  },
+  {
+   "name": "內積",
+   "tex": "\\vec{u}\\cdot\\vec{v}=|\\vec{u}||\\vec{v}|\\cos\\theta=x_1x_2+y_1y_2",
+   "note": "必背；內積為正則夾角為銳角，為負則為鈍角。"
+  },
+  {
+   "name": "夾角公式",
+   "tex": "\\cos\\theta=\\dfrac{\\vec{u}\\cdot\\vec{v}}{|\\vec{u}||\\vec{v}|}",
+   "note": "必背；$0\\le\\theta\\le\\pi$，求兩直線的銳夾角時分子加絕對值。"
+  },
+  {
+   "name": "垂直與平行",
+   "tex": "\\vec{u}\\perp\\vec{v}\\iff\\vec{u}\\cdot\\vec{v}=0",
+   "note": "必背；平行則 $\\vec{u}=t\\vec{v}$，即 $x_1y_2-x_2y_1=0$。"
+  },
+  {
+   "name": "長度平方展開",
+   "tex": "|\\vec{u}\\pm\\vec{v}|^2=|\\vec{u}|^2\\pm2\\vec{u}\\cdot\\vec{v}+|\\vec{v}|^2",
+   "note": "必背；求長度先平方化成內積，最後別忘了開根號。"
+  },
+  {
+   "name": "分點公式",
+   "tex": "\\overrightarrow{OP}=\\dfrac{n\\overrightarrow{OA}+m\\overrightarrow{OB}}{m+n}",
+   "note": "必背；$\\overline{AP}:\\overline{PB}=m:n$，$\\overrightarrow{OP}=\\alpha\\overrightarrow{OA}+\\beta\\overrightarrow{OB}$ 且 $\\alpha+\\beta=1$ 時 $P$ 在直線 $AB$ 上。"
+  },
+  {
+   "name": "正射影",
+   "tex": "\\vec{v}\\ \\text{在}\\ \\vec{u}\\ \\text{上的正射影}=\\dfrac{\\vec{v}\\cdot\\vec{u}}{|\\vec{u}|^2}\\,\\vec{u}",
+   "note": "必背；正射影長為 $\\dfrac{|\\vec{v}\\cdot\\vec{u}|}{|\\vec{u}|}$。"
+  },
+  {
+   "name": "三角形面積（向量）",
+   "tex": "\\dfrac{1}{2}\\sqrt{|\\vec{a}|^2|\\vec{b}|^2-(\\vec{a}\\cdot\\vec{b})^2}=\\dfrac{1}{2}|x_1y_2-x_2y_1|",
+   "note": "必背；$\\vec{a}=(x_1,y_1)$、$\\vec{b}=(x_2,y_2)$，平行四邊形面積不乘 $\\dfrac{1}{2}$。"
+  },
+  {
+   "name": "線性組合與面積比",
+   "tex": "\\overrightarrow{AP}=x\\overrightarrow{AB}+y\\overrightarrow{AC}",
+   "note": "要會推；$P$ 在 $\\triangle ABC$ 內部 $\\iff x>0$、$y>0$、$x+y<1$，且 $\\triangle ABP$ 面積是 $\\triangle ABC$ 的 $y$ 倍。"
+  },
+  {
+   "name": "柯西不等式",
+   "tex": "(x_1x_2+y_1y_2)^2\\le(x_1^2+y_1^2)(x_2^2+y_2^2)",
+   "note": "要會推；即 $|\\vec{u}\\cdot\\vec{v}|\\le|\\vec{u}||\\vec{v}|$，等號成立於兩向量平行。"
+  }
+ ],
+ "U11": [
+  {
+   "name": "空間兩點距離",
+   "tex": "\\overline{AB}=\\sqrt{(x_1-x_2)^2+(y_1-y_2)^2+(z_1-z_2)^2}",
+   "note": "必背；點 $(x,y,z)$ 到 $z$ 軸距離為 $\\sqrt{x^2+y^2}$，到 $xy$ 平面距離為 $|z|$。"
+  },
+  {
+   "name": "外積",
+   "tex": "\\vec{u}\\times\\vec{v}=(a_2b_3-a_3b_2,\\ a_3b_1-a_1b_3,\\ a_1b_2-a_2b_1)",
+   "note": "必背；$\\vec{u}=(a_1,a_2,a_3)$、$\\vec{v}=(b_1,b_2,b_3)$，結果同時垂直 $\\vec{u}$ 與 $\\vec{v}$，數A、數甲。"
+  },
+  {
+   "name": "外積長度與面積",
+   "tex": "|\\vec{u}\\times\\vec{v}|=|\\vec{u}||\\vec{v}|\\sin\\theta",
+   "note": "必背；等於 $\\vec{u}$、$\\vec{v}$ 張出的平行四邊形面積，三角形再乘 $\\dfrac{1}{2}$。"
+  },
+  {
+   "name": "平行六面體體積",
+   "tex": "V=\\left|\\vec{u}\\cdot(\\vec{v}\\times\\vec{w})\\right|",
+   "note": "必背；等於三向量排成的三階行列式取絕對值，四面體體積再乘 $\\dfrac{1}{6}$。"
+  },
+  {
+   "name": "平面方程式（點法式）",
+   "tex": "a(x-x_0)+b(y-y_0)+c(z-z_0)=0",
+   "note": "必背；$(a,b,c)$ 為法向量，常由平面上兩個不平行向量的外積求得。"
+  },
+  {
+   "name": "點到平面距離",
+   "tex": "\\dfrac{|ax_0+by_0+cz_0+k|}{\\sqrt{a^2+b^2+c^2}}",
+   "note": "必背；平面寫成 $ax+by+cz+k=0$，兩平行平面距離為 $\\dfrac{|k_1-k_2|}{\\sqrt{a^2+b^2+c^2}}$。"
+  },
+  {
+   "name": "直線參數式",
+   "tex": "(x,y,z)=(x_0,y_0,z_0)+t(a,b,c)",
+   "note": "必背；$(a,b,c)$ 為方向向量，兩平面交線的方向平行 $\\vec{n_1}\\times\\vec{n_2}$。"
+  },
+  {
+   "name": "兩平面夾角",
+   "tex": "\\cos\\theta=\\pm\\dfrac{\\vec{n_1}\\cdot\\vec{n_2}}{|\\vec{n_1}||\\vec{n_2}|}",
+   "note": "必背；兩平面有 $\\theta$ 與 $\\pi-\\theta$ 兩個夾角，兩平面垂直 $\\iff\\vec{n_1}\\cdot\\vec{n_2}=0$。"
+  },
+  {
+   "name": "歪斜線距離",
+   "tex": "d=\\dfrac{|\\overrightarrow{PQ}\\cdot(\\vec{u}\\times\\vec{v})|}{|\\vec{u}\\times\\vec{v}|}",
+   "note": "要會推；$P$、$Q$ 分別在兩直線上，$\\vec{u}\\times\\vec{v}$ 是公垂線方向。"
+  }
+ ],
+ "U12": [
+  {
+   "name": "矩陣乘法",
+   "tex": "(AB)_{ij}=A\\ \\text{第}\\ i\\ \\text{列}\\cdot B\\ \\text{第}\\ j\\ \\text{行}",
+   "note": "必背；$AB$ 一般不等於 $BA$，所以 $(A+B)^2\\ne A^2+2AB+B^2$。"
+  },
+  {
+   "name": "二階行列式",
+   "tex": "\\begin{vmatrix}a&b\\\\c&d\\end{vmatrix}=ad-bc",
+   "note": "必背；線性變換後的面積是原面積的 $|\\det A|$ 倍。"
+  },
+  {
+   "name": "二階反方陣",
+   "tex": "\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}^{-1}=\\dfrac{1}{ad-bc}\\begin{bmatrix}d&-b\\\\-c&a\\end{bmatrix}",
+   "note": "必背；需 $ad-bc\\ne0$，主對角線互換、副對角線變號。"
+  },
+  {
+   "name": "克拉瑪公式",
+   "tex": "x=\\dfrac{\\Delta_x}{\\Delta},\\quad y=\\dfrac{\\Delta_y}{\\Delta}",
+   "note": "必背；$\\Delta\\ne0$ 恰一解，$\\Delta=0$ 時無解或無限多解，要再檢查。"
+  },
+  {
+   "name": "高斯消去法",
+   "tex": "\\left[\\begin{array}{ccc|c}1&a&b&p\\\\0&1&c&q\\\\0&0&1&r\\end{array}\\right]",
+   "note": "必背；列運算（兩列對調、某列乘非零數、某列倍數加到另一列）不改變解，化成上三角後由下往上代回。"
+  },
+  {
+   "name": "旋轉矩陣",
+   "tex": "\\begin{bmatrix}\\cos\\theta&-\\sin\\theta\\\\\\sin\\theta&\\cos\\theta\\end{bmatrix}",
+   "note": "必背；逆時針旋轉 $\\theta$，自乘 $n$ 次等於旋轉 $n\\theta$，順時針則把 $\\theta$ 換成 $-\\theta$。"
+  },
+  {
+   "name": "鏡射矩陣",
+   "tex": "\\begin{bmatrix}\\cos2\\theta&\\sin2\\theta\\\\\\sin2\\theta&-\\cos2\\theta\\end{bmatrix}",
+   "note": "必背；鏡射線過原點且與 $x$ 軸夾 $\\theta$，對 $x$ 軸鏡射為 $\\begin{bmatrix}1&0\\\\0&-1\\end{bmatrix}$。"
+  },
+  {
+   "name": "線性變換的矩陣",
+   "tex": "\\begin{bmatrix}a&b\\\\c&d\\end{bmatrix}:\\ (1,0)\\mapsto(a,c),\\ (0,1)\\mapsto(b,d)",
+   "note": "必背；第一行是 $(1,0)$ 的像、第二行是 $(0,1)$ 的像，可直接寫出變換矩陣。"
+  },
+  {
+   "name": "轉移矩陣",
+   "tex": "X_n=A^nX_0",
+   "note": "要會推；由 $X_{n+1}=AX_n$ 遞推，轉移矩陣每一行元素和為 $1$，穩定狀態解 $AX=X$。"
+  }
+ ],
+ "U13": [
+  {
+   "name": "拋物線",
+   "tex": "y^2=4cx",
+   "note": "必背；焦點 $(c,0)$、準線 $x=-c$，拋物線上的點到焦點與到準線等距，數甲。"
+  },
+  {
+   "name": "橢圓",
+   "tex": "\\dfrac{x^2}{a^2}+\\dfrac{y^2}{b^2}=1,\\quad c^2=a^2-b^2",
+   "note": "必背；$a>b>0$ 時長軸在 $x$ 軸、焦點 $(\\pm c,0)$，到兩焦點距離和為 $2a$，數甲。"
+  },
+  {
+   "name": "雙曲線",
+   "tex": "\\dfrac{x^2}{a^2}-\\dfrac{y^2}{b^2}=1,\\quad c^2=a^2+b^2",
+   "note": "必背；頂點 $(\\pm a,0)$，到兩焦點距離差的絕對值為 $2a$，右邊改成 $-1$ 則上下開口，數甲。"
+  },
+  {
+   "name": "雙曲線的漸近線",
+   "tex": "y=\\pm\\dfrac{b}{a}x",
+   "note": "必背；把標準式右邊的 $1$ 改成 $0$ 即得，數甲。"
+  },
+  {
+   "name": "伸縮變換",
+   "tex": "(x,y)\\mapsto(hx,ky):\\ \\text{原式中}\\ x\\ \\text{換成}\\ \\dfrac{x}{h},\\ y\\ \\text{換成}\\ \\dfrac{y}{k}",
+   "note": "要會推；新圖形上的點 $(X,Y)$ 對應原圖形上的點 $\\left(\\dfrac{X}{h},\\dfrac{Y}{k}\\right)$，數甲。"
+  },
+  {
+   "name": "橢圓參數式",
+   "tex": "(a\\cos\\theta,\\ b\\sin\\theta)",
+   "note": "要會推；求橢圓上點的最大最小值時可配合疊合，數甲。"
+  }
+ ],
+ "U14": [
+  {
+   "name": "共軛與絕對值",
+   "tex": "z\\bar{z}=|z|^2=a^2+b^2",
+   "note": "必背；$z=a+bi$，複數除法要乘以分母的共軛複數。"
+  },
+  {
+   "name": "絕對值的乘除",
+   "tex": "|z_1z_2|=|z_1||z_2|,\\quad\\left|\\dfrac{z_1}{z_2}\\right|=\\dfrac{|z_1|}{|z_2|}",
+   "note": "必背；$|z_1-z_2|$ 是複數平面上兩點的距離。"
+  },
+  {
+   "name": "實數的判別",
+   "tex": "z=\\bar{z}\\iff z\\in\\mathbb{R}",
+   "note": "必背；$\\bar{z}=-z$ 且 $z\\ne0$ 則為純虛數。"
+  },
+  {
+   "name": "極式",
+   "tex": "z=r(\\cos\\theta+i\\sin\\theta)",
+   "note": "必背；$r=|z|$，$\\theta$ 為輻角，數甲。"
+  },
+  {
+   "name": "極式的乘法",
+   "tex": "z_1z_2=r_1r_2[\\cos(\\theta_1+\\theta_2)+i\\sin(\\theta_1+\\theta_2)]",
+   "note": "必背；乘法長度相乘、角度相加，除法長度相除、角度相減，數甲。"
+  },
+  {
+   "name": "棣美弗定理",
+   "tex": "[r(\\cos\\theta+i\\sin\\theta)]^n=r^n(\\cos n\\theta+i\\sin n\\theta)",
+   "note": "必背；$n$ 為整數，$0\\le r<1$ 時 $z^n$ 趨近 $0$，數甲。"
+  },
+  {
+   "name": "n 次方根",
+   "tex": "z^n=1:\\ z=\\cos\\dfrac{2k\\pi}{n}+i\\sin\\dfrac{2k\\pi}{n}",
+   "note": "必背；$k=0,1,\\dots,n-1$，在複數平面上是單位圓內接正 $n$ 邊形的頂點，數甲。"
+  },
+  {
+   "name": "共線與旋轉",
+   "tex": "\\dfrac{z_3-z_1}{z_2-z_1}\\in\\mathbb{R}",
+   "note": "要會推；此為三點共線的條件，若比值為 $r(\\cos\\theta+i\\sin\\theta)$ 表示旋轉 $\\theta$ 並伸縮 $r$ 倍，數甲。"
+  }
+ ],
+ "U15": [
+  {
+   "name": "極限四則運算",
+   "tex": "\\lim\\limits_{n\\to\\infty}(a_n\\pm b_n)=\\lim\\limits_{n\\to\\infty}a_n\\pm\\lim\\limits_{n\\to\\infty}b_n",
+   "note": "必背；前提是兩個極限都存在，商的極限還要分母極限不為 $0$。"
+  },
+  {
+   "name": "有理式數列極限",
+   "tex": "\\lim\\limits_{n\\to\\infty}\\dfrac{an+b}{cn+d}=\\dfrac{a}{c}",
+   "note": "必背；分子分母同除以 $n$ 的最高次方，分子次數較低則極限為 $0$。"
+  },
+  {
+   "name": "等比數列極限",
+   "tex": "\\lim\\limits_{n\\to\\infty}r^n=0\\quad(|r|<1)",
+   "note": "必背；$\\langle r^n\\rangle$ 收斂 $\\iff-1<r\\le1$，$r=1$ 時極限為 $1$。"
+  },
+  {
+   "name": "無窮等比級數",
+   "tex": "\\sum\\limits_{n=1}^{\\infty}ar^{n-1}=\\dfrac{a}{1-r}",
+   "note": "必背；只在 $|r|<1$ 時收斂，先檢查公比再代公式。"
+  },
+  {
+   "name": "夾擠定理",
+   "tex": "a_n\\le b_n\\le c_n,\\ \\lim a_n=\\lim c_n=L\\Rightarrow\\lim b_n=L",
+   "note": "必背；含 $\\sin n$、$\\cos n$ 的數列先用 $-1\\le\\sin n\\le1$ 夾住，數甲。"
+  },
+  {
+   "name": "連續與函數極限",
+   "tex": "\\lim\\limits_{x\\to a}f(x)=f(a)",
+   "note": "必背；多項式函數處處連續可直接代入，分段函數要分別看左、右極限。"
+  },
+  {
+   "name": "勘根定理",
+   "tex": "f(a)f(b)<0\\Rightarrow f(x)=0\\ \\text{在}\\ (a,b)\\ \\text{有實根}",
+   "note": "必背；前提是 $f$ 在 $[a,b]$ 上連續。"
+  }
+ ],
+ "U16": [
+  {
+   "name": "導數定義",
+   "tex": "f'(a)=\\lim\\limits_{h\\to0}\\dfrac{f(a+h)-f(a)}{h}",
+   "note": "必背；$f'(a)$ 就是曲線 $y=f(x)$ 在 $x=a$ 的切線斜率。"
+  },
+  {
+   "name": "冪次微分",
+   "tex": "(x^n)'=nx^{n-1}",
+   "note": "必背；常數的導數為 $0$，$(kf+g)'=kf'+g'$。"
+  },
+  {
+   "name": "乘法與除法的微分",
+   "tex": "(fg)'=f'g+fg',\\quad\\left(\\dfrac{f}{g}\\right)'=\\dfrac{f'g-fg'}{g^2}",
+   "note": "必背；商的微分屬數甲，數乙只考多項式。"
+  },
+  {
+   "name": "連鎖律",
+   "tex": "[f(g(x))]'=f'(g(x))\\,g'(x)",
+   "note": "必背；例如 $[(ax+b)^n]'=na(ax+b)^{n-1}$，數甲。"
+  },
+  {
+   "name": "切線方程式",
+   "tex": "y-f(a)=f'(a)(x-a)",
+   "note": "必背；過曲線外一點的切線要先設切點 $(t,f(t))$ 再求。"
+  },
+  {
+   "name": "增減與極值",
+   "tex": "f'(x)>0\\Rightarrow f\\ \\text{遞增}",
+   "note": "必背；$f'(x)<0$ 則遞減，$f'$ 由正變負為極大、由負變正為極小。"
+  },
+  {
+   "name": "二階導數檢定",
+   "tex": "f'(c)=0,\\ f''(c)>0\\Rightarrow f(c)\\ \\text{為極小值}",
+   "note": "必背；$f''(c)<0$ 則為極大，$f''$ 變號的點是反曲點。"
+  },
+  {
+   "name": "閉區間最大最小值",
+   "tex": "\\max\\limits_{a\\le x\\le b}f(x)=\\max\\{f(a),\\ f(b),\\ f(c_i)\\}",
+   "note": "必背；$c_i$ 是區間內 $f'(c_i)=0$ 的點，端點不可漏。"
+  },
+  {
+   "name": "一次估計（線性近似）",
+   "tex": "f(a+h)\\approx f(a)+f'(a)h",
+   "note": "必背；$h$ 很小時用切線估計函數值，數甲。"
+  }
+ ],
+ "U17": [
+  {
+   "name": "多項式反導函數",
+   "tex": "\\displaystyle\\int x^n\\,dx=\\dfrac{x^{n+1}}{n+1}+C",
+   "note": "必背；$n\\ne-1$，不定積分的常數 $C$ 不可漏。"
+  },
+  {
+   "name": "微積分基本定理",
+   "tex": "\\displaystyle\\int_a^b f(x)\\,dx=F(b)-F(a)",
+   "note": "必背；$F$ 為 $f$ 的任一個反導函數。"
+  },
+  {
+   "name": "積分函數的導數",
+   "tex": "\\dfrac{d}{dx}\\displaystyle\\int_a^x f(t)\\,dt=f(x)",
+   "note": "必背；且 $\\displaystyle\\int_a^a f(t)\\,dt=0$，可用來決定常數。"
+  },
+  {
+   "name": "定積分的性質",
+   "tex": "\\displaystyle\\int_a^b f(x)\\,dx+\\int_b^c f(x)\\,dx=\\int_a^c f(x)\\,dx",
+   "note": "必背；偶函數 $\\displaystyle\\int_{-a}^{a}f(x)\\,dx=2\\int_0^a f(x)\\,dx$，奇函數則為 $0$。"
+  },
+  {
+   "name": "黎曼和化定積分",
+   "tex": "\\lim\\limits_{n\\to\\infty}\\sum\\limits_{k=1}^{n}f\\left(a+\\dfrac{k(b-a)}{n}\\right)\\dfrac{b-a}{n}=\\displaystyle\\int_a^b f(x)\\,dx",
+   "note": "要會推；先認出 $\\dfrac{b-a}{n}$ 是寬、$a+\\dfrac{k(b-a)}{n}$ 是取樣點，再寫成定積分。"
+  },
+  {
+   "name": "上和與下和",
+   "tex": "L_n\\le\\displaystyle\\int_a^b f(x)\\,dx\\le U_n",
+   "note": "要會推；$f$ 遞增時左端點和為下和、右端點和為上和，遞減時相反。"
+  },
+  {
+   "name": "兩曲線間面積",
+   "tex": "A=\\displaystyle\\int_a^b[f(x)-g(x)]\\,dx",
+   "note": "必背；需 $f(x)\\ge g(x)$，曲線上下交換時要分段，面積不可為負。"
+  },
+  {
+   "name": "旋轉體體積",
+   "tex": "V=\\pi\\displaystyle\\int_a^b[f(x)]^2\\,dx",
+   "note": "必背；繞 $x$ 軸旋轉，一般立體可用截面積 $V=\\displaystyle\\int_a^b A(x)\\,dx$，數甲。"
+  }
+ ],
+ "U18": [
+  {
+   "name": "弧長",
+   "tex": "s=r\\theta",
+   "note": "必背；$\\theta$ 用弧度，圓心角 $n^\\circ$ 時弧長為 $2\\pi r\\times\\dfrac{n}{360}$，數B。"
+  },
+  {
+   "name": "緯線圈半徑",
+   "tex": "r_\\varphi=R\\cos\\varphi",
+   "note": "必背；北緯 $\\varphi$ 的緯線圈周長為 $2\\pi R\\cos\\varphi$，沿緯線走不是最短路徑，數B。"
+  },
+  {
+   "name": "大圓與圓心角",
+   "tex": "\\text{北緯}\\ \\varphi\\ \\text{到北極的圓心角}=90^\\circ-\\varphi",
+   "note": "必背；球面最短路徑走大圓，東經 $x^\\circ$ 與西經 $(180-x)^\\circ$ 兩條經線合成一個大圓，數B。"
+  },
+  {
+   "name": "經緯度與坐標",
+   "tex": "(R\\cos\\varphi\\cos\\lambda,\\ R\\cos\\varphi\\sin\\lambda,\\ R\\sin\\varphi)",
+   "note": "要會推；$\\varphi$ 為緯度、$\\lambda$ 為經度，北緯 $\\varphi$ 的點 $z$ 坐標為 $R\\sin\\varphi$，數B。"
+  },
+  {
+   "name": "交比（單點透視）",
+   "tex": "K=\\dfrac{\\overline{P_1P_4}\\cdot\\overline{P_2P_3}}{\\overline{P_1P_3}\\cdot\\overline{P_2P_4}}",
+   "note": "必背；共線四點經單點透視後 $K$ 值不變，等距四點的 $K=\\dfrac{3}{4}$，數B。"
+  },
+  {
+   "name": "單點透視的高度比較",
+   "tex": "\\text{實際高度}\\propto\\dfrac{h}{d}",
+   "note": "要會推；$h$ 為畫面上的柱高、$d$ 為柱底到地平線的距離，與視線平行的直線在畫面上交於消失點，數B。"
+  },
+  {
+   "name": "圓錐截痕",
+   "tex": "\\theta>\\alpha\\ \\text{橢圓},\\quad\\theta=\\alpha\\ \\text{拋物線},\\quad\\theta<\\alpha\\ \\text{雙曲線}",
+   "note": "必背；$\\alpha$ 為半頂角、$\\theta$ 為截面與軸的夾角，截面不過頂點，$\\theta=90^\\circ$ 時為圓，數B。"
+  },
+  {
+   "name": "按比例成長",
+   "tex": "N(t)=N_0\\cdot2^{t/h}",
+   "note": "必背；每 $h$ 小時加倍，比較兩個量時把時間對齊再相除，數B。"
+  },
+  {
+   "name": "平行截線比例",
+   "tex": "\\dfrac{\\text{截線長}}{\\text{底邊長}}=\\dfrac{\\text{頂點到截線距離}}{\\text{頂點到底邊距離}}",
+   "note": "必背；截線與底邊平行時由相似三角形得到，面積比為長度比的平方，數B。"
+  }
+ ]
+}

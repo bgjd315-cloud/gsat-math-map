@@ -96,7 +96,8 @@ h2.sec{font-family:var(--f-display);font-weight:600;font-size:22px;margin:0 0 4p
 .note{font-size:13px;color:var(--ink-2);margin:0}
 
 /* overview */
-.overview{display:grid;gap:12px}
+.overview{display:grid;gap:12px;min-width:0}
+.overview > *{min-width:0}
 .ovtable{overflow-x:auto;background:var(--sheet);border:1px solid var(--rule);border-radius:6px}
 table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
 .ovtable th,.ovtable td{padding:7px 12px;text-align:left;border-bottom:1px solid var(--rule);white-space:nowrap}
@@ -201,6 +202,41 @@ details.sc-ans > div{padding:0 12px 10px;display:grid;gap:6px}
 .sc-take b{color:var(--easy)}
 .sc-pit{color:var(--hard)}
 .sc-pit b{color:var(--hard)}
+math{font-size:1.08em}
+#units > *,section.unit > *,.qlist,.yr,.yr > *,article.q,.scb,.scb > *,details.step,details.sc-ans,.sc-steps ol,.sc-steps li,details.fcard{min-width:0}
+section.unit{min-width:0}
+.calc > div,.fb-tex,.ansline .ans,.wrong li,.tiers li{max-width:100%;overflow-x:auto;overflow-y:hidden}
+.fboxes{display:grid;gap:8px}
+.fbox{border:1px solid var(--rule);border-left:4px solid var(--omr);border-radius:6px;padding:8px 12px;background:var(--paper);min-width:0}
+.fb-name{font-size:12.5px;font-weight:700;color:var(--ink-2)}
+.fb-tex{font-size:16px;padding:4px 0;overflow-x:auto}
+.fb-vars{list-style:none;margin:2px 0 0;padding:0;display:flex;flex-wrap:wrap;gap:2px 16px;font-size:13.5px;color:var(--ink-2)}
+.fb-sym{color:var(--ink)}
+.fb-cond{font-size:13px;color:var(--ink-2);margin-top:4px}
+.fb-cond b{color:var(--mid);margin-right:6px;font-size:12px}
+.calc{display:grid;gap:4px;padding:2px 12px 10px calc(12px + 1.6em + 10px);overflow-x:auto}
+.calc > div{min-width:0}
+.why{padding:0 12px 10px calc(12px + 1.6em + 10px)!important;font-size:13.5px;color:var(--ink-2)}
+.ansline{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 12px}
+.ansline > b{font-size:13px;color:var(--ink-2);letter-spacing:.2em}
+.ansline .ans{font-size:17px}
+.approx{font-size:13.5px;color:var(--ink-2)}
+.wrong,.tiers{font-size:13.5px}
+.wrong > b,.tiers > b{display:block;font-size:12px;letter-spacing:.08em;color:var(--hard);margin-bottom:2px}
+.tiers > b{color:var(--easy)}
+.wrong ul,.tiers ul{margin:0;padding-left:1.1em;display:grid;gap:2px}
+.wopt,.tk{font-weight:700;margin-right:6px}
+details.fcard{border:1px solid var(--rule);border-radius:8px;background:var(--sheet)}
+details.fcard > summary{cursor:pointer;padding:9px 14px;font-weight:700;color:var(--omr);list-style:none}
+details.fcard > summary::-webkit-details-marker{display:none}
+.fc-wrap{overflow-x:auto;padding:0 12px 12px}
+table.fc{border-collapse:collapse;width:100%;font-size:13.5px}
+table.fc th{font-size:12px;font-weight:500;color:var(--ink-2);text-align:left;padding:6px 8px;border-bottom:1px solid var(--ink-3)}
+table.fc td{padding:8px;border-bottom:1px solid var(--rule);vertical-align:middle}
+.fc-n{font-weight:700;white-space:nowrap}
+.fc-t{font-size:15px;min-width:180px}
+.fc-c{color:var(--ink-2);min-width:140px}
+@media (max-width:640px){.calc,.why{padding-left:10px!important}.fc-t{min-width:150px}}
 @media (max-width:640px){.scb{padding:12px 10px 14px}details.step > p{padding:0 10px 10px}details.step summary{padding:8px 10px}}
 .qbody{display:grid;grid-template-columns:4em minmax(0,1fr);gap:8px 14px;padding:12px 16px 16px;border-top:1px dashed var(--rule);font-size:14.5px;background:var(--sheet)}
 .qbody .k{font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.08em;padding-top:2px}
@@ -302,12 +338,15 @@ footer{grid-column:1 / -1;border-top:1px solid var(--rule);padding-top:14px;font
 </div>
 <a class="totop" href="#overview">回到總覽 ↑</a>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js" defer></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/contrib/auto-render.min.js" defer></script>
 <script>
 const DATA = /*DATA*/[];
 const UNITS = /*UNITS*/{};
 const NOTES = /*NOTES*/{};
 const IMGS = /*IMGS*/{};
 const ART = /*ART*/[];
+const CARDS = /*CARDS*/{};
 const EXAMS=["數A","數B","數甲","數乙"], YEARS=[...new Set(DATA.map(d=>d.year))].sort((a,b)=>a-b), DIFFS=["易","中","難"];
 const SHOW=6, TOPN=8;
 const fresh=()=>({exam:new Set(EXAMS),year:new Set(YEARS),diff:new Set(DIFFS),sort:"points",ctx:false,todo:false,q:""});
@@ -372,6 +411,7 @@ function unitHTML(u,i){
     <div class="fact"><h4>最常考的小主題</h4><div class="tags">${topT.map(([t,n])=>`<span class="tag">${esc(t)}${n>1?`<i>×${n}</i>`:""}</span>`).join("")}</div>${ctxs.length?`<div class="ctxline">情境取材：${ctxs.slice(0,10).map(esc).join("、")}</div>`:""}</div>
     <div class="fact"><h4>題數分布（考科 × 年度）</h4><table class="mini"><tr><th></th>${YEARS.map(y=>`<th>${y}</th>`).join("")}</tr>${grid}</table></div>
   </div>
+  ${(CARDS[u.unit]||[]).length?`<details class="fcard"><summary>本單元公式卡（${CARDS[u.unit].length} 條）</summary><div class="fc-wrap"><table class="fc"><thead><tr><th>名稱</th><th>公式</th><th>條件或提醒</th></tr></thead><tbody>${CARDS[u.unit].map(c=>`<tr><td class="fc-n">${esc(c.name)}</td><td class="fc-t">$\\displaystyle ${esc(c.tex)}$</td><td class="fc-c">${esc(c.note||"")}</td></tr>`).join("")}</tbody></table></div></details>`:""}
   <div class="qlist">${byYr.map(g=>`<div class="yr"><h5>${g.y} 年</h5>${g.qs.map(qCard).join("")}</div>`).join("")}
   ${qs.length>SHOW&&!state.q?`<button class="morebtn" data-more="${u.unit}">${open?"收合，只看最近 "+SHOW+" 題":`顯示全部 ${qs.length} 題（還有 ${qs.length-SHOW} 題）`}</button>`:""}</div>
   </section>`}
@@ -388,19 +428,35 @@ function qCard(d){const sec=(d.secondary||[]).map(s=>UNITS[s]||s).join("、");co
   ${d.detail?scaffold(d,sec):`<details class="sol"><summary><span class="show">看答案與解析</span><span class="hide">收起解析</span></summary>
   <div class="qbody"><span class="k">答案</span><p class="v ans">${esc(d.answer)}</p><span class="k">考點</span><p class="v">${esc(d.topic)}${d.context?`<span class="ctx">・${esc(d.context)}</span>`:""}</p><span class="k">解析</span><p class="v">${esc(d.solution)}</p>${d.pitfall?`<span class="k">易錯</span><p class="v pit">${esc(d.pitfall)}</p>`:""}${sec?`<span class="k">跨單元</span><p class="v x">${esc(sec)}</p>`:""}</div></details>`}</article>`}
 /* scaffolded solution: 破題 → 先備 → 步驟（逐步揭開）→ 答案 → 驗算 → 心法 */
-function scaffold(d,sec){const t=d.detail;const steps=t.steps||[];
+function fbox(f){return `<div class="fbox"><div class="fb-name">${esc(f.name)}</div><div class="fb-tex">$\\displaystyle ${esc(f.tex)}$</div>
+  ${(f.vars||[]).length?`<ul class="fb-vars">${f.vars.map(v=>`<li><span class="fb-sym">$${esc(v[0])}$</span>＝${esc(v[1])}</li>`).join("")}</ul>`:""}
+  ${f.cond?`<div class="fb-cond"><b>條件</b>${esc(f.cond)}</div>`:""}</div>`}
+function scaffold(d,sec){const t=d.detail;const steps=t.steps||[];const v2=!!t.idea;
+  const stepBody=s=>v2?`<div class="calc">${(s.calc||[]).map(l=>`<div>${esc(l)}</div>`).join("")}</div>${s.why?`<p class="why">${esc(s.why)}</p>`:""}`:`<p>${esc(s.a)}</p>`;
   return `<details class="sol scaf"><summary><span class="show">開始解題引導</span><span class="hide">收起解題引導</span></summary>
   <div class="scb">
-    <section class="sc-guide"><h6>破題引導</h6><p>${esc(t.guide)}</p>
+    <section class="sc-guide"><h6>想法</h6><p>${esc(v2?t.idea:t.guide)}</p>
       <p class="sc-topic">考點：${esc(d.topic)}${d.context?`<span class="ctx">・${esc(d.context)}</span>`:""}${sec?`<span class="x">｜跨單元：${esc(sec)}</span>`:""}</p></section>
-    ${(t.know||[]).length?`<section class="sc-know"><h6>先備觀念</h6><ul>${t.know.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></section>`:""}
+    ${v2&&(t.formulas||[]).length?`<section class="sc-know"><h6>會用到的公式</h6><div class="fboxes">${t.formulas.map(fbox).join("")}</div></section>`
+      :(t.know||[]).length?`<section class="sc-know"><h6>先備觀念</h6><ul>${t.know.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></section>`:""}
     <section class="sc-steps"><div class="sc-head"><h6>一步一步來</h6><button type="button" class="sc-all" data-all>全部展開</button></div>
       <p class="sc-tip">先看每一步的提問，自己想一下，再點開看做法。</p>
-      <ol>${steps.map((s,i)=>`<li><details class="step"><summary><span class="sn">${i+1}</span><span class="sq">${esc(s.q)}</span><span class="sh">看做法</span></summary><p>${esc(s.a)}</p></details></li>`).join("")}</ol></section>
-    <details class="sc-ans"><summary>算完了，看答案</summary><div><p class="ans">${esc(d.answer)}</p>${t.check?`<p class="chk2"><b>驗算</b>${esc(t.check)}</p>`:""}</div></details>
+      <ol>${steps.map((s,i)=>`<li><details class="step"><summary><span class="sn">${i+1}</span><span class="sq">${esc(s.q)}</span><span class="sh">看做法</span></summary>${stepBody(s)}</details></li>`).join("")}</ol></section>
+    <details class="sc-ans"><summary>算完了，看答案</summary><div>
+      <p class="ansline"><b>答</b><span class="ans">${esc(v2?t.answer:d.answer)}</span>${t.approx?`<span class="approx">${esc(t.approx)}</span>`:""}</p>
+      ${t.check?`<p class="chk2"><b>驗算</b>${esc(t.check)}</p>`:""}
+      ${(t.wrong||[]).length?`<div class="wrong"><b>常見錯誤</b><ul>${t.wrong.map(w=>`<li><span class="wopt">${esc(w.opt)}</span>${esc(w.how)}</li>`).join("")}</ul></div>`:""}
+      ${(t.tiers||[]).length?`<div class="tiers"><b>評分重點</b><ul>${t.tiers.map(x=>`<li><span class="tk">${esc(x[0])}</span>${esc(x[1])}</li>`).join("")}</ul></div>`:""}
+    </div></details>
     ${t.takeaway?`<p class="sc-take"><b>一句話心法</b>${esc(t.takeaway)}</p>`:""}
-    ${d.pitfall?`<p class="sc-pit"><b>易錯</b>${esc(d.pitfall)}</p>`:""}
+    ${d.pitfall&&!(t.wrong||[]).length?`<p class="sc-pit"><b>易錯</b>${esc(d.pitfall)}</p>`:""}
   </div></details>`}
+/* KaTeX: render $…$ as MathML (no stylesheet needed) inside an element, once */
+function typeset(el){if(!el||el.dataset.tex==="1")return;if(!window.renderMathInElement){el.dataset.texWait="1";return}
+  try{renderMathInElement(el,{delimiters:[{left:"$",right:"$",display:false}],output:"mathml",throwOnError:false,strict:false,ignoredClasses:["notex"]})}catch(e){}
+  el.dataset.tex="1"}
+document.addEventListener("toggle",e=>{const d=e.target;if(d.open&&(d.classList.contains("scaf")||d.classList.contains("fcard")))typeset(d)},true);
+window.addEventListener("load",()=>document.querySelectorAll("[data-tex-wait='1']").forEach(el=>{delete el.dataset.texWait;typeset(el)}));
 document.getElementById("units").addEventListener("click",e=>{const b=e.target.closest("[data-all]");if(!b)return;
   const box=b.closest(".sc-steps");const steps=[...box.querySelectorAll("details.step")];const open=steps.some(s=>!s.open);
   steps.forEach(s=>s.open=open);b.textContent=open?"全部收起":"全部展開"});

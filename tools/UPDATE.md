@@ -29,6 +29,13 @@ python -m pip install pymupdf pillow   # 第一次才需要
 - 學測沒有答對率，`rate` 填 `null`；分科填答對率（0–1）。
 - 可平行處理：每份試卷交給一個子代理，各自讀 `tools/BRIEF.md` 照做。
 
+## 2b. 詳細解析（破題引導＋鷹架）→ `tools/detail/`
+
+- 先完成第 3 步的截圖，再依 `tools/DETAIL_BRIEF.md` 為每題寫詳解：破題引導、先備觀念、3–8 個鷹架步驟（引導提問＋做法與理由）、驗算、一句話心法。讀者設定為中等程度的高中生。
+- 檔名：`tools/detail/AYYY.json`、`BYYY.json`、`JYYY.json`、`YYYY.json`（陣列，每題一個物件）。
+- 非選擇題的步驟要照大考中心「非選擇題評分原則」的得分點拆開。
+- 沒有詳解的題目，網頁會改顯示 `tools/data` 裡的簡短解析。
+
 ## 3. 裁切題目截圖 → `q/`
 
 ```bash

@@ -49,6 +49,26 @@ for d in data:
     for k in ("topic", "context", "stem", "answer", "solution", "pitfall", "type"): d[k] = str(d.get(k) or "")
     clean.append(d)
 
+# detailed scaffolded solutions (tools/detail/*.json, see DETAIL_BRIEF.md)
+DET = {}
+for f in sorted(glob.glob(os.path.join(T, "detail", "*.json"))):
+    try:
+        for x in json.load(open(f, encoding="utf-8")):
+            DET[(x.get("exam"), int(x.get("year")), str(x.get("no")))] = x
+    except Exception as e:
+        print("BAD detail file", os.path.basename(f), e)
+issues = []
+for d in clean:
+    x = DET.get((d["exam"], d["year"], d["no"]))
+    if not x or not x.get("steps"): continue
+    steps = [{"q": str(s.get("q") or ""), "a": str(s.get("a") or "")} for s in x["steps"] if isinstance(s, dict)]
+    d["detail"] = {"guide": str(x.get("guide") or ""), "know": [str(k) for k in (x.get("know") or [])],
+                   "steps": steps, "check": str(x.get("check") or ""), "takeaway": str(x.get("takeaway") or "")}
+    if str(x.get("answer_issue") or "").strip():
+        issues.append(f"{d['exam']} {d['year']} 第{d['no']}題：{x['answer_issue']}（既有答案 {d['answer']}，詳解答案 {x.get('answer')}）")
+print("detailed solutions:", sum(1 for d in clean if "detail" in d), "/", len(clean))
+for i in issues: print("ANSWER_ISSUE", i)
+
 missing_img = [f"{d['exam']}|{d['year']}|{int(''.join(c for c in d['no'] if c.isdigit()) or 0)}" for d in clean
                if not IMGS.get(f"{d['exam']}|{d['year']}|{int(''.join(c for c in d['no'] if c.isdigit()) or 0)}")]
 years = sorted({d["year"] for d in clean}); papers = len({(d["exam"], d["year"]) for d in clean})

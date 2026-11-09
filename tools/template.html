@@ -161,14 +161,47 @@ article.q.done{border-color:color-mix(in srgb,var(--easy) 45%,var(--rule))}
 .paper img{display:block;width:100%;max-width:760px;height:auto;margin:0 auto}
 .paper .v{color:#1d2433}
 details.sol{border-top:1px solid var(--rule)}
-details.sol summary{cursor:pointer;list-style:none;padding:9px 14px;font-size:14px;font-weight:500;color:var(--omr);display:flex;align-items:center;gap:8px}
-details.sol summary::-webkit-details-marker{display:none}
-details.sol summary::before{content:"";width:0;height:0;border-left:6px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent;transition:transform .15s}
-details.sol[open] summary::before{transform:rotate(90deg)}
-details.sol .hide{display:none}
-details.sol[open] .hide{display:inline}
-details.sol[open] .show{display:none}
-details.sol summary:hover{background:var(--omr-soft)}
+details.sol > summary{cursor:pointer;list-style:none;padding:9px 14px;font-size:14px;font-weight:500;color:var(--omr);display:flex;align-items:center;gap:8px}
+details.sol > summary::-webkit-details-marker{display:none}
+details.sol > summary::before{content:"";width:0;height:0;border-left:6px solid currentColor;border-top:5px solid transparent;border-bottom:5px solid transparent;transition:transform .15s}
+details.sol[open] > summary::before{transform:rotate(90deg)}
+details.sol > summary .hide{display:none}
+details.sol[open] > summary .hide{display:inline}
+details.sol[open] > summary .show{display:none}
+details.sol > summary:hover{background:var(--omr-soft)}
+.scb{display:grid;gap:14px;padding:14px 16px 16px;border-top:1px dashed var(--rule);background:var(--sheet);font-size:14.5px;line-height:1.8}
+.scb h6{margin:0 0 4px;font-size:12px;font-weight:700;letter-spacing:.1em;color:var(--omr)}
+.scb p{margin:0;max-width:72ch;overflow-wrap:anywhere}
+.sc-guide{background:var(--omr-soft);border-radius:8px;padding:10px 14px}
+.sc-topic{font-size:12.5px;color:var(--ink-2);margin-top:6px!important}
+.sc-topic .x{margin-left:4px}
+.sc-know ul{margin:0;padding-left:1.2em;display:grid;gap:2px}
+.sc-know li{font-family:var(--f-body)}
+.sc-know li::marker{color:var(--omr)}
+.sc-head{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.sc-all{font:inherit;font-size:12px;border:1px solid var(--rule);background:none;color:var(--ink-2);border-radius:999px;padding:1px 10px;cursor:pointer}
+.sc-tip{font-size:12.5px;color:var(--ink-2);margin-bottom:6px!important}
+.sc-steps ol{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+details.step{border:1px solid var(--rule);border-radius:8px;background:var(--paper)}
+details.step[open]{background:var(--sheet);border-color:var(--ink-3)}
+details.step summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:10px;align-items:baseline;padding:8px 12px}
+details.step summary::-webkit-details-marker{display:none}
+.sn{font-family:var(--f-mono);font-weight:600;color:var(--sheet);background:var(--omr);border-radius:50%;width:1.6em;height:1.6em;display:inline-grid;place-items:center;font-size:12px;align-self:start;margin-top:2px}
+.sq{font-weight:500;min-width:0;overflow-wrap:anywhere}
+.sh{font-size:12px;color:var(--omr);white-space:nowrap}
+details.step[open] .sh{visibility:hidden}
+details.step > p{padding:0 12px 10px calc(12px + 1.6em + 10px)}
+details.sc-ans{border:2px solid var(--omr);border-radius:8px}
+details.sc-ans summary{list-style:none;cursor:pointer;padding:8px 12px;font-weight:700;color:var(--omr)}
+details.sc-ans summary::-webkit-details-marker{display:none}
+details.sc-ans > div{padding:0 12px 10px;display:grid;gap:6px}
+.sc-ans .ans{font-family:var(--f-mono);font-weight:700;font-size:17px;color:var(--omr)}
+.chk2 b,.sc-take b,.sc-pit b{display:inline-block;font-size:12px;letter-spacing:.08em;margin-right:8px;color:var(--ink-2)}
+.sc-take{border-left:4px solid var(--easy);padding:4px 0 4px 12px}
+.sc-take b{color:var(--easy)}
+.sc-pit{color:var(--hard)}
+.sc-pit b{color:var(--hard)}
+@media (max-width:640px){.scb{padding:12px 10px 14px}details.step > p{padding:0 10px 10px}details.step summary{padding:8px 10px}}
 .qbody{display:grid;grid-template-columns:4em minmax(0,1fr);gap:8px 14px;padding:12px 16px 16px;border-top:1px dashed var(--rule);font-size:14.5px;background:var(--sheet)}
 .qbody .k{font-size:12px;font-weight:700;color:var(--ink-2);letter-spacing:.08em;padding-top:2px}
 .qbody .v{margin:0;max-width:72ch;min-width:0;overflow-wrap:anywhere}
@@ -298,7 +331,7 @@ function sync(){
   document.getElementById("todo").setAttribute("aria-pressed",state.todo);
   document.getElementById("idx-unit").textContent=state.sort==="points"?"配分":"題數";
 }
-function filtered(){const q=state.q;return DATA.filter(d=>state.exam.has(d.exam)&&state.year.has(d.year)&&state.diff.has(d.difficulty)&&(!state.ctx||d.context)&&(!state.todo||!DONE.has(qid(d)))&&(!q||[d.topic,d.stem,d.solution,d.context,d.pitfall,UNITS[d.unit]].join(" ").includes(q)))}
+function filtered(){const q=state.q;return DATA.filter(d=>state.exam.has(d.exam)&&state.year.has(d.year)&&state.diff.has(d.difficulty)&&(!state.ctx||d.context)&&(!state.todo||!DONE.has(qid(d)))&&(!q||[d.topic,d.stem,d.solution,d.context,d.pitfall,UNITS[d.unit],d.detail?d.detail.guide+" "+d.detail.takeaway:""].join(" ").includes(q)))}
 function heatClass(v,max){if(!v)return"h0";const r=v/max;return r>.75?"h4":r>.5?"h3":r>.25?"h2":"h1"}
 const examOrder={"數A":0,"數B":1,"數甲":2,"數乙":3};
 let LIST=[];
@@ -352,8 +385,25 @@ function qCard(d){const sec=(d.secondary||[]).map(s=>UNITS[s]||s).join("、");co
   <header class="qh"><span class="qx">${d.year}・${d.exam}</span><span class="qn"><span class="dot"></span>第${esc(d.no)}題</span><span class="qm">${esc(d.type)}・${d.points}分${d.rate!=null?`・答對率 ${Math.round(d.rate*100)}%`:""}</span><span class="qd ${d.difficulty}">${d.difficulty}</span>
   <button class="chk" data-done="${esc(id)}" aria-pressed="${DONE.has(id)}" title="標記為已練習">${DONE.has(id)?"✓ 練習過了":"標記已練習"}</button></header>
   <div class="paper">${pic}</div>
-  <details class="sol"><summary><span class="show">看答案與解析</span><span class="hide">收起解析</span></summary>
-  <div class="qbody"><span class="k">答案</span><p class="v ans">${esc(d.answer)}</p><span class="k">考點</span><p class="v">${esc(d.topic)}${d.context?`<span class="ctx">・${esc(d.context)}</span>`:""}</p><span class="k">解析</span><p class="v">${esc(d.solution)}</p>${d.pitfall?`<span class="k">易錯</span><p class="v pit">${esc(d.pitfall)}</p>`:""}${sec?`<span class="k">跨單元</span><p class="v x">${esc(sec)}</p>`:""}</div></details></article>`}
+  ${d.detail?scaffold(d,sec):`<details class="sol"><summary><span class="show">看答案與解析</span><span class="hide">收起解析</span></summary>
+  <div class="qbody"><span class="k">答案</span><p class="v ans">${esc(d.answer)}</p><span class="k">考點</span><p class="v">${esc(d.topic)}${d.context?`<span class="ctx">・${esc(d.context)}</span>`:""}</p><span class="k">解析</span><p class="v">${esc(d.solution)}</p>${d.pitfall?`<span class="k">易錯</span><p class="v pit">${esc(d.pitfall)}</p>`:""}${sec?`<span class="k">跨單元</span><p class="v x">${esc(sec)}</p>`:""}</div></details>`}</article>`}
+/* scaffolded solution: 破題 → 先備 → 步驟（逐步揭開）→ 答案 → 驗算 → 心法 */
+function scaffold(d,sec){const t=d.detail;const steps=t.steps||[];
+  return `<details class="sol scaf"><summary><span class="show">開始解題引導</span><span class="hide">收起解題引導</span></summary>
+  <div class="scb">
+    <section class="sc-guide"><h6>破題引導</h6><p>${esc(t.guide)}</p>
+      <p class="sc-topic">考點：${esc(d.topic)}${d.context?`<span class="ctx">・${esc(d.context)}</span>`:""}${sec?`<span class="x">｜跨單元：${esc(sec)}</span>`:""}</p></section>
+    ${(t.know||[]).length?`<section class="sc-know"><h6>先備觀念</h6><ul>${t.know.map(k=>`<li>${esc(k)}</li>`).join("")}</ul></section>`:""}
+    <section class="sc-steps"><div class="sc-head"><h6>一步一步來</h6><button type="button" class="sc-all" data-all>全部展開</button></div>
+      <p class="sc-tip">先看每一步的提問，自己想一下，再點開看做法。</p>
+      <ol>${steps.map((s,i)=>`<li><details class="step"><summary><span class="sn">${i+1}</span><span class="sq">${esc(s.q)}</span><span class="sh">看做法</span></summary><p>${esc(s.a)}</p></details></li>`).join("")}</ol></section>
+    <details class="sc-ans"><summary>算完了，看答案</summary><div><p class="ans">${esc(d.answer)}</p>${t.check?`<p class="chk2"><b>驗算</b>${esc(t.check)}</p>`:""}</div></details>
+    ${t.takeaway?`<p class="sc-take"><b>一句話心法</b>${esc(t.takeaway)}</p>`:""}
+    ${d.pitfall?`<p class="sc-pit"><b>易錯</b>${esc(d.pitfall)}</p>`:""}
+  </div></details>`}
+document.getElementById("units").addEventListener("click",e=>{const b=e.target.closest("[data-all]");if(!b)return;
+  const box=b.closest(".sc-steps");const steps=[...box.querySelectorAll("details.step")];const open=steps.some(s=>!s.open);
+  steps.forEach(s=>s.open=open);b.textContent=open?"全部收起":"全部展開"});
 document.getElementById("units").addEventListener("click",e=>{const b=e.target.closest("[data-done]");if(!b)return;const id=b.dataset.done;DONE.has(id)?DONE.delete(id):DONE.add(id);saveDone();
   const on=DONE.has(id);b.setAttribute("aria-pressed",on);b.textContent=on?"✓ 練習過了":"標記已練習";b.closest("article.q").classList.toggle("done",on);updateProgress()});
 function updateProgress(){const el=document.getElementById("prog");if(!el)return;const n=DATA.filter(d=>DONE.has(qid(d))).length;el.textContent=n?`已練習 ${n} / ${DATA.length} 題`:"";}

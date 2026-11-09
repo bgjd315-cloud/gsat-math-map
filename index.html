@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="description" content="111–115 學測數A、數B 與分科數甲、數乙共 321 題原題，依單元由最常考排起，點一下看答案與解析。">
-<meta property="og:title" content="大考數學五年題庫地圖">
-<meta property="og:description" content="111–115 學測與分科數學 321 題，依單元出題頻率排列，附答案與解析。">
-<meta property="og:image" content="art/cover.webp">
+<meta name="description" content="看懂命題趨勢，找到備考方向。111–115 學測數 A・數 B 與分科數甲・數乙共 321 題，依單元整理出題次數、配分與難度，附原題、答案與解析。">
+<meta property="og:title" content="數學考點導航">
+<meta property="og:description" content="看懂命題趨勢，找到備考方向。111–115 學測與分科數學 321 題，附答案與解析。">
+<meta property="og:image" content="https://bgjd315-cloud.github.io/gsat-math-map/art/cover.webp">
 <style>:root{color-scheme:light}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
 </head>
 <body>
-<title>大考數學五年題庫地圖</title>
+<title>數學考點導航</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -55,9 +55,17 @@ a{color:inherit}
 .hero-band{grid-area:band;background:#f7dbe2;border-radius:14px;display:grid;place-items:center;overflow:hidden;width:100%}
 .hero-band .art.hero{display:block;width:100%;max-width:560px;height:auto;-webkit-mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%);mask-image:linear-gradient(90deg,transparent 0,#000 9%,#000 91%,transparent 100%)}
 .mast-side{grid-area:side}
-.eyebrow{font-family:var(--f-mono);font-size:12px;letter-spacing:.14em;color:var(--omr)}
+.eyebrow{font-family:var(--f-body);font-size:12.5px;letter-spacing:.06em;color:var(--omr);font-weight:500}
 h1{font-family:var(--f-display);font-weight:900;font-size:clamp(28px,4.6vw,46px);line-height:1.15;margin:6px 0 10px;text-wrap:balance}
-.lede{color:var(--ink-2);max-width:60ch;margin:0}
+.tagline{font-family:var(--f-display);font-weight:600;font-size:clamp(17px,2.2vw,21px);color:var(--omr);margin:-4px 0 12px;text-wrap:balance}
+.lede{color:var(--ink-2);max-width:62ch;display:grid;gap:6px}
+.lede p{margin:0}
+.feats{list-style:none;margin:14px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;max-width:640px}
+.feats li{display:grid;gap:2px;background:var(--sheet);border:1px solid var(--rule);border-radius:8px;padding:9px 13px;min-width:0}
+.feats b{font-family:var(--f-display);font-weight:900;color:var(--omr);white-space:nowrap;font-size:15px}
+.feats b::before{content:"";display:inline-block;width:9px;height:9px;border-radius:50%;background:var(--omr);margin-right:7px;vertical-align:1px}
+.feats span{font-size:13.5px;color:var(--ink);min-width:0}
+.closing{margin:14px 0 0;font-weight:700;color:var(--ink)}
 .mast-side{display:grid;gap:10px;justify-items:end}
 .prog{font-size:12.5px;color:var(--easy);font-weight:500;min-height:1em}
 .stats{display:grid;grid-template-columns:repeat(3,auto);gap:4px 28px;font-variant-numeric:tabular-nums}
@@ -200,6 +208,9 @@ footer{grid-column:1 / -1;border-top:1px solid var(--rule);padding-top:14px;font
   .facts{grid-template-columns:minmax(0,1fr)}
 }
 @media (max-width:640px){
+  .feats{gap:6px}
+  .feats li{padding:8px 10px}
+  .feats span{font-size:12.5px}
   .bar{position:static;backdrop-filter:none}
   section.unit{scroll-margin-top:12px}
   .uicon{width:44px;height:44px}
@@ -218,9 +229,20 @@ footer{grid-column:1 / -1;border-top:1px solid var(--rule);padding-top:14px;font
 
 <header class="mast"><div class="mast-in">
   <div>
-    <div class="eyebrow">111–115 學年度 · 學測數A／數B · 分科數甲／數乙</div>
-    <h1>大考數學五年題庫地圖</h1>
-    <p class="lede">五年 17 份試卷的原題，依單元由「最常考」排到「最少考」。先自己算，再按「看答案與解析」對答案；練習過的題目可以打勾，紀錄只存在你自己的瀏覽器。</p>
+    <div class="eyebrow">111–115 學年度｜學測數 A・數 B｜分科數甲・數乙</div>
+    <h1>數學考點導航</h1>
+    <p class="tagline">看懂命題趨勢，找到備考方向。</p>
+    <div class="lede">
+      <p>大考數學，不只是做過多少題，更重要的是看懂考題背後的觀念與脈絡。</p>
+      <p>從近五年 17 份大考試卷出發，將歷屆試題依數學單元重新整理，透過出題次數、配分比重與難度分析，幫助你掌握各單元的命題分布。從考點分析到實際練習，讓每一次複習都有方向。</p>
+    </div>
+    <ul class="feats">
+      <li><b>看考點</b><span>掌握各單元歷年出題次數與配分</span></li>
+      <li><b>找試題</b><span>依考科、年度、難度與單元篩選</span></li>
+      <li><b>練觀念</b><span>挑戰歷屆原題，搭配答案與解析</span></li>
+      <li><b>記進度</b><span>標記已練習題目，逐步完成複習</span></li>
+    </ul>
+    <p class="closing">先看懂，再練熟。讓數學準備更有方向。</p>
   </div>
   <div class="hero-band"><img class="art hero" src="art/hero.webp" alt="吉祥物小卡站在大考答案卡上，身邊漂浮著骰子、正弦波與立方體" onerror="this.parentNode.remove()"></div>
   <div class="mast-side"><div class="stats" id="stats"></div><div class="prog" id="prog"></div></div>
